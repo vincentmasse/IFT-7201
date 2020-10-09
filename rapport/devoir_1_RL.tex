@@ -106,14 +106,30 @@ max \left\{ q \in \Theta : N[a] d\left(\frac{S[a]}{N[a]},q\right) \leq \log(t) +
 
 \subsection{Implementation bernoulli}
 
-Pour implementer cet algorithme, on doit utiliser un optimiseur numerique, car il n'existe pas de forme fermee lorsque les recompenses ont une distrubution bernoulli. De plus, l'implementation inclu un bris d'egalite. Ainsi si 2 bras ont le meme UCB qui represente plus grand UCB alors l'algorithme choisira le bras ayant le plus petit nombre de jeu sur ce dernier.
+Pour implementer cet algorithme, on doit utiliser un optimiseur numerique, car il n'existe pas de forme fermée lorsque les recompenses suivent une distrubution bernoulli.
+De plus, l'implementation inclu un bris d'egalite.
+Ainsi si 2 bras ont le meme UCB et qu'ils representent les bras avec le plus grand UCB alors l'algorithme choisira le bras ayant le plus petit nombre de jeu.
 
 \subsection{Implementation UCB Gaussienne}
 
-Pour l'implementation de l'algorithme UCB gaussien il existe une forme fermee. Cette forme a ete utilisee dans l'implementation, car elle rend l'exploitation plus rapide, car il n'a pas d'optimisation a faire pour determiner l'UCB.
+Pour l'implementation de l'algorithme UCB gaussien il existe une forme fermee.
+Cette forme a ete utilisee dans l'implementation, car elle rend l'exploitation plus rapide, car il n'a pas d'optimisation a faire pour determiner l'UCB.
 
-Pour calculer la borne UCB gaussien, l'ecart-type doit etre connu, mais ce n'est pas le cas pour la configuration de gandit utilise. L'ecart-type maximale d'une distribution bernoulli est donc utilisee (0.25).
+Pour calculer la borne UCB gaussien, l'ecart-type doit etre connu, mais ce n'est pas le cas pour la configuration de gandit utilise.
+L'ecart-type maximale d'une distribution bernoulli est donc utilisee (0.25).
 
+\subsection{Comparaison des modèles}
+On peut observer que les deux modèles performent bien sur des bandits bernoulli.
+Les deux modèles ont un regret cumulatif sous linéaire, mais le modèle utilsant la borne KL UCB pour bandit bernoulli performe mieux.
+Cela peut être dut au fait qu'avec le modèle qui utilise la borne KL UCB pour des bandits gaussien utilise une borne avec une variance de 0.25.
+Cette variance est utilisée, car elle représente la variance maximale dans un bandit bernoulli ainsi, elle permet de conserver des garanties.
+Par contre l'utilisation de cette borne cause une sur exploration.
+On peut observer l'effet de la sur exploration dans \ref{fig: kl_ucb}.
+On peut aussi observer que la variance semble un peu plus élevée pour le KL UCB optimisé.
+Cela peut être dut au fait que relativement peu d'instances ont été générées.
+
+\includegraphics[scale=0.4]{figures/comparaison.pdf}
+\label{fig: kl_ucb}
 
 \section{No 3}
 
