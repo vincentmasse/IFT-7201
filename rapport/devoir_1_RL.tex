@@ -12,9 +12,9 @@
 \usepackage{xcolor}
 \usepackage{multirow}
 \usepackage{amsmath}
-\usepackage[latin1]{inputenc} % Pour pouvoir taper les accent directement et non pas passer par \'
-\usepackage[T1]{fontenc} %%% Pour que les accents soient correctement traités dans le PDF et le DVI
-\usepackage{lmodern} %Un autre package pour les accents français
+\usepackage[utf8]{inputenc} % Pour pouvoir taper les accent directement et non pas passer par \'
+\usepackage[T1]{fontenc} %%% Pour que les accents soient correctement traitÃ©s dans le PDF et le DVI
+\usepackage{lmodern} %Un autre package pour les accents franÃ§ais
 \usepackage[francais]{babel} %Un autre package pour les accents
 \usepackage{ifthen}
 %\usepackage{multicol}
@@ -55,21 +55,71 @@
 \pagestyle{fancy}
 \lhead{IFT-7201}
 \chead{Devoir 1 (Automne 2020)}
-\rhead{Équipe 10}
+\rhead{Ã‰quipe 10}
 
-%\section{L'énoncé}
+%\section{L'Ã©noncÃ©}
 
 %\includepdf{devoir1RotationsFranA2018.pdf}
 
 \section{No 1}
 
-\section{No 2}
+\section{KL UCB}
+
+
+\subsection{Pseudo-code}
+On consid?re un bandit ? $K$ bras sur un horizon de temps de T
+\begin{itemize}
+\setlength\itemsep{0.2cm}
+
+\item Pour chaque $t\leq K:$
+
+\begin{itemize}
+
+\item $N[t] = N[t]+1$
+
+\item $S[t] = S[t]+Gain(t)$
+
+\end{itemize}
+
+\item Pour chaque $K < t \leq T:$
+
+\begin{itemize}
+
+\item $k_t = amgmax(\ref{eq: ucb_bernoulli})$
+
+\item $N[k_t] = N[k_t]+1$
+
+\item $S[k_t] = S[k_t]+Gain(k_t)$
+
+\end{itemize}
+
+
+\end{itemize}
+
+\begin{equation}
+d(p,q) = p \log \frac{p}{q} + (1-p) \log \frac{1-p}{1-q}
+\end{equation}\label{eq: differentien_bernoulli}
+
+\begin{equation}
+max \left\{ q \in \Theta : N[a] d\left(\frac{S[a]}{N[a]},q\right) \leq \log(t) + c \log(\log(t)) \right\}
+\end{equation}\label{eq: ucb_bernoulli}
+
+\subsection{Implementation bernoulli}
+
+Pour implementer cet algorithme, on doit utiliser un optimiseur numerique, car il n'existe pas de forme fermee lorsque les recompenses ont une distrubution bernoulli. De plus, l'implementation inclu un bris d'egalite. Ainsi si 2 bras ont le meme UCB qui represente plus grand UCB alors l'algorithme choisira le bras ayant le plus petit nombre de jeu sur ce dernier.
+
+\subsection{Implementation UCB Gaussienne}
+
+Pour l'implementation de l'algorithme UCB gaussien il existe une forme fermee. Cette forme a ete utilisee dans l'implementation, car elle rend l'exploitation plus rapide, car il n'a pas d'optimisation a faire pour determiner l'UCB.
+
+Pour calculer la borne UCB gaussien, l'ecart-type doit etre connu, mais ce n'est pas le cas pour la configuration de gandit utilise. L'ecart-type maximale d'une distribution bernoulli est donc utilisee (0.25).
+
 
 \section{No 3}
 
 \subsection{Rappel sur la loi de gamma}
 
-$X$ est une variable aléatoire suivant une loi gamma ($X\sim\mathrm{Gamma}(\alpha,\beta)$) si sa fonction de densité est
+$X$ est une variable alÃ©atoire suivant une loi gamma ($X\sim\mathrm{Gamma}(\alpha,\beta)$) si sa fonction de densitÃ© est
 
 \begin{equation}
 f(x; \alpha,\,\beta) =  
@@ -81,28 +131,28 @@ f(x; \alpha,\,\beta) =
 \right.
 \end{equation}
 
-où $\alpha>0$ et $\beta>0$ sont des paramètres. \\
-Avec cette paramétrisation, l'espérance et la variance de cette loi sont
+oÃ¹ $\alpha>0$ et $\beta>0$ sont des paramÃ¨tres. \\
+Avec cette paramÃ©trisation, l'espÃ©rance et la variance de cette loi sont
 
 \begin{eqnarray} 
 \mu      &=& \frac{\alpha}{\beta} \label{equation: moyenne gamma}\\
 \sigma^2 &=& \frac{\alpha}{\beta^2} \label{equation: variance gamma}
 \end{eqnarray}
 
-La loi gamma est asymétrique à droite (asymétrie de $2/\sqrt{\alpha}$).\\
-On observe que le système d'équations (\ref{equation: moyenne gamma}) et (\ref{equation: variance gamma}) est équivalent à
+La loi gamma est asymÃ©trique Ã  droite (asymÃ©trie de $2/\sqrt{\alpha}$).\\
+On observe que le systÃ¨me d'Ã©quations (\ref{equation: moyenne gamma}) et (\ref{equation: variance gamma}) est Ã©quivalent Ã 
 
 \begin{eqnarray}
 \alpha   &=& \frac{\mu^2}{\sigma^2} \label{equation: alpha gamma}\\
 \beta &=& \frac{\mu}{\sigma^2} \label{equation: beta gamma}
 \end{eqnarray}
 
-Cela est utile notamment si l'on souhaite obtenir les paramètres d'une loi gamma étant donnée sa moyenne et sa variance.
+Cela est utile notamment si l'on souhaite obtenir les paramÃ¨tres d'une loi gamma Ã©tant donnÃ©e sa moyenne et sa variance.
 
 \subsection{Rappel sur la loi de Poisson}
 
-La loi de Poisson est une loi de probabilité discrète dont le support est $\mathbb{N}=\left\{0,1,2,3,...\right\}.$\\
-On dit que $X$ suit une loi de Poisson ($X\sim\mathrm{Pois}(\lambda)$) si sa fonction de probabilité (fonction de masse) est
+La loi de Poisson est une loi de probabilitÃ© discrÃ¨te dont le support est $\mathbb{N}=\left\{0,1,2,3,...\right\}.$\\
+On dit que $X$ suit une loi de Poisson ($X\sim\mathrm{Pois}(\lambda)$) si sa fonction de probabilitÃ© (fonction de masse) est
 
 \begin{equation*}
 f(x; \lambda) = 
@@ -114,21 +164,21 @@ f(x; \lambda) =
 \right.
 \end{equation*}
 
-où $\lambda$ est un paramètre. L'espérance est $\mu=\lambda$ et la variance $\sigma^2=\lambda.$
+oÃ¹ $\lambda$ est un paramÃ¨tre. L'espÃ©rance est $\mu=\lambda$ et la variance $\sigma^2=\lambda.$
 
-\subsection{Algorithme Thomas Sampling pour des bandits à distribution Poisson }
+\subsection{Algorithme Thomas Sampling pour des bandits Ã  distribution Poisson }
 
-Pour des bandits à distributions de Poisson, c'est-à-dire dans le cas où chaque bras génère un reward selon une loi de Poisson de paramètre $\lambda$ inconnu, le conjugué à utilisé est la loi gamma.\\
+Pour des bandits Ã  distributions de Poisson, c'est-Ã -dire dans le cas oÃ¹ chaque bras gÃ©nÃ¨re un reward selon une loi de Poisson de paramÃ¨tre $\lambda$ inconnu, le conjuguÃ© Ã  utilisÃ© est la loi gamma.\\
 
-Plus précisément, après $n$ observations $x_1,x_2,...,x_n$ tirées d'une loi de Poisson inconnue, la distribution posterior modélisant le paramètre $\lambda$ inconnu sera
+Plus prÃ©cisÃ©ment, aprÃ¨s $n$ observations $x_1,x_2,...,x_n$ tirÃ©es d'une loi de Poisson inconnue, la distribution posterior modÃ©lisant le paramÃ¨tre $\lambda$ inconnu sera
 
 \begin{equation}
 \mathrm{Gamma}\left(\alpha_0 + \sum_{i=1}^n x_i,\,\beta_0 + n\right)
 \end{equation}
 
-où $\alpha_0$ et $\beta_0$ sont les paramètres de la distribution de gamma prior, ils correspondent donc aux paramètres choisis permettant d'initier la distribution.\\
+oÃ¹ $\alpha_0$ et $\beta_0$ sont les paramÃ¨tres de la distribution de gamma prior, ils correspondent donc aux paramÃ¨tres choisis permettant d'initier la distribution.\\
 
-Cela mène au pseudo-code suivant pour un algorithme Thomas Sampling sur des bandits à $K$ bras à distribution de Poisson.
+Cela mÃ¨ne au pseudo-code suivant pour un algorithme Thomas Sampling sur des bandits Ã  $K$ bras Ã  distribution de Poisson.
 
 \subsubsection{Pseudo-code}
 
@@ -136,42 +186,42 @@ Cela mène au pseudo-code suivant pour un algorithme Thomas Sampling sur des band
 \setlength\itemsep{0.2cm}
 
 \item
-Initialiser une distribution gamma $\pi_k(0)$ pour $k=1,2,...,K$, c'est-à-dire choisir un couple $(\alpha_{k,0}, \beta_{k,0})\, \forall{k}$
+Initialiser une distribution gamma $\pi_k(0)$ pour $k=1,2,...,K$, c'est-Ã -dire choisir un couple $(\alpha_{k,0}, \beta_{k,0})\, \forall{k}$
 
 \item Pour chaque $t\geq 1:$
 
 \begin{itemize}
 \item
-Échantillonner un nombre $\theta_{k,t}$ de la distribution $\pi_k(t-1),$ pour $k=1,2,...,K$
+Ã‰chantillonner un nombre $\theta_{k,t}$ de la distribution $\pi_k(t-1),$ pour $k=1,2,...,K$
 
 \item
-Sélectionner $k_t=\underset{k}{\mathrm{argmax}} (\theta_{k,t})$ 
+SÃ©lectionner $k_t=\underset{k}{\mathrm{argmax}} (\theta_{k,t})$ 
 
 \item
 jouer l'action $k_t$ et observer le reward $r_t$ 
 
 \item 
-Modifier la posterior $\pi_{k_t}(t)$ de l'action jouée: $\alpha_{k_t} \leftarrow \alpha_{k_t}+ r_t$ et $\beta_{k_t}  \leftarrow \beta_{k_t} + 1$ 
+Modifier la posterior $\pi_{k_t}(t)$ de l'action jouÃ©e: $\alpha_{k_t} \leftarrow \alpha_{k_t}+ r_t$ et $\beta_{k_t}  \leftarrow \beta_{k_t} + 1$ 
 
 \item
-Laisser inchangé les autres posteriors: $\pi_{k}(t) \leftarrow \pi_{k}(t-1),\, \forall k\neq k_t$
+Laisser inchangÃ© les autres posteriors: $\pi_{k}(t) \leftarrow \pi_{k}(t-1),\, \forall k\neq k_t$
 
 \end{itemize}
 
 \end{itemize}
 
 \vspace*{0.2cm}
-Remarque: même si ce n'est pas toujours mentionné explicitement dans la suite, les différents bras d'un bandit auront toujours la même paramétrisation de leur distribution prior.
+Remarque: mÃªme si ce n'est pas toujours mentionnÃ© explicitement dans la suite, les diffÃ©rents bras d'un bandit auront toujours la mÃªme paramÃ©trisation de leur distribution prior.
 
-\subsection{Exploration du comportement de l'alogorihme (validation de la fonctionnalité)}
+\subsection{Exploration du comportement de l'alogorihme (validation de la fonctionnalitÃ©)}
 
-Pour explorer le comportement de l'algorithme et vérifier qu'il fonctionne bien, on propose une expérience. Cette dernière consistera à lancer l'algorithme sur un horizon $T=100$ sur une instance de bandit à deux bras à distribution de Poisson de moyennes respectives $\lambda_1=6,$ $\lambda_2=7$ et avec une paramétrisation prior $\alpha_0=5/2,$ $\beta_0=1/2$ identiques pour les deux bras. Pour tout $t=0,1,...,100,$ on affiche les 2 distributions posteriors. On pourra ainsi voir l'évolution des posteriors selon les pas de temps. Notons qu'ici, on choisit une loi gamma initiale avec $\mu_0=5$ et $\sigma_0^2=10.$ Nous discuterons plus loin du choix de la paramétrisation initiale. La figure \ref{figure: évolution des posteriors} montre le graphiques des densités posteriors après 0 tour (priors), 1 tour, 5 tours, 100 tours. Dans le notebook, l'ensemble des 101 figures sont générées. \\
+Pour explorer le comportement de l'algorithme et vÃ©rifier qu'il fonctionne bien, on propose une expÃ©rience. Cette derniÃ¨re consistera Ã  lancer l'algorithme sur un horizon $T=100$ sur une instance de bandit Ã  deux bras Ã  distribution de Poisson de moyennes respectives $\lambda_1=6,$ $\lambda_2=7$ et avec une paramÃ©trisation prior $\alpha_0=5/2,$ $\beta_0=1/2$ identiques pour les deux bras. Pour tout $t=0,1,...,100,$ on affiche les 2 distributions posteriors. On pourra ainsi voir l'Ã©volution des posteriors selon les pas de temps. Notons qu'ici, on choisit une loi gamma initiale avec $\mu_0=5$ et $\sigma_0^2=10.$ Nous discuterons plus loin du choix de la paramÃ©trisation initiale. La figure \ref{figure: Ã©volution des posteriors} montre le graphiques des densitÃ©s posteriors aprÃ¨s 0 tour (priors), 1 tour, 5 tours, 100 tours. Dans le notebook, l'ensemble des 101 figures sont gÃ©nÃ©rÃ©es. \\
 
-Initialement, on voit que les deux priors sont superposées. Après un tour, on voit qu'une seule distribution est modifiée (celle de l'action jouée, ici l'action 1). On voit par la suite que les distributions posteriors se déplacent et se concentrent, notamment celle de l'action optimale 2 qui se concentre de plus en plus autour de la moyenne associée à son bras ($\lambda_2=7$) et celle de l'action minimale se concentrant plus à gauche. Le comportement des posteriors est attendu et rassurant. À long terme, à chaque tour, il est de plus en plus probable que l'action jouée soit l'action optimale. 
+Initialement, on voit que les deux priors sont superposÃ©es. AprÃ¨s un tour, on voit qu'une seule distribution est modifiÃ©e (celle de l'action jouÃ©e, ici l'action 1). On voit par la suite que les distributions posteriors se dÃ©placent et se concentrent, notamment celle de l'action optimale 2 qui se concentre de plus en plus autour de la moyenne associÃ©e Ã  son bras ($\lambda_2=7$) et celle de l'action minimale se concentrant plus Ã  gauche. Le comportement des posteriors est attendu et rassurant. Ã€ long terme, Ã  chaque tour, il est de plus en plus probable que l'action jouÃ©e soit l'action optimale. 
 
 \begin{figure}[H]
-\caption{Évolution des posteriors}
-\label{figure: évolution des posteriors}
+\caption{Ã‰volution des posteriors}
+\label{figure: Ã©volution des posteriors}
 \begin{center}
 
 \includegraphics[scale=0.45]{posterior_tour0.png} \hfill \includegraphics[scale=0.45]{posterior_tour1.png}
@@ -183,34 +233,34 @@ Initialement, on voit que les deux priors sont superposées. Après un tour, on vo
 \end{center}
 \end{figure}
 
-\subsection{Expérimentation sur l'algorithme}
+\subsection{ExpÃ©rimentation sur l'algorithme}
 
-Dans cette section, on explore le comportement de l'algorithme dans diverses situations tout en s'efforçant de discuter de la sélection des priors. En effet, la loi de gamma n'ayant aucune paramétrisation la faisant corresponde à une loi uniforme, il faut faire un choix de priors qui n'est pas trivial. Pour ce faire, on supposera ici que l'on ne connaît pas les valeurs de $\lambda$ associée à chaque bras, mais que l'on connaît à tout de moins un intervalle sur lequel ils se trouvent. Dépendant des choix des priors, ces derniers sont des distributions qui peuvent couvrir bien ou non l'intervalle possibles des $\lambda,$ on suspecte que cela aura un effet sur le pseudo-regret cumulatif.\\
+Dans cette section, on explore le comportement de l'algorithme dans diverses situations tout en s'efforÃ§ant de discuter de la sÃ©lection des priors. En effet, la loi de gamma n'ayant aucune paramÃ©trisation la faisant corresponde Ã  une loi uniforme, il faut faire un choix de priors qui n'est pas trivial. Pour ce faire, on supposera ici que l'on ne connaÃ®t pas les valeurs de $\lambda$ associÃ©e Ã  chaque bras, mais que l'on connaÃ®t Ã  tout de moins un intervalle sur lequel ils se trouvent. DÃ©pendant des choix des priors, ces derniers sont des distributions qui peuvent couvrir bien ou non l'intervalle possibles des $\lambda,$ on suspecte que cela aura un effet sur le pseudo-regret cumulatif.\\
 
-Pour établir une prior, il faut établir un couple $\alpha_0,\,\beta_0.$ Nous établirons plutôt un moyenne $(\mu_0)$ et une variance ($\sigma_0^2$) pour cette distribution prior et obtiendrons $\alpha_0$ et $\beta_0$ associées avec les équations (\ref{equation: moyenne gamma}) et (\ref{equation: variance gamma}).
+Pour Ã©tablir une prior, il faut Ã©tablir un couple $\alpha_0,\,\beta_0.$ Nous Ã©tablirons plutÃ´t un moyenne $(\mu_0)$ et une variance ($\sigma_0^2$) pour cette distribution prior et obtiendrons $\alpha_0$ et $\beta_0$ associÃ©es avec les Ã©quations (\ref{equation: moyenne gamma}) et (\ref{equation: variance gamma}).
 
 \subsubsection{Effet de la variance de la loi prior}
 
-\subsubsection*{Expérience sur des variances trop petites}
+\subsubsection*{ExpÃ©rience sur des variances trop petites}
 
-On génère $N=1000$ instances de bandits de Poisson à deux bras.\\
-Pour chaque instance, les moyennes $\lambda_1, \lambda_2$ des bras sont tirées aléatoirement d'une loi uniforme continue sur l'intervalle $[0,10]$ pour chaque instance.\\
-On considérera le cas ici ou l'agent sait que les moyennes sont dans cet intervalle.\\
+On gÃ©nÃ¨re $N=1000$ instances de bandits de Poisson Ã  deux bras.\\
+Pour chaque instance, les moyennes $\lambda_1, \lambda_2$ des bras sont tirÃ©es alÃ©atoirement d'une loi uniforme continue sur l'intervalle $[0,10]$ pour chaque instance.\\
+On considÃ©rera le cas ici ou l'agent sait que les moyennes sont dans cet intervalle.\\
 
 Pour chaque couple ($\mu_0,$ $\sigma^2_0,$) suivant:
 
 $$(5,10),\,(5,5),\,(5,1),\,(5,1/2),\,(5,1/4)$$
 
-On trouve $\alpha_0$ et $\beta_0$ associée à l'aide des équations $(\ref{equation: moyenne gamma})$ et $(\ref{equation: variance gamma})$
+On trouve $\alpha_0$ et $\beta_0$ associÃ©e Ã  l'aide des Ã©quations $(\ref{equation: moyenne gamma})$ et $(\ref{equation: variance gamma})$
 \\
 
 On fait jouer Thomas sampling sur les $N=1000$ instances sur un horizon $T=1000.$\\
  
-On trace les pseudos-regret cumulatif moyen avec une déviation standard au dessus.\\
+On trace les pseudos-regret cumulatif moyen avec une dÃ©viation standard au dessus.\\
 
-Notons qu'ici, dans les différents couples $(\mu_0,\sigma^2_0)$ explorés, la moyenne est toujours 5 (le centre de l'intervalle [0,10]) et la variance varie (partant de 10 correspondant à la grandeur de l'intervalle et se rapetissant).\\
+Notons qu'ici, dans les diffÃ©rents couples $(\mu_0,\sigma^2_0)$ explorÃ©s, la moyenne est toujours 5 (le centre de l'intervalle [0,10]) et la variance varie (partant de 10 correspondant Ã  la grandeur de l'intervalle et se rapetissant).\\
 
-La figure suivante montre le résultat obtenu.
+La figure suivante montre le rÃ©sultat obtenu.
 
 \begin{figure}[H]
 \label{figure: variance petite}
@@ -220,19 +270,19 @@ La figure suivante montre le résultat obtenu.
 \end{center}
 \end{figure}
 
-On remarque que si la distribution prior est choisie avec une variance trop petite, la distribution prior ne couvre pas suffisamment bien l'intervalle $[0,10],$ et cela semble se traduire par une augmentation du pseudo-regret cumulatif moyen. On remarque qu'il semble y avoir un certaine tolérance sur des variations de $\sigma^2_0$ qui ne changent pas significativement la courbe du pseudo-regret cumulatif moyen. \\
+On remarque que si la distribution prior est choisie avec une variance trop petite, la distribution prior ne couvre pas suffisamment bien l'intervalle $[0,10],$ et cela semble se traduire par une augmentation du pseudo-regret cumulatif moyen. On remarque qu'il semble y avoir un certaine tolÃ©rance sur des variations de $\sigma^2_0$ qui ne changent pas significativement la courbe du pseudo-regret cumulatif moyen. \\
 
-Notez que partout dans les graphiques ci-dessous, la ligne continue représente le pseudo-regret cumulatif moyen alors que la ligne pointillée représente la déviation-standard au dessus associée à ce pseudo-regret cumulatif.
+Notez que partout dans les graphiques ci-dessous, la ligne continue reprÃ©sente le pseudo-regret cumulatif moyen alors que la ligne pointillÃ©e reprÃ©sente la dÃ©viation-standard au dessus associÃ©e Ã  ce pseudo-regret cumulatif.
 
-\subsubsection*{Expérience sur des variances trop grandes}
+\subsubsection*{ExpÃ©rience sur des variances trop grandes}
 
-Même méthode que l'expérience 1, mais sur les couples $(\mu_0,\sigma^2_0)$ suivants.
+MÃªme mÃ©thode que l'expÃ©rience 1, mais sur les couples $(\mu_0,\sigma^2_0)$ suivants.
 
 $$(5,10),\,(5,20),\,(5,50),\,(5,100),\,(5,1000)$$
 
-La moyenne des priors est toujours le centre de l'intervalle $[0,10],$ la variance varie (partant de 10 correspondant à la grandeur de l'intervalle et se grandissant).\\
+La moyenne des priors est toujours le centre de l'intervalle $[0,10],$ la variance varie (partant de 10 correspondant Ã  la grandeur de l'intervalle et se grandissant).\\
 
-La figure suivante montre le résultat obtenu.
+La figure suivante montre le rÃ©sultat obtenu.
 
 \begin{figure}[H]
 \label{figure: variance petite}
@@ -242,32 +292,32 @@ La figure suivante montre le résultat obtenu.
 \end{center}
 \end{figure}
 
-On peut voir qu'une variance légèrement trog grande n'aura pas beaucoup d'effet sur le regret cumulatif moyen, par contre, une variance excessivement trop grande peut en avoir une considérable. Dans ce cas, la distribution prior sur-couvre grandement l'intervalle [0,10] des valeurs possibles de $\lambda.$ Conséquemment, possiblement que les distributions posteriors ne se concentrent pas suffisamment rapidement pour pouvoir bien cerner les moyennes $\lambda_1$ et $\lambda_2$ des distributions de Poisson des bras.
+On peut voir qu'une variance lÃ©gÃ¨rement trog grande n'aura pas beaucoup d'effet sur le regret cumulatif moyen, par contre, une variance excessivement trop grande peut en avoir une considÃ©rable. Dans ce cas, la distribution prior sur-couvre grandement l'intervalle [0,10] des valeurs possibles de $\lambda.$ ConsÃ©quemment, possiblement que les distributions posteriors ne se concentrent pas suffisamment rapidement pour pouvoir bien cerner les moyennes $\lambda_1$ et $\lambda_2$ des distributions de Poisson des bras.
 
 \subsubsection{Effet de la moyenne de la loi prior avec variance <<bonne>>}
 
-Pour bien pouvoir faire varier les moyennes de la prior choisi, on va ici considérer une situation analogue aux deux premières expériences, mais où l'intervalle sur lequel sont choisis les moyennes $\lambda_1, \lambda_2$ est $[10,20]$ au lieu de $[0,10].$ On effectue la même expérience que si haut, sur les couples  $(\mu_0 ,\sigma^2_0)$ qui suivent.
+Pour bien pouvoir faire varier les moyennes de la prior choisi, on va ici considÃ©rer une situation analogue aux deux premiÃ¨res expÃ©riences, mais oÃ¹ l'intervalle sur lequel sont choisis les moyennes $\lambda_1, \lambda_2$ est $[10,20]$ au lieu de $[0,10].$ On effectue la mÃªme expÃ©rience que si haut, sur les couples  $(\mu_0 ,\sigma^2_0)$ qui suivent.
 
 
 $$(5,10),\,(12,10),\,(15,10),\,(17,10),\,(25,10)$$
 
-La variance de la prior est fixe égale à la longueur de l'intervalle des valeurs possibles de $\lambda.$\\ 
+La variance de la prior est fixe Ã©gale Ã  la longueur de l'intervalle des valeurs possibles de $\lambda.$\\ 
 
 On obtient la figure suivante
 
 \begin{figure}[H]
-\label{figure: moyenne décalée 1}
-\caption{Comparaisons de la performance selon des priors de variances égale à la longueur de l'intervalle et de moyennes variables.}
+\label{figure: moyenne dÃ©calÃ©e 1}
+\caption{Comparaisons de la performance selon des priors de variances Ã©gale Ã  la longueur de l'intervalle et de moyennes variables.}
 \begin{center}
 \includegraphics[scale=0.5]{etude_moyenne_decale_var10.png} 
 \end{center}
 \end{figure}
 
-On remarque que si la moyenne du prior est fortement décalée du centre de l'intervalle $[10,20]$, cela aura un effet sur la performance de l'algorithme, notamment le cas où $\mu_0=5.$ Lorsque la moyenne $\mu_0$ reste dans l'intervalle $[10,20],$ il semble que le fait que la variance soit bonne (distribution prior qui couvre bien l'intervalle) fait en sorte que l'algorithme reste bon même si $\mu_0$ n'est pas centré.   
+On remarque que si la moyenne du prior est fortement dÃ©calÃ©e du centre de l'intervalle $[10,20]$, cela aura un effet sur la performance de l'algorithme, notamment le cas oÃ¹ $\mu_0=5.$ Lorsque la moyenne $\mu_0$ reste dans l'intervalle $[10,20],$ il semble que le fait que la variance soit bonne (distribution prior qui couvre bien l'intervalle) fait en sorte que l'algorithme reste bon mÃªme si $\mu_0$ n'est pas centrÃ©.   
 
 \subsubsection{Effet de la moyenne de la loi prior avec variance plus petite}
 
-Même expérience que précédemment, mais avec les couples $(\mu_0,\sigma^2_0)$ qui suivent.
+MÃªme expÃ©rience que prÃ©cÃ©demment, mais avec les couples $(\mu_0,\sigma^2_0)$ qui suivent.
 
 $$(9,3),\,(12,3),\,(15,3),\,(17,3),\,(21,3)$$
 
@@ -276,16 +326,16 @@ Cette fois, la variance est plus petite (3).\\
 On obtient la figure suivante
 
 \begin{figure}[H]
-\label{figure: moyenne décalée 1}
-\caption{Comparaisons de la performance selon des priors de variances égalent à 3 et moyennes variables.}
+\label{figure: moyenne dÃ©calÃ©e 1}
+\caption{Comparaisons de la performance selon des priors de variances Ã©galent Ã  3 et moyennes variables.}
 \begin{center}
 \includegraphics[scale=0.5]{etude_moyenne_decale_var3.png} 
 \end{center}
 \end{figure}
 
-On voit qu'ici, avec une variance des priors plus petite, un même décalage de la moyenne $\mu_0$ par rapport au centre de l'intervalle semble être plus coûteux que dans l'expérience précédente. D'ailleurs, le cas $\mu_0=9$ semble en être un bon exemple car il atteint une regret cumulatif moyen final plus élevé que le cas $\mu_0=5$ dans le cas où la variance était de 10. Conséquemment, si l'information que l'on a sur les $\lambda$ (intervalle de possibilité) n'est pas bonne pour fixer les priors, lancer un tel algorithme avec une variance trop petite peut avoir un impact sur la performance, notamment si par malchance on choisit un prior avec $\mu_0$ décalé du centre du réel intervalle des valeurs possibles de $\lambda.$\\
+On voit qu'ici, avec une variance des priors plus petite, un mÃªme dÃ©calage de la moyenne $\mu_0$ par rapport au centre de l'intervalle semble Ãªtre plus coÃ»teux que dans l'expÃ©rience prÃ©cÃ©dente. D'ailleurs, le cas $\mu_0=9$ semble en Ãªtre un bon exemple car il atteint une regret cumulatif moyen final plus Ã©levÃ© que le cas $\mu_0=5$ dans le cas oÃ¹ la variance Ã©tait de 10. ConsÃ©quemment, si l'information que l'on a sur les $\lambda$ (intervalle de possibilitÃ©) n'est pas bonne pour fixer les priors, lancer un tel algorithme avec une variance trop petite peut avoir un impact sur la performance, notamment si par malchance on choisit un prior avec $\mu_0$ dÃ©calÃ© du centre du rÃ©el intervalle des valeurs possibles de $\lambda.$\\
 
-En conclusion, à la lumière des simulations effectuées, les priors semblent devoir être choisis pour couvrir raisonnablement bien l'intervalle des valeurs possibles de $\lambda.$ On pourrait suggérer de prendre la distribution prior telle que $\mu_0$ est le centre de l'intervalle et $\sigma^2_0$ la longueur de l'intervalle. Selon nos simulations, cela semble être un choix raisonnable.
+En conclusion, Ã  la lumiÃ¨re des simulations effectuÃ©es, les priors semblent devoir Ãªtre choisis pour couvrir raisonnablement bien l'intervalle des valeurs possibles de $\lambda.$ On pourrait suggÃ©rer de prendre la distribution prior telle que $\mu_0$ est le centre de l'intervalle et $\sigma^2_0$ la longueur de l'intervalle. Selon nos simulations, cela semble Ãªtre un choix raisonnable.
 
 
 \end{document}
