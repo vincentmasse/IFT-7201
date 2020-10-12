@@ -15,7 +15,7 @@
 \usepackage[utf8]{inputenc} % Pour pouvoir taper les accent directement et non pas passer par \'
 \usepackage[T1]{fontenc} %%% Pour que les accents soient correctement traités dans le PDF et le DVI
 \usepackage{lmodern} %Un autre package pour les accents français
-\usepackage[francais]{babel} %Un autre package pour les accents
+\usepackage[french]{babel} %Un autre package pour les accents
 \usepackage{ifthen}
 %\usepackage{multicol}
 %\usepackage{cancel}
@@ -67,7 +67,7 @@
 
 
 \subsection{Pseudo-code}
-On consid?re un bandit ? $K$ bras sur un horizon de temps de T
+On considère un bandit à $K$ bras sur un horizon de temps de T
 \begin{itemize}
 \setlength\itemsep{0.2cm}
 
@@ -85,7 +85,7 @@ On consid?re un bandit ? $K$ bras sur un horizon de temps de T
 
 \begin{itemize}
 
-\item $k_t = amgmax(\ref{eq: ucb_bernoulli})$
+\item $k_t = argmax(\ref{eq: ucb_bernoulli})$
 
 \item $N[k_t] = N[k_t]+1$
 
@@ -129,8 +129,14 @@ On peut observer l'effet de la sur exploration dans \ref{fig: kl_ucb}.
 On peut aussi observer que la variance semble un peu plus élevée pour le KL UCB optimisé.
 Cela peut être dut au fait que relativement peu d'instances ont été générées.
 
-\includegraphics[scale=0.4]{figures/comparaison.pdf}
+\begin{figure}[H]
+\caption{Évolution des posteriors}
 \label{fig: kl_ucb}
+\begin{center}
+
+\includegraphics{figures/comparaison.pdf} \hfill
+\end{center}
+\end{figure}
 
 \section{No 3}
 
