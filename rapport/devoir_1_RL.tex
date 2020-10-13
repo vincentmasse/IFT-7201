@@ -108,16 +108,16 @@ max \left\{ q \in \Theta : N[a] d\left(\frac{S[a]}{N[a]},q\right) \leq \log(t) +
 \subsection{Implementation bernoulli}
 
 Pour implementer cet algorithme, on doit utiliser un optimiseur numerique, car il n'existe pas de forme fermée lorsque les recompenses suivent une distrubution bernoulli.
-De plus, l'implementation inclu un bris d'egalite.
-Ainsi si 2 bras ont le meme UCB et qu'ils representent les bras avec le plus grand UCB alors l'algorithme choisira le bras ayant le plus petit nombre de jeu.
+De plus, l'implémentation inclu un bris d'égalité.
+Ainsi si 2 bras ont le même UCB et qu'ils représentent les bras avec le plus grand UCB alors l'algorithme choisira le bras ayant le plus petit nombre de jeu. Avec cette approche, on favorise l'exploration en cas d'égalité.
 
 \subsection{Implementation UCB Gaussienne}
 
-Pour l'implementation de l'algorithme UCB gaussien il existe une forme fermee.
-Cette forme a ete utilisee dans l'implementation, car elle rend l'exploitation plus rapide, car il n'a pas d'optimisation a faire pour determiner l'UCB.
+Pour l'implémentation de l'algorithme UCB gaussien il existe une forme fermée.
+Cette forme à été utilisée dans l'implémentation, car elle rend lèxécution du code beaucoup plus rapide, car il n'a pas d'optimisation à faire pour déterminer l'UCB.
 
-Pour calculer la borne UCB gaussien, l'ecart-type doit etre connu, mais ce n'est pas le cas pour la configuration de gandit utilise.
-L'ecart-type maximale d'une distribution bernoulli est donc utilisee (0.25).
+Pour calculer la borne UCB gaussien, l'ecart-type doit être connu, mais ce n'est pas le cas pour la configuration de bandit utilisée.
+L'écart-type maximale d'une distribution bernoulli est donc utilisee (0.25).
 
 \subsection{Comparaison des modèles}
 On peut observer que les deux modèles performent bien sur des bandits bernoulli.
