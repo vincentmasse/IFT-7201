@@ -457,8 +457,6 @@ On désire définir l'algorithme Kernel Thompson Sampling dans cette situation. 
 
 \subsection{Pseudo-code}
 
-Entrées de l'algorithme:\\
-
 \begin{itemize}
 \setlength\itemsep{0.2cm}
 
@@ -498,7 +496,7 @@ Observer un reward: $y_t=f_{m_t}(s_t)+\eta_t$
 
 \subsubsection{Détails de l'implémentation}
 
-Pour simplifier l'algorithme, on lui passera simplement $\sigma$ comme valeur de $\sigma^2_{+,t-1}$ et on prendra $\lambda=\sigma^2$ étant donner que les fonctions de rewards seront des fonctions polynomiales dont les coefficients sont les éléments d'un vecteur $\theta$ de norme 1. \textbf{Aussi, notons que le pseudo-code précédent conserve la forme de l'article, alors que pour l'implémentation, on initialisera $\widehat{f}$ et $\widehat{\Sigma}$ pour chaque bras avant le premier tirage de $\tilde{f},$ ensuite, à la fin de chaque itération, $\widehat{f}$ et $\widehat{\Sigma}$ seront calculés avec l'aide d'un <<Gaussian Process Regressor>>}. Aussi, l'espace de contexte $\mathcal{S}$ s'est vue discrétisée en $\mathbb{S}$ pour faciliter l'implémentation. De plus, dans le Gaussian Process Regressor, nous avons utilisé un noyau RBF avec une bandwidth de 1 dans l'expérience ci-dessous. Finalement, comme écrit dans l'article de référence au sujet des performances en pratiques, nous avons choisi un $v_t^2$ de 1.
+Pour simplifier l'algorithme, on lui passera simplement $\sigma$ comme valeur de $\sigma^2_{+,t-1}$ et on prendra $\lambda=\sigma^2$ étant donner que les fonctions de rewards seront des fonctions polynomiales dont les coefficients sont les éléments d'un vecteur $\theta$ de norme 1. \textbf{Aussi, notons que le pseudo-code précédent conserve la forme de l'article, alors que pour l'implémentation, on initialisera $\widehat{f}$ et $\widehat{\Sigma}$ pour chaque bras avant le premier tirage de $\tilde{f},$ ensuite, à la fin de chaque itération, $\widehat{f}$ et $\widehat{\Sigma}$ seront calculés avec l'aide d'un <<Gaussian Process Regressor>>}. Nous avons fait le choix d'initialiser nos $\widehat{f}$ à 7 pour que la fonction de départ soit toujours suppérieur à nos deux courbes d'actions possibles. De plus nous avons fait le choix d'initialiser la matrice $\widehat{\Sigma}$ à 0.7 Aussi, l'espace de contexte $\mathcal{S}$ s'est vue discrétisée en $\mathbb{S}$ pour faciliter l'implémentation. De plus, dans le Gaussian Process Regressor, nous avons utilisé un noyau RBF avec une bandwidth de 1 dans l'expérience ci-dessous. Finalement, comme écrit dans l'article de référence au sujet des performances en pratiques, nous avons choisi un $v_t^2$ de 1.
 
 \subsection{Expérimentation}
 
@@ -534,5 +532,18 @@ Voici le pseudo regret cumulatif pour la même expérience
 \end{figure}
 
 On voit un comportement typique pour ce type d'algorithme, c'est-à-dire que celui-ci cumule du regret passablement souvent au début à mesure qu'il cumule de l'information pour ensuite être bien en selle pour choisir presque tout le temps l'action optimale. On peut voir dans le graphique certaines brisures suivies de plateaux même pour de grands $t$, ces brisures sont potentiellement associées à des moments où le contexte $s$ donné à l'agent était problématique, étant près de l'abscisse d'intersection entre les deux courbes d'action, ce qui peut produire un mauvais choix de l'action optimale.
+\\
+Nous avons aussi expérimenté pour connaitre l'influence de la taille du noyeau a l'intérieur du GaussianProcessRegressor et nous avons obtenu une meilleur performance avec une taille de 2 pour 5 instances différentes pour T = 1000 comme le montre la figure suivante.
+
+\begin{figure}[H]
+\caption{Évolution pseudo-regret cumulatif}
+\label{figure: experimentation bw}
+\begin{center}
+
+\includegraphics[scale=0.6]{figures/regret_cumul_bw1.png} \hfill \includegraphics[scale=0.6]{figures/regret_cumul_bw2.png}
+
+\end{center}
+\end{figure}
+
 
 \end{document}
