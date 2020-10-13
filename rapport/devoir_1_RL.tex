@@ -16,7 +16,7 @@
 \usepackage[utf8]{inputenc} % Pour pouvoir taper les accent directement et non pas passer par \'
 \usepackage[T1]{fontenc} %%% Pour que les accents soient correctement traités dans le PDF et le DVI
 \usepackage{lmodern} %Un autre package pour les accents français
-\usepackage[francais]{babel} %Un autre package pour les accents
+\usepackage[french]{babel} %Un autre package pour les accents
 \usepackage{ifthen}
 %\usepackage{multicol}
 %\usepackage{cancel}
@@ -78,7 +78,6 @@
 
 %\includepdf{devoir1RotationsFranA2018.pdf}
 
-
 \section{Algorithme de base}
 
 \subsection{Experience sur l'algorithme ETC}
@@ -93,7 +92,7 @@ Nous pouvons voir grâce à la figure 1, que plus le gap va être petit, plus la
 \begin{figure}[H]
 \label{fig: no1_1}
 \begin{center}
-\includegraphics[scale=0.8]{fig1_no1_1.png} 
+\includegraphics[scale=0.8]{fig1_no1_1.png}
 \end{center}
 \end{figure}
 
@@ -115,12 +114,84 @@ En initialisant les estimateurs empiriques à 1, nous augmentons les chances que
 \begin{figure}[H]
 \label{fig: no1_2}
 \begin{center}
-\includegraphics[scale=0.8]{fig2_no1_2.png} 
+\includegraphics[scale=0.8]{fig2_no1_2.png}
 \end{center}
 \end{figure}
 
+\section{KL UCB}
 
-\section{No 2}
+
+\subsection{Pseudo-code}
+On considère un bandit à $K$ bras sur un horizon de temps de T
+\begin{itemize}
+\setlength\itemsep{0.2cm}
+
+\item Pour chaque $t\leq K:$
+
+\begin{itemize}
+
+\item $N[t] = N[t]+1$
+
+\item $S[t] = S[t]+Gain(t)$
+
+\end{itemize}
+
+\item Pour chaque $K < t \leq T:$
+
+\begin{itemize}
+
+\item $k_t = argmax(\ref{eq: ucb_bernoulli})$
+
+\item $N[k_t] = N[k_t]+1$
+
+\item $S[k_t] = S[k_t]+Gain(k_t)$
+
+\end{itemize}
+
+
+\end{itemize}
+
+\begin{equation}
+d(p,q) = p \log \frac{p}{q} + (1-p) \log \frac{1-p}{1-q}
+\end{equation}\label{eq: differentien_bernoulli}
+
+\begin{equation}
+max \left\{ q \in \Theta : N[a] d\left(\frac{S[a]}{N[a]},q\right) \leq \log(t) + c \log(\log(t)) \right\}
+\label{eq: ucb_bernoulli}
+\end{equation}
+
+\subsection{Implementation bernoulli}
+
+Pour implementer cet algorithme, on doit utiliser un optimiseur numerique, car il n'existe pas de forme fermée lorsque les recompenses suivent une distrubution bernoulli.
+De plus, l'implémentation inclu un bris d'égalité.
+Ainsi si 2 bras ont le même UCB et qu'ils représentent les bras avec le plus grand UCB alors l'algorithme choisira le bras ayant le plus petit nombre de jeu. Avec cette approche, on favorise l'exploration en cas d'égalité.
+
+\subsection{Implementation UCB Gaussienne}
+
+Pour l'implémentation de l'algorithme UCB gaussien il existe une forme fermée.
+Cette forme à été utilisée dans l'implémentation, car elle rend lèxécution du code beaucoup plus rapide, car il n'a pas d'optimisation à faire pour déterminer l'UCB.
+
+Pour calculer la borne UCB gaussien, l'ecart-type doit être connu, mais ce n'est pas le cas pour la configuration de bandit utilisée.
+L'écart-type maximale d'une distribution bernoulli est donc utilisee (0.25).
+
+\subsection{Comparaison des modèles}
+On peut observer que les deux modèles performent bien sur des bandits bernoulli.
+Les deux modèles ont un regret cumulatif sous linéaire, mais le modèle utilsant la borne KL UCB pour bandit bernoulli performe mieux.
+Cela peut être dut au fait qu'avec le modèle qui utilise la borne KL UCB pour des bandits gaussien utilise une borne avec une variance de 0.25.
+Cette variance est utilisée, car elle représente la variance maximale dans un bandit bernoulli ainsi, elle permet de conserver des garanties.
+Par contre l'utilisation de cette borne cause une sur exploration.
+On peut observer l'effet de la sur exploration dans \ref{fig: kl_ucb}.
+On peut aussi observer que la variance semble un peu plus élevée pour le KL UCB optimisé.
+Cela peut être dut au fait que relativement peu d'instances ont été générées.
+
+\begin{figure}[H]
+\caption{Évolution des posteriors}
+\label{fig: kl_ucb}
+\begin{center}
+
+\includegraphics{figures/comparaison.pdf} \hfill
+\end{center}
+\end{figure}
 
 \section{No 3}
 
@@ -201,7 +272,7 @@ Pour $k=1,2,...,K$ initialiser $\alpha_k=\alpha_0$ et $\beta_k=\beta_0$
 
 \begin{itemize}
 \item
-pour $k=1,2,...,K$ 
+pour $k=1,2,...,K$
 
 \begin{itemize}
 \item
@@ -210,10 +281,10 @@ pour $k=1,2,...,K$
 \end{itemize}
 
 \item
-$k_t\leftarrow \underset{k}{\mathrm{argmax}} (\theta_{k})$ 
+$k_t\leftarrow \underset{k}{\mathrm{argmax}} (\theta_{k})$
 
 \item
-$r_t\leftarrow \mathrm{play}(k_t)$ 
+$r_t\leftarrow \mathrm{play}(k_t)$
 
 \item 
 $\alpha_{k_t} \leftarrow \alpha_{k_t}+r_t$
@@ -257,7 +328,7 @@ Pour établir une prior, il faut établir un couple $\alpha_0,\,\beta_0.$ Nous �
 \subsection*{Remarque sur les simulations}
 
 Dans les simulations suivantes, nous avons opté pour un $N=200,$ puisque cela offre un bon compromis entre un $N$  grand offrant un temps de calcul trop grand et un $N$ trop petit donnant lieu à des résultats biaisés par certaines instances atypique. Un $N=200$ facilite aussi la correction puisque les images peuvent être reproduites sans perdre trop de temps. Conséquemment, nous ne commenterons pas les écarts entre certaines courbes rapprochées, puisque dans d'autres simulations avec $N=1000,$ on observe que ces écarts s'atténuent ou s'inversent. Nos commentaires se feront donc sur les observations significatives dans le cas présenté $N=200$, ces dernières restaient les mêmes  ou très similaires dans le cas $N=1000.$
- 
+
 \subsubsection{Effet de la variance de la loi prior}
 
 \subsubsection*{Expérience sur des variances trop petites}
@@ -285,12 +356,12 @@ La figure suivante montre le résultat obtenu.
 \label{figure: variance petite}
 \caption{Comparaisons de la performance selon des priors de variances plus petites}
 \begin{center}
-%\includegraphics[scale=0.5]{etude_variance_petite.png} 
-\includegraphics[scale=0.5]{variance_trop_petites_N=200.pdf} 
+%\includegraphics[scale=0.5]{etude_variance_petite.png}
+\includegraphics[scale=0.5]{variance_trop_petites_N=200.pdf}
 \end{center}
 \end{figure}
 
-On remarque que si la distribution prior est choisie avec une variance trop petite, la distribution prior ne couvre pas suffisamment bien l'intervalle $[0,10]$ des valeurs possibles de $\lambda$ et cela semble se traduire par une augmentation du pseudo-regret cumulatif moyen. On remarque qu'il semble y avoir un certaine tolérance sur des variations de $\sigma^2_0$ qui ne changent pas significativement la courbe du pseudo-regret cumulatif moyen. 
+On remarque que si la distribution prior est choisie avec une variance trop petite, la distribution prior ne couvre pas suffisamment bien l'intervalle $[0,10]$ des valeurs possibles de $\lambda$ et cela semble se traduire par une augmentation du pseudo-regret cumulatif moyen. On remarque qu'il semble y avoir un certaine tolérance sur des variations de $\sigma^2_0$ qui ne changent pas significativement la courbe du pseudo-regret cumulatif moyen.
 
 \subsubsection*{Expérience sur des variances trop grandes}
 
@@ -306,7 +377,7 @@ La figure suivante montre le résultat obtenu.
 \label{figure: variance petite}
 \caption{Comparaisons de la performance selon des priors de variances plus grandes}
 \begin{center}
-%\includegraphics[scale=0.5]{etude_variance_grande.png} 
+%\includegraphics[scale=0.5]{etude_variance_grande.png}
 \includegraphics[scale=0.5]{variance_trop_grande_N=200.pdf}
 \end{center}
 \end{figure}
@@ -328,7 +399,7 @@ On obtient la figure suivante
 \label{figure: moyenne décalée 1}
 \caption{Comparaisons de la performance selon des priors de variances égale à la longueur de l'intervalle et de moyennes variables.}
 \begin{center}
-%\includegraphics[scale=0.5]{etude_moyenne_decale_var10.png} 
+%\includegraphics[scale=0.5]{etude_moyenne_decale_var10.png}
 \includegraphics[scale=0.5]{moyenne_decentree_variance_bonne_N=200.pdf}
 \end{center}
 \end{figure}
@@ -349,7 +420,7 @@ On obtient la figure suivante
 \label{figure: moyenne décalée 1}
 \caption{Comparaisons de la performance selon des priors de variances égalent à 3 et moyennes variables.}
 \begin{center}
-%\includegraphics[scale=0.5]{etude_moyenne_decale_var3.png} 
+%\includegraphics[scale=0.5]{etude_moyenne_decale_var3.png}
 \includegraphics[scale=0.5]{moyenne_decentree_variance_petite_N=200.pdf}
 \end{center}
 \end{figure}
@@ -362,18 +433,18 @@ En conclusion, à la lumière des simulations effectuées, les priors semblent d
 
 \subsection{Contexte}
 
-On considère le cas d'un bandit contextuel à $M$ actions avec un espace de contexte $S.$ Dans ce <<setting>>, à chaque temps $t,$ l'agent observe un contexte $s_t$ à partir duquel il doit sélectionner une actions $m_t\in{1,2,\ldots,M}$ et observer un reward $r_t=f_{m_t}(s_t)+\eta_t$ où $\eta_t\sim\mathcal{N}(0,\sigma^2).$ La figure suivante montre une situation hypothétique avec un contexte $S=[0,1]$ et $M=2$ actions. 
+On considère le cas d'un bandit contextuel à $M$ actions avec un espace de contexte $S.$ Dans ce <<setting>>, à chaque temps $t,$ l'agent observe un contexte $s_t$ à partir duquel il doit sélectionner une actions $m_t\in{1,2,\ldots,M}$ et observer un reward $r_t=f_{m_t}(s_t)+\eta_t$ où $\eta_t\sim\mathcal{N}(0,\sigma^2).$ La figure suivante montre une situation hypothétique avec un contexte $S=[0,1]$ et $M=2$ actions.
 
 \begin{figure}[H]
 \caption{Illustration d'un contexte de bandit contextuel}\label{figure: contexte}
 \begin{center}
-%\includegraphics[scale=0.5]{etude_moyenne_decale_var3.png} 
+%\includegraphics[scale=0.5]{etude_moyenne_decale_var3.png}
 \includegraphics[scale=0.5]{image_contexte_no4.pdf}
 \end{center}
 \end{figure}
 
 On désire définir l'algorithme Kernel Thompson Sampling dans cette situation. En s'inspirant de \textit{Durand, A., Maillard, O. A., et Pineau, J. (2018)}, on arrive au pseudo-code suivant.
-  
+
 \subsection{Pseudo-code}
 
 Entrées de l'algorithme:\\
@@ -382,7 +453,7 @@ Entrées de l'algorithme:\\
 \setlength\itemsep{0.2cm}
 
 \item
-Pour $1\leq t \leq T$ 
+Pour $1\leq t \leq T$
 
 \begin{itemize}
 \item
@@ -417,7 +488,7 @@ Observer un reward: $y_t=f_{m_t}(s_t)+\eta_t$
 
 \subsubsection{Détails de l'implémentation}
 
-Pour simplifier l'algorithme, on lui passera simplement $\sigma$ comme valeur de $\sigma^2_{+,t-1}$ et on prendra $\lambda=\sigma^2$ étant donner que les fonctions de rewards seront des fonctions polynomiales dont les coefficients sont les éléments d'un vecteur $\theta$ de norme 1. \textbf{Aussi, notons que le pseudo-code précédent conserve la forme de l'article, alors que pour l'implémentation, on initialisera $\widehat{f}$ et $\widehat{\Sigma}$ pour chaque bras avant le premier tirage de $\tilde{f},$ ensuite, à la fin de chaque itération, $\widehat{f}$ et $\widehat{\Sigma}$ seront calculés avec l'aide d'un <<Gaussian Process Regressor>>}. Aussi, l'espace de contexte $\mathcal{S}$ s'est vue discrétisée en $\mathbb{S}$ pour faciliter l'implémentation. De plus, dans le Gaussian Process Regressor, nous avons utilisé un noyau RBF avec une bandwidth de 1 dans l'expérience ci-dessous. Finalement, comme écrit dans l'article de référence au sujet des performances en pratiques, nous avons choisi un $v_t^2$ de 1. 
+Pour simplifier l'algorithme, on lui passera simplement $\sigma$ comme valeur de $\sigma^2_{+,t-1}$ et on prendra $\lambda=\sigma^2$ étant donner que les fonctions de rewards seront des fonctions polynomiales dont les coefficients sont les éléments d'un vecteur $\theta$ de norme 1. \textbf{Aussi, notons que le pseudo-code précédent conserve la forme de l'article, alors que pour l'implémentation, on initialisera $\widehat{f}$ et $\widehat{\Sigma}$ pour chaque bras avant le premier tirage de $\tilde{f},$ ensuite, à la fin de chaque itération, $\widehat{f}$ et $\widehat{\Sigma}$ seront calculés avec l'aide d'un <<Gaussian Process Regressor>>}. Aussi, l'espace de contexte $\mathcal{S}$ s'est vue discrétisée en $\mathbb{S}$ pour faciliter l'implémentation. De plus, dans le Gaussian Process Regressor, nous avons utilisé un noyau RBF avec une bandwidth de 1 dans l'expérience ci-dessous. Finalement, comme écrit dans l'article de référence au sujet des performances en pratiques, nous avons choisi un $v_t^2$ de 1.
 
 \subsection{Expérimentation}
 
@@ -449,6 +520,6 @@ Voici le pseudo regret cumulatif pour la même expérience
 \end{center}
 \end{figure}
 
-On voit un comportement typique pour ce type d'algorithme, c'est-à-dire que celui-ci cumule du regret passablement souvent au début à mesure qu'il cumule de l'information pour ensuite être bien en selle pour choisir presque tout le temps l'action optimale. On peut voir dans le graphique certaines brisures suivies de plateaux même pour de grands $t$, ces brisures sont potentiellement associées à des moments où le contexte $s$ donné à l'agent était problématique, étant près de l'abscisse d'intersection entre les deux courbes d'action, ce qui peut produire un mauvais choix de l'action optimale. 
+On voit un comportement typique pour ce type d'algorithme, c'est-à-dire que celui-ci cumule du regret passablement souvent au début à mesure qu'il cumule de l'information pour ensuite être bien en selle pour choisir presque tout le temps l'action optimale. On peut voir dans le graphique certaines brisures suivies de plateaux même pour de grands $t$, ces brisures sont potentiellement associées à des moments où le contexte $s$ donné à l'agent était problématique, étant près de l'abscisse d'intersection entre les deux courbes d'action, ce qui peut produire un mauvais choix de l'action optimale.
 
 \end{document}
