@@ -1,0 +1,16 @@
+\BOOKMARK [1][-]{section.1}{No 1}{}% 1
+\BOOKMARK [1][-]{section.2}{KL UCB}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Pseudo-code}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Implementation bernoulli}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Implementation UCB Gaussienne}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Comparaison des mod\350les}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{No 3}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Rappel sur la loi de gamma}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Rappel sur la loi de Poisson}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Algorithme Thomas Sampling pour des bandits \340 distribution Poisson }{section.3}% 10
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Pseudo-code}{subsection.3.3}% 11
+\BOOKMARK [2][-]{subsection.3.4}{Exploration du comportement de l'alogorihme \(validation de la fonctionnalit\351\)}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.5}{Exp\351rimentation sur l'algorithme}{section.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.5.1}{Effet de la variance de la loi prior}{subsection.3.5}% 14
+\BOOKMARK [3][-]{subsubsection.3.5.2}{Effet de la moyenne de la loi prior avec variance <<bonne>>}{subsection.3.5}% 15
+\BOOKMARK [3][-]{subsubsection.3.5.3}{Effet de la moyenne de la loi prior avec variance plus petite}{subsection.3.5}% 16
