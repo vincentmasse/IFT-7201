@@ -52,6 +52,22 @@
 
 \begin{document}
 
+\begin{center}
+~
+\vfill
+\LARGE{Travail Pratique 1 (IFT-4201/IFT-7201)}\\[0.4cm]
+
+\Large{Présenté à Audrey Durand}
+
+\vfill
+\large{Équipe 10 \\ Adam Cohen \\ Maxime Genest \\ Vincent Masse}
+
+\vfill
+\thispagestyle{empty}
+
+\end{center}
+\clearpage
+
 \pagestyle{fancy}
 \lhead{IFT-7201}
 \chead{Devoir 1 (Automne 2020)}
@@ -63,74 +79,7 @@
 
 \section{No 1}
 
-\section{KL UCB}
-
-
-\subsection{Pseudo-code}
-On consid?re un bandit ? $K$ bras sur un horizon de temps de T
-\begin{itemize}
-\setlength\itemsep{0.2cm}
-
-\item Pour chaque $t\leq K:$
-
-\begin{itemize}
-
-\item $N[t] = N[t]+1$
-
-\item $S[t] = S[t]+Gain(t)$
-
-\end{itemize}
-
-\item Pour chaque $K < t \leq T:$
-
-\begin{itemize}
-
-\item $k_t = amgmax(\ref{eq: ucb_bernoulli})$
-
-\item $N[k_t] = N[k_t]+1$
-
-\item $S[k_t] = S[k_t]+Gain(k_t)$
-
-\end{itemize}
-
-
-\end{itemize}
-
-\begin{equation}
-d(p,q) = p \log \frac{p}{q} + (1-p) \log \frac{1-p}{1-q}
-\end{equation}\label{eq: differentien_bernoulli}
-
-\begin{equation}
-max \left\{ q \in \Theta : N[a] d\left(\frac{S[a]}{N[a]},q\right) \leq \log(t) + c \log(\log(t)) \right\}
-\label{eq: ucb_bernoulli}
-\end{equation}
-
-\subsection{Implementation bernoulli}
-
-Pour implementer cet algorithme, on doit utiliser un optimiseur numerique, car il n'existe pas de forme fermée lorsque les recompenses suivent une distrubution bernoulli.
-De plus, l'implementation inclu un bris d'egalite.
-Ainsi si 2 bras ont le meme UCB et qu'ils representent les bras avec le plus grand UCB alors l'algorithme choisira le bras ayant le plus petit nombre de jeu.
-
-\subsection{Implementation UCB Gaussienne}
-
-Pour l'implementation de l'algorithme UCB gaussien il existe une forme fermee.
-Cette forme a ete utilisee dans l'implementation, car elle rend l'exploitation plus rapide, car il n'a pas d'optimisation a faire pour determiner l'UCB.
-
-Pour calculer la borne UCB gaussien, l'ecart-type doit etre connu, mais ce n'est pas le cas pour la configuration de gandit utilise.
-L'ecart-type maximale d'une distribution bernoulli est donc utilisee (0.25).
-
-\subsection{Comparaison des modèles}
-On peut observer que les deux modèles performent bien sur des bandits bernoulli.
-Les deux modèles ont un regret cumulatif sous linéaire, mais le modèle utilsant la borne KL UCB pour bandit bernoulli performe mieux.
-Cela peut être dut au fait qu'avec le modèle qui utilise la borne KL UCB pour des bandits gaussien utilise une borne avec une variance de 0.25.
-Cette variance est utilisée, car elle représente la variance maximale dans un bandit bernoulli ainsi, elle permet de conserver des garanties.
-Par contre l'utilisation de cette borne cause une sur exploration.
-On peut observer l'effet de la sur exploration dans \ref{fig: kl_ucb}.
-On peut aussi observer que la variance semble un peu plus élevée pour le KL UCB optimisé.
-Cela peut être dut au fait que relativement peu d'instances ont été générées.
-
-\includegraphics[scale=0.4]{figures/comparaison.pdf}
-\label{fig: kl_ucb}
+\section{No 2}
 
 \section{No 3}
 
@@ -185,7 +134,7 @@ où $\lambda$ est un paramètre. L'espérance est $\mu=\lambda$ et la variance $
 
 \subsection{Algorithme Thomas Sampling pour des bandits à distribution Poisson }
 
-Pour des bandits à distributions de Poisson, c'est-à-dire dans le cas où chaque bras génère un reward selon une loi de Poisson de paramètre $\lambda$ inconnu, le conjugué à utilisé est la loi gamma.\\
+Pour des bandits à distributions de Poisson, c'est-à-dire dans le cas où chaque bras génère un reward selon une loi de Poisson de paramètre $\lambda$ inconnu, le conjugué à utilisé est la loi gamma\footnote{Voir la page web citée au cours: https://en.wikipedia.org/wiki/Conjugate\_prior}.\\
 
 Plus précisément, après $n$ observations $x_1,x_2,...,x_n$ tirées d'une loi de Poisson inconnue, la distribution posterior modélisant le paramètre $\lambda$ inconnu sera
 
@@ -195,33 +144,41 @@ Plus précisément, après $n$ observations $x_1,x_2,...,x_n$ tirées d'une loi 
 
 où $\alpha_0$ et $\beta_0$ sont les paramètres de la distribution de gamma prior, ils correspondent donc aux paramètres choisis permettant d'initier la distribution.\\
 
-Cela mène au pseudo-code suivant pour un algorithme Thomas Sampling sur des bandits à $K$ bras à distribution de Poisson.
+Cela mène au pseudo-code suivant pour un algorithme Thomas Sampling joué sur un horizon $T$ sur des bandits à $K$ bras à distribution de Poisson.
 
 \subsubsection{Pseudo-code}
+
+Entrées de l'algorithme: bandit, $\alpha_0,$ $\beta_0,$ $T$\\
 
 \begin{itemize}
 \setlength\itemsep{0.2cm}
 
 \item
-Initialiser une distribution gamma $\pi_k(0)$ pour $k=1,2,...,K$, c'est-à-dire choisir un couple $(\alpha_{k,0}, \beta_{k,0})\, \forall{k}$
+Pour $k=1,2,...,K$ initialiser $\alpha_k=\alpha_0$ et $\beta_k=\beta_0$
 
-\item Pour chaque $t\geq 1:$
+\item Pour chaque $1\leq t \leq T :$
 
 \begin{itemize}
 \item
-Échantillonner un nombre $\theta_{k,t}$ de la distribution $\pi_k(t-1),$ pour $k=1,2,...,K$
+pour $k=1,2,...,K$ 
+
+\begin{itemize}
+\item
+échantillonner $\theta_k \leftarrow \mathrm{Gamma}(\alpha_k,\beta_k)$
+
+\end{itemize}
 
 \item
-Sélectionner $k_t=\underset{k}{\mathrm{argmax}} (\theta_{k,t})$ 
+$k_t\leftarrow \underset{k}{\mathrm{argmax}} (\theta_{k})$ 
 
 \item
-jouer l'action $k_t$ et observer le reward $r_t$ 
+$r_t\leftarrow \mathrm{play}(k_t)$ 
 
 \item 
-Modifier la posterior $\pi_{k_t}(t)$ de l'action jouée: $\alpha_{k_t} \leftarrow \alpha_{k_t}+ r_t$ et $\beta_{k_t}  \leftarrow \beta_{k_t} + 1$ 
+$\alpha_{k_t} \leftarrow \alpha_{k_t}+r_t$
 
 \item
-Laisser inchangé les autres posteriors: $\pi_{k}(t) \leftarrow \pi_{k}(t-1),\, \forall k\neq k_t$
+$\beta_{k_t} \leftarrow \beta_{k_t}+1$
 
 \end{itemize}
 
@@ -254,26 +211,30 @@ Initialement, on voit que les deux priors sont superposées. Après un tour, on 
 
 Dans cette section, on explore le comportement de l'algorithme dans diverses situations tout en s'efforçant de discuter de la sélection des priors. En effet, la loi de gamma n'ayant aucune paramétrisation la faisant corresponde à une loi uniforme, il faut faire un choix de priors qui n'est pas trivial. Pour ce faire, on supposera ici que l'on ne connaît pas les valeurs de $\lambda$ associée à chaque bras, mais que l'on connaît à tout de moins un intervalle sur lequel ils se trouvent. Dépendant des choix des priors, ces derniers sont des distributions qui peuvent couvrir bien ou non l'intervalle possibles des $\lambda,$ on suspecte que cela aura un effet sur le pseudo-regret cumulatif.\\
 
-Pour établir une prior, il faut établir un couple $\alpha_0,\,\beta_0.$ Nous établirons plutôt un moyenne $(\mu_0)$ et une variance ($\sigma_0^2$) pour cette distribution prior et obtiendrons $\alpha_0$ et $\beta_0$ associées avec les équations (\ref{equation: moyenne gamma}) et (\ref{equation: variance gamma}).
+Pour établir une prior, il faut établir un couple $\alpha_0,\,\beta_0.$ Nous établirons plutôt un moyenne $(\mu_0)$ et une variance ($\sigma_0^2$) pour cette distribution prior et obtiendrons $\alpha_0$ et $\beta_0$ associées avec les équations (\ref{equation: alpha gamma}) et (\ref{equation: beta gamma}).
 
+\subsection*{Remarque sur les simulations}
+
+Dans les simulations suivantes, nous avons opté pour un $N=200,$ puisque cela offre un bon compromis entre un $N$  grand offrant un temps de calcul trop grand et un $N$ trop petit donnant lieu à des résultats biaisés par certaines instances atypique. Un $N=200$ facilite aussi la correction puisque les images peuvent être reproduites sans perdre trop de temps. Conséquemment, nous ne commenterons pas les écarts entre certaines courbes rapprochées, puisque dans d'autres simulations avec $N=1000,$ on observe que ces écarts s'atténuent ou s'inversent. Nos commentaires se feront donc sur les observations significatives dans le cas présenté $N=200$, ces dernières restaient les mêmes  ou très similaires dans le cas $N=1000.$
+ 
 \subsubsection{Effet de la variance de la loi prior}
 
 \subsubsection*{Expérience sur des variances trop petites}
 
-On génère $N=1000$ instances de bandits de Poisson à deux bras.\\
-Pour chaque instance, les moyennes $\lambda_1, \lambda_2$ des bras sont tirées aléatoirement d'une loi uniforme continue sur l'intervalle $[0,10]$ pour chaque instance.\\
-On considérera le cas ici ou l'agent sait que les moyennes sont dans cet intervalle.\\
+On génère $N=200$ instances de bandits de Poisson à deux bras.\\
+Pour chaque instance, les moyennes $\lambda_1, \lambda_2$ des bras sont tirées aléatoirement d'une loi uniforme continue sur l'intervalle $[0,10]$.\\
+%On considérera le cas ici ou l'agent sait que les moyennes sont dans cet intervalle.\\
 
 Pour chaque couple ($\mu_0,$ $\sigma^2_0,$) suivant:
 
 $$(5,10),\,(5,5),\,(5,1),\,(5,1/2),\,(5,1/4)$$
 
-On trouve $\alpha_0$ et $\beta_0$ associée à l'aide des équations $(\ref{equation: moyenne gamma})$ et $(\ref{equation: variance gamma})$
+On trouve $\alpha_0$ et $\beta_0$ associée à l'aide des équations $(\ref{equation: alpha gamma})$ et $(\ref{equation: beta gamma}).$
 \\
 
-On fait jouer Thomas sampling sur les $N=1000$ instances sur un horizon $T=1000.$\\
+On fait jouer Thompson Sampling sur les $N=200$ instances sur un horizon $T=1000.$\\
  
-On trace les pseudos-regret cumulatif moyen avec une déviation standard au dessus.\\
+On trace les pseudos-regrets cumulatifs moyens avec une déviation standard au dessus (en pointillés).\\
 
 Notons qu'ici, dans les différents couples $(\mu_0,\sigma^2_0)$ explorés, la moyenne est toujours 5 (le centre de l'intervalle [0,10]) et la variance varie (partant de 10 correspondant à la grandeur de l'intervalle et se rapetissant).\\
 
@@ -283,13 +244,12 @@ La figure suivante montre le résultat obtenu.
 \label{figure: variance petite}
 \caption{Comparaisons de la performance selon des priors de variances plus petites}
 \begin{center}
-\includegraphics[scale=0.5]{etude_variance_petite.png} 
+%\includegraphics[scale=0.5]{etude_variance_petite.png} 
+\includegraphics[scale=0.5]{variance_trop_petites_N=200.pdf} 
 \end{center}
 \end{figure}
 
-On remarque que si la distribution prior est choisie avec une variance trop petite, la distribution prior ne couvre pas suffisamment bien l'intervalle $[0,10],$ et cela semble se traduire par une augmentation du pseudo-regret cumulatif moyen. On remarque qu'il semble y avoir un certaine tolérance sur des variations de $\sigma^2_0$ qui ne changent pas significativement la courbe du pseudo-regret cumulatif moyen. \\
-
-Notez que partout dans les graphiques ci-dessous, la ligne continue représente le pseudo-regret cumulatif moyen alors que la ligne pointillée représente la déviation-standard au dessus associée à ce pseudo-regret cumulatif.
+On remarque que si la distribution prior est choisie avec une variance trop petite, la distribution prior ne couvre pas suffisamment bien l'intervalle $[0,10]$ des valeurs possibles de $\lambda$ et cela semble se traduire par une augmentation du pseudo-regret cumulatif moyen. On remarque qu'il semble y avoir un certaine tolérance sur des variations de $\sigma^2_0$ qui ne changent pas significativement la courbe du pseudo-regret cumulatif moyen. 
 
 \subsubsection*{Expérience sur des variances trop grandes}
 
@@ -305,11 +265,12 @@ La figure suivante montre le résultat obtenu.
 \label{figure: variance petite}
 \caption{Comparaisons de la performance selon des priors de variances plus grandes}
 \begin{center}
-\includegraphics[scale=0.5]{etude_variance_grande.png} 
+%\includegraphics[scale=0.5]{etude_variance_grande.png} 
+\includegraphics[scale=0.5]{variance_trop_grande_N=200.pdf}
 \end{center}
 \end{figure}
 
-On peut voir qu'une variance légèrement trog grande n'aura pas beaucoup d'effet sur le regret cumulatif moyen, par contre, une variance excessivement trop grande peut en avoir une considérable. Dans ce cas, la distribution prior sur-couvre grandement l'intervalle [0,10] des valeurs possibles de $\lambda.$ Conséquemment, possiblement que les distributions posteriors ne se concentrent pas suffisamment rapidement pour pouvoir bien cerner les moyennes $\lambda_1$ et $\lambda_2$ des distributions de Poisson des bras.
+On peut voir qu'une variance légèrement trog grande n'aura pas beaucoup d'effet sur le regret cumulatif moyen, par contre, une variance excessivement trop grande peut en avoir un considérable. Dans ce cas ($\sigma^2_0=1000$), la distribution prior sur-couvre grandement l'intervalle [0,10] des valeurs possibles de $\lambda.$ Conséquemment, possiblement que les distributions posteriors ne se concentrent pas suffisamment rapidement pour pouvoir bien cerner les moyennes $\lambda_1$ et $\lambda_2$ des distributions de Poisson des bras.
 
 \subsubsection{Effet de la moyenne de la loi prior avec variance <<bonne>>}
 
@@ -326,7 +287,8 @@ On obtient la figure suivante
 \label{figure: moyenne décalée 1}
 \caption{Comparaisons de la performance selon des priors de variances égale à la longueur de l'intervalle et de moyennes variables.}
 \begin{center}
-\includegraphics[scale=0.5]{etude_moyenne_decale_var10.png} 
+%\includegraphics[scale=0.5]{etude_moyenne_decale_var10.png} 
+\includegraphics[scale=0.5]{moyenne_decentree_variance_bonne_N=200.pdf}
 \end{center}
 \end{figure}
 
@@ -346,13 +308,106 @@ On obtient la figure suivante
 \label{figure: moyenne décalée 1}
 \caption{Comparaisons de la performance selon des priors de variances égalent à 3 et moyennes variables.}
 \begin{center}
-\includegraphics[scale=0.5]{etude_moyenne_decale_var3.png} 
+%\includegraphics[scale=0.5]{etude_moyenne_decale_var3.png} 
+\includegraphics[scale=0.5]{moyenne_decentree_variance_petite_N=200.pdf}
 \end{center}
 \end{figure}
 
-On voit qu'ici, avec une variance des priors plus petite, un même décalage de la moyenne $\mu_0$ par rapport au centre de l'intervalle semble être plus coûteux que dans l'expérience précédente. D'ailleurs, le cas $\mu_0=9$ semble en être un bon exemple car il atteint une regret cumulatif moyen final plus élevé que le cas $\mu_0=5$ dans le cas où la variance était de 10. Conséquemment, si l'information que l'on a sur les $\lambda$ (intervalle de possibilité) n'est pas bonne pour fixer les priors, lancer un tel algorithme avec une variance trop petite peut avoir un impact sur la performance, notamment si par malchance on choisit un prior avec $\mu_0$ décalé du centre du réel intervalle des valeurs possibles de $\lambda.$\\
+On voit qu'ici, avec une variance des priors plus petite, un même décalage de la moyenne $\mu_0$ par rapport au centre de l'intervalle semble être plus coûteux que dans l'expérience précédente. D'ailleurs, le cas $\mu_0=9$ semble en être un bon exemple car il atteint une regret cumulatif moyen final plus élevé que le cas $\mu_0=5$ dans le cas où la variance était de 10 (voir expérience précédente). Conséquemment, si l'information que l'on a à priori sur les $\lambda$ (intervalle de possibilité) n'est pas bonne pour fixer les priors, lancer un tel algorithme avec une variance trop petite peut avoir un impact sur la performance, notamment si par malchance on choisit un prior avec $\mu_0$ décalé du centre du réel intervalle des valeurs possibles de $\lambda.$\\
 
-En conclusion, à la lumière des simulations effectuées, les priors semblent devoir être choisis pour couvrir raisonnablement bien l'intervalle des valeurs possibles de $\lambda.$ On pourrait suggérer de prendre la distribution prior telle que $\mu_0$ est le centre de l'intervalle et $\sigma^2_0$ la longueur de l'intervalle. Selon nos simulations, cela semble être un choix raisonnable.
+En conclusion, à la lumière des simulations effectuées, les priors semblent devoir être choisis pour couvrir raisonnablement bien l'intervalle des valeurs possibles de $\lambda.$ On pourrait suggérer de prendre la distribution prior telle que $\mu_0$ est le centre de l'intervalle et $\sigma^2_0$ la longueur de l'intervalle. Selon nos simulations (notamment avec $N=1000$ non-présenté ici), cela semble être un choix raisonnable.
 
+\section{No 4}
+
+\subsection{Contexte}
+
+On considère le cas d'un bandit contextuel à $M$ actions avec un espace de contexte $S.$ Dans ce <<setting>>, à chaque temps $t,$ l'agent observe un contexte $s_t$ à partir duquel il doit sélectionner une actions $m_t\in{1,2,\ldots,M}$ et observer un reward $r_t=f_{m_t}(s_t)+\eta_t$ où $\eta_t\sim\mathcal{N}(0,\sigma^2).$ La figure suivante montre une situation hypothétique avec un contexte $S=[0,1]$ et $M=2$ actions. 
+
+\begin{figure}[H]
+\caption{Illustration d'un contexte de bandit contextuel}\label{figure: contexte}
+\begin{center}
+%\includegraphics[scale=0.5]{etude_moyenne_decale_var3.png} 
+\includegraphics[scale=0.5]{image_contexte_no4.pdf}
+\end{center}
+\end{figure}
+
+On désire définir l'algorithme Kernel Thompson Sampling dans cette situation. En s'inspirant de \textit{Durand, A., Maillard, O. A., et Pineau, J. (2018)}, on arrive au pseudo-code suivant.
+  
+\subsection{Pseudo-code}
+
+Entrées de l'algorithme:\\
+
+\begin{itemize}
+\setlength\itemsep{0.2cm}
+
+\item
+Pour $1\leq t \leq T$ 
+
+\begin{itemize}
+\item
+Pour chaque bras $m=1,2,\ldots,M$
+
+\begin{itemize}
+\item
+Calculer les moyennes posteriors $\widehat{f}_{t-1,m}=(f_{\lambda_t,t-1,m}(s))_{s\in\mathbb{S}}$
+
+\item
+Calculer la covariance posteriors $\widehat{\Sigma}_{t-1,m} = \dfrac{\sigma^2_{+,t-1}}{\lambda_t}\left(k_{\lambda_t,t-1}(s,s')\right)_{(s,s')\in\mathbb{S}}$
+
+\item
+échantillonner $\widetilde{f}_{t,m}=\mathcal{N}\left(\widehat{f}_{t-1,m}\,;\,v^2_t\,\widehat{\Sigma}_{t-1,m}\right)$
+
+\end{itemize}
+\item
+observer un contexte $s_t\in\mathbb{S}$
+
+\item
+$m_t = \underset{m}{\mathrm{argmax}} \tilde{f}_{t,m}(s) $
+
+\item
+Jouer l'action $m_t$
+
+\item
+Observer un reward: $y_t=f_{m_t}(s_t)+\eta_t$
+
+\end{itemize}
+
+\end{itemize}
+
+\subsubsection{Détails de l'implémentation}
+
+Pour simplifier l'algorithme, on lui passera simplement $\sigma$ comme valeur de $\sigma^2_{+,t-1}$ et on prendra $\lambda=\sigma^2$ étant donner que les fonctions de rewards seront des fonctions polynomiales dont les coefficients sont les éléments d'un vecteur $\theta$ de norme 1. \textbf{Aussi, notons que le pseudo-code précédent conserve la forme de l'article, alors que pour l'implémentation, on initialisera $\widehat{f}$ et $\widehat{\Sigma}$ pour chaque bras avant le premier tirage de $\tilde{f},$ ensuite, à la fin de chaque itération, $\widehat{f}$ et $\widehat{\Sigma}$ seront calculés avec l'aide d'un <<Gaussian Process Regressor>>}. Aussi, l'espace de contexte $\mathcal{S}$ s'est vue discrétisée en $\mathbb{S}$ pour faciliter l'implémentation. De plus, dans le Gaussian Process Regressor, nous avons utilisé un noyau RBF avec une bandwidth de 1 dans l'expérience ci-dessous. Finalement, comme écrit dans l'article de référence au sujet des performances en pratiques, nous avons choisi un $v_t^2$ de 1. 
+
+\subsection{Expérimentation}
+
+On a joué l'algorithme sur un horizon $T=100$ sur une instance des deux bandits dont le graphe des rewards moyen est présenté à la figure \ref{figure: contexte}. Les figures suivantes montrent les fonction $\widehat{f}$ pour chacune des deux actions selon le nombre de tours joués.
+
+\begin{figure}[H]
+\caption{Évolution des posteriors}
+\label{figure: évolution des posteriors}
+\begin{center}
+
+\includegraphics[scale=0.45]{KTS-0-tour.png} \hfill \includegraphics[scale=0.45]{KTS-2-tours.png}
+
+\includegraphics[scale=0.45]{KTS-7-tours.png} \hfill \includegraphics[scale=0.45]{KTS-99-tours.png}
+
+%\includegraphics[scale=0.5]{posterior_tour100.png}
+
+\end{center}
+\end{figure}
+
+On peut voir que l'algorithme estime de mieux en mieux les fonctions des moyennes des rewards à mesure qu'il joue. On voit qu'à la fin, le graphe estimé est très près des vrais graphiques représentant les actions montrés à la figure \ref{figure: contexte}.\\
+
+Voici le pseudo regret cumulatif pour la même expérience
+
+\begin{figure}[H]
+\label{figure: pseudo KTS}
+\caption{Performance de Kernel Thompson Sampling}
+\begin{center}
+%\includegraphics[scale=0.2]{pseudo-KTS.png}
+\end{center}
+\end{figure}
+
+On voit un comportement typique pour ce type d'algorithme, c'est-à-dire que celui-ci cumule du regret passablement souvent au début à mesure qu'il cumule de l'information pour ensuite être bien en selle pour choisir presque tout le temps l'action optimale. On peut voir dans le graphique certaines brisures suivies de plateaux même pour de grands $t$, ces brisures sont potentiellement associées à des moments où le contexte $s$ donné à l'agent était problématique, étant près de l'abscisse d'intersection entre les deux courbes d'action, ce qui peut produire un mauvais choix de l'action optimale. 
 
 \end{document}
