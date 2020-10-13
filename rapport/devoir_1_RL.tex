@@ -87,9 +87,14 @@ Il va avoir tendance à converger vers des actions sous-optimal due à leurs exp
 Pour appuyer cela, nous avons réalisé plusieurs experiences avec à chaque fois une instance de two armed bandits.
 À chaque pas de temps, notre gap variera et nous enregistrerons les performances, c'est-à-dire la probabilité de choisir la mauvaise action.
 
-Nous pouvons voir grâce à la figure 1, que plus le gap va être petit, plus la probabilité d'erreur va être élevée. On peut aussi en déduire que tout gap supérieur à 0.2 positifs ou négatif échouera avec une probabilité d’au moins 20.
+Nous pouvons voir grâce à la figure 1, que plus le gap va être petit, plus la probabilité d'erreur va être élevée. On peut aussi en déduire que tout gap supérieur à 0.2 positifs ou négatif échouera avec une probabilité d’au moins 20\%.
+
+Pour cette expérience, nous avons utilisé des instances de bandit $\mu_1 = 0.1$ et $\mu_2 = 0.9$ en incrémentant $\mu_1$ de 0.01 et en décrémentant $\mu_2$ de 0.01 à chaque itération. Pour chaque itération, l'instance est jouée $N = 200$ et $T = 2 m +1$ pour connaitre quelle sera le bras choisi comme étant optimal.
+
+En observant le graphique, on peut facilement conclure que les instances de bandits ayant un gap de moins de 0.2 ont une probabilité d'échoué de plus de 20\%. Cela implique que pour notre expérience, l'instance avec $\mu_1 = 0.49$ et $\mu_2 = 0.51$ donne une instance avec une grande probabilité d'échec qui est grandement suppérieur à 20\%, comme nous pouvons le constater sur la figure \ref{fig: no1_1}.
 
 \begin{figure}[H]
+\caption{Étude de la probabilité d'échoué selon le gap}
 \label{fig: no1_1}
 \begin{center}
 \includegraphics[scale=0.8]{fig1_no1_1.png}
@@ -98,22 +103,23 @@ Nous pouvons voir grâce à la figure 1, que plus le gap va être petit, plus la
 
 
 \subsection{Optimisation de l'algorithme epsilon-greedy}
-Pour rendre l'algorithme epsilon-greedy optimiste, nous avons procédé à une expérience comparative sur des bandits à distribution normale.
+Pour rendre l'algorithme $\epsilon$-greedy optimiste, nous avons procédé à une expérience comparative sur des bandits à distribution normale.
 
-Dans un premier temps, nous avons généré N instances de two armed bandits et pour chaque instance nous avons minimisé le regret.
+Dans un premier temps, nous avons généré $N=500$ instances de two armed bandits avec bras de moyenne et écart-type entre 0 et 1.
 
 Pour l'expérience 1, nous avons initialisé les estimateurs empiriques à 0 et pour l'expérience 2, nous les avons initialisés à 1.
 
-Nous avons ensuite affiché les pseudos regret cumulatif de ses 50 instances dans un graphique.
+Nous avons ensuite affiché les pseudos regret cumulatif de ses 500 instances dans un graphique.
 Pour que l'effet soit bien perceptible et non biaisé par l'aléatoire, il est important de prendre un grand nombre d'instances de bandits.
 
 Nous pouvons constater à première vu que le pseudo regret cumulatif moyen de l'expérience 2 est lègèrement plus petit.
-En initialisant les estimateurs empiriques à 1, nous augmentons les chances que le premier tirage ne biaise pas le résultat final.
+En initialisant les estimateurs empiriques à 1, nous augmentons les chances que les premiers tirages ne biaisent pas le résultat final.
 
 
 \begin{figure}[H]
 \label{fig: no1_2}
 \begin{center}
+\caption{Comparaison de l'algorithme $\epsilon$-greedy optimiste et non optimiste}
 \includegraphics[scale=0.8]{fig2_no1_2.png}
 \end{center}
 \end{figure}
@@ -132,7 +138,7 @@ On considère un bandit à $K$ bras sur un horizon de temps de T
 
 \item $N[t] = N[t]+1$
 
-\item $S[t] = S[t]+Gain(t)$
+\item $S[t] = S[t]+Play(t)$
 
 \end{itemize}
 
@@ -144,7 +150,7 @@ On considère un bandit à $K$ bras sur un horizon de temps de T
 
 \item $N[k_t] = N[k_t]+1$
 
-\item $S[k_t] = S[k_t]+Gain(k_t)$
+\item $S[k_t] = S[k_t]+Play(k_t)$
 
 \end{itemize}
 
@@ -152,27 +158,31 @@ On considère un bandit à $K$ bras sur un horizon de temps de T
 \end{itemize}
 
 \begin{equation}
-d(p,q) = p \log \frac{p}{q} + (1-p) \log \frac{1-p}{1-q}
-\end{equation}\label{eq: differentien_bernoulli}
-
-\begin{equation}
-max \left\{ q \in \Theta : N[a] d\left(\frac{S[a]}{N[a]},q\right) \leq \log(t) + c \log(\log(t)) \right\}
-\label{eq: ucb_bernoulli}
+\label{eq: differentien_bernoulli}
+d(p,q) = p~ \log \frac{p}{q} + (1-p) \log \frac{1-p}{1-q}
 \end{equation}
+
+\begin{equation}
+\label{eq: ucb_bernoulli}
+max \left\{ q \in \Theta : N[a]~d\left(\frac{S[a]}{N[a]}, ~q\right) \leq \log(t) + c ~ \log(\log(t)) \right\}
+\end{equation}
+\\
+
+Pour le pseudocode qui précède l'équation \ref{eq: differentien_bernoulli} est la divergence de Kullback-Leibler et l'équation \ref{eq: ucb_bernoulli} représente la borne maximale sur l'intervale de confiance (UCB). N[i] représente le nombre de fois où l'action i à été jouée et S[i] cumule les rewards de l'action i.
 
 \subsection{Implementation bernoulli}
 
-Pour implementer cet algorithme, on doit utiliser un optimiseur numerique, car il n'existe pas de forme fermée lorsque les recompenses suivent une distrubution bernoulli.
+Pour implementer cet algorithme, on doit utiliser un optimiseur numerique, car il n'existe pas de forme fermée lorsque les récompenses suivent une distrubution bernoulli.
 De plus, l'implémentation inclu un bris d'égalité.
 Ainsi si 2 bras ont le même UCB et qu'ils représentent les bras avec le plus grand UCB alors l'algorithme choisira le bras ayant le plus petit nombre de jeu. Avec cette approche, on favorise l'exploration en cas d'égalité.
 
 \subsection{Implementation UCB Gaussienne}
 
-Pour l'implémentation de l'algorithme UCB gaussien il existe une forme fermée.
-Cette forme à été utilisée dans l'implémentation, car elle rend lèxécution du code beaucoup plus rapide, car il n'a pas d'optimisation à faire pour déterminer l'UCB.
+Pour l'implémentation de l'algorithme UCB gaussien il existe une forme fermée tel que vu dans le cours.
+Cette forme a donc été utilisée dans l'implémentation, car elle rend lèxécution du code beaucoup plus rapide, car il n'a pas d'optimisation à faire pour déterminer l'UCB.
 
 Pour calculer la borne UCB gaussien, l'ecart-type doit être connu, mais ce n'est pas le cas pour la configuration de bandit utilisée.
-L'écart-type maximale d'une distribution bernoulli est donc utilisee (0.25).
+L'écart-type maximale d'une distribution bernoulli est donc utilisée (0.5).
 
 \subsection{Comparaison des modèles}
 On peut observer que les deux modèles performent bien sur des bandits bernoulli.
@@ -180,9 +190,9 @@ Les deux modèles ont un regret cumulatif sous linéaire, mais le modèle utilsa
 Cela peut être dut au fait qu'avec le modèle qui utilise la borne KL UCB pour des bandits gaussien utilise une borne avec une variance de 0.25.
 Cette variance est utilisée, car elle représente la variance maximale dans un bandit bernoulli ainsi, elle permet de conserver des garanties.
 Par contre l'utilisation de cette borne cause une sur exploration.
-On peut observer l'effet de la sur exploration dans \ref{fig: kl_ucb}.
+On peut observer l'effet de la sur exploration dans la figure \ref{fig: kl_ucb}.
 On peut aussi observer que la variance semble un peu plus élevée pour le KL UCB optimisé.
-Cela peut être dut au fait que relativement peu d'instances ont été générées.
+Cela peut être du au fait que relativement peu d'instances ont été générées.
 
 \begin{figure}[H]
 \caption{Évolution des posteriors}
@@ -193,7 +203,7 @@ Cela peut être dut au fait que relativement peu d'instances ont été généré
 \end{center}
 \end{figure}
 
-\section{No 3}
+\section{Algorithme Thompson Sampling (TS)}
 
 \subsection{Rappel sur la loi de gamma}
 
@@ -244,7 +254,7 @@ f(x; \lambda) =
 
 où $\lambda$ est un paramètre. L'espérance est $\mu=\lambda$ et la variance $\sigma^2=\lambda.$
 
-\subsection{Algorithme Thomas Sampling pour des bandits à distribution Poisson }
+\subsection{Algorithme Thompson Sampling pour des bandits à distribution Poisson }
 
 Pour des bandits à distributions de Poisson, c'est-à-dire dans le cas où chaque bras génère un reward selon une loi de Poisson de paramètre $\lambda$ inconnu, le conjugué à utilisé est la loi gamma\footnote{Voir la page web citée au cours: https://en.wikipedia.org/wiki/Conjugate\_prior}.\\
 
@@ -256,7 +266,7 @@ Plus précisément, après $n$ observations $x_1,x_2,...,x_n$ tirées d'une loi 
 
 où $\alpha_0$ et $\beta_0$ sont les paramètres de la distribution de gamma prior, ils correspondent donc aux paramètres choisis permettant d'initier la distribution.\\
 
-Cela mène au pseudo-code suivant pour un algorithme Thomas Sampling joué sur un horizon $T$ sur des bandits à $K$ bras à distribution de Poisson.
+Cela mène au pseudo-code suivant pour un algorithme Thompson Sampling joué sur un horizon $T$ sur des bandits à $K$ bras à distribution de Poisson.
 
 \subsubsection{Pseudo-code}
 
@@ -429,7 +439,7 @@ On voit qu'ici, avec une variance des priors plus petite, un même décalage de 
 
 En conclusion, à la lumière des simulations effectuées, les priors semblent devoir être choisis pour couvrir raisonnablement bien l'intervalle des valeurs possibles de $\lambda.$ On pourrait suggérer de prendre la distribution prior telle que $\mu_0$ est le centre de l'intervalle et $\sigma^2_0$ la longueur de l'intervalle. Selon nos simulations (notamment avec $N=1000$ non-présenté ici), cela semble être un choix raisonnable.
 
-\section{No 4}
+\section{Bandits contextuels et structurés}
 
 \subsection{Contexte}
 
@@ -509,6 +519,9 @@ On a joué l'algorithme sur un horizon $T=100$ sur une instance des deux bandits
 \end{figure}
 
 On peut voir que l'algorithme estime de mieux en mieux les fonctions des moyennes des rewards à mesure qu'il joue. On voit qu'à la fin, le graphe estimé est très près des vrais graphiques représentant les actions montrés à la figure \ref{figure: contexte}.\\
+
+Pour une action donnée, on observe que pour les contextes qui la favorisent, l'estimation de la courbe est meilleur que l'estimation de la de la courbe pour les contextes qui défavorisent cette action. Cela est du au fait que pour les contextes qui défavorisent une action, l'action est très rarement jouée, donc il est difficile pour l'estimateur de connaitre la géométrie la courbe de l'action dans ces contextes.
+\\
 
 Voici le pseudo regret cumulatif pour la même expérience
 
