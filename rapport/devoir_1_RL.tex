@@ -61,7 +61,35 @@
 
 %\includepdf{devoir1RotationsFranA2018.pdf}
 
+
 \section{No 1}
+
+\subsection{Experience sur l'algorithme ETC}
+L'algorithme ETC (explore then commit) n'est pas uniformément efficace, c'est-à-dire qu'il souffrira d'un regret linéaire pour les instances plus difficiles.
+Il va avoir tendance à converger vers des actions sous-optimal due à leurs exploration limitée.
+
+Pour appuyer cela, nous avons réalisé plusieurs experiences avec à chaque fois une instance de two armed bandits.
+À chaque pas de temps, notre gap variera et nous enregistrerons les performances, c'est-à-dire la probabilité de choisir la mauvaise action.
+
+Nous pouvons voir grâce à la figure 1, que plus le gap va être petit, plus la probabilité d'erreur va être élevée. On peut aussi en déduire que tout gap supérieur à 0.2 positifs ou négatif échouera avec une probabilité d’au moins 20 /\.
+
+% ajouter la figure 1 ici -> fig1_no1_1.png
+
+\subsection{Optimisation de l'algorithme epsilon-greedy}
+Pour rendre l'algorithme epsilon-greedy optimiste, nous avons procédé à une expérience comparative sur des bandits à distribution normale.
+
+Dans un premier temps, nous avons généré N instances de two armed bandits et pour chaque instance nous avons minimisé le regret.
+
+Pour l'expérience 1, nous avons initialisé les estimateurs empiriques à 0 et pour l'expérience 2, nous les avons initialisés à 1.
+
+Nous avons ensuite affiché les pseudos regret cumulatif de ses 50 instances dans un graphique.
+Pour que l'effet soit bien perceptible et non biaisé par l'aléatoire, il est important de prendre un grand nombre d'instances de bandits.
+
+Nous pouvons constater à première vu que le pseudo regret cumulatif moyen de l'expérience 2 est lègèrement plus petit.
+En initialisant les estimateurs empiriques à 1, nous augmentons les chances que le premier tirage ne biaise pas le résultat final.
+
+% ajouter la figure 2 ici -> fig2_no1_2.png
+
 
 \section{KL UCB}
 
