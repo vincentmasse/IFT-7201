@@ -5,11 +5,13 @@ import numpy as np
 import gym
 import torch
 
+from collections import deque
 
 class ReplayBuffer:
     def __init__(self, buffer_size):
         self.__buffer_size = buffer_size
         # TODO : Add any needed attributes
+        self.buffer = deque(maxlen=buffer_size)
 
     def store(self, element):
         """
@@ -17,6 +19,7 @@ class ReplayBuffer:
         element to make space.
         """
         # TODO : Implement
+        self.buffer.append(element)
         pass
 
     def get_batch(self, batch_size):
@@ -24,7 +27,8 @@ class ReplayBuffer:
         Returns a list of batch_size elements from the buffer.
         """
         # TODO : Implement
-        pass
+        buffer_list = list(self.buffer)
+        return buffer_list[-batch_size:]
 
 
 class DQN(Model):
