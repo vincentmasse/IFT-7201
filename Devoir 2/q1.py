@@ -106,7 +106,8 @@ def format_batch(batch, target_network, gamma):
     states = list(x[0])
     actions = [target_network.get_action(state, 0) for state in states]
     targets = [gamma*action for action in actions]
-    return states, list(zip(actions, targets))
+    act_targ = [list(result) for result in zip(actions, targets)]
+    return states, act_targ
 
 
 
