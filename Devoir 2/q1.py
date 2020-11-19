@@ -29,9 +29,8 @@ class ReplayBuffer:
         """
         Returns a list of batch_size elements from the buffer.
         """
-        # TODO : Implement
         buffer_list = list(self.data)
-        return buffer_list[-batch_size:]
+        return random.sample(buffer_list, batch_size)
 
 
 class DQN(Model):
@@ -47,7 +46,8 @@ class DQN(Model):
         if bernoulli.rvs(epsilon):
             action = random.choice(self.actions)
         else:
-            action = np.argmax(state)
+            pred_r = self.predict(state)
+            action = self.actions[np.argmax(pred_r)]
         return action
 
 
@@ -102,7 +102,12 @@ def format_batch(batch, target_network, gamma):
                       and targets are the one-step lookahead targets.
     """
     # TODO: Implement
-    pass
+    x = list(zip(*batch))
+    states = list(x[0])
+    actions = [target_network.get_action(state, 0) for state in states]
+    targets = [gamma*action for action in actions]
+    return states, list(zip(actions, targets))
+
 
 
 def dqn_loss(y_pred, y_target):
@@ -117,8 +122,10 @@ def dqn_loss(y_pred, y_target):
     Returns :
         - The DQN loss 
     """
-    # TODO: Implement
-    pass
+    actions, targets = y_target
+    q_pred = y_pred.gather(1, actions.unsqueeze(-1)).squeeze()
+
+    return torch.nn.functional.mse_loss(q_pred, targets)
 
 
 def set_random_seed(environment, seed):
