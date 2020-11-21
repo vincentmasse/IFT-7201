@@ -123,7 +123,9 @@ FONCTION DE PERTE CI-DESSUS À MODIFIER (Je ne suis pas certain que c'est ça qu
 
 \begin{enumerate}[label=(\alph*)]
 
-\item
+\item \textbf{Exploration}\\
+Puisque l'on initialise les $Q(s, a)=0$ et que la fonction de reward donne un reward de -1 a tous les frame ou l'auto n'atteint pas le drapeau, cela revient à faire une initialisation optimiste.
+En effet, en initialisant tous les $Q$\_vals =0, tous les essaies feront pire, ainsi cela force l'algorithme à essayer les autres actions possibles.
 
 \item
 
