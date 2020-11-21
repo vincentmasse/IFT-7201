@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2019.1.1)  21 NOV 2020 01:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2019.1.1)  21 NOV 2020 12:56
 entering extended mode
 **./devoir_2_RL.tex
 (devoir_2_RL.tex
@@ -1432,17 +1432,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
-<gains.pdf, id=10, 517.21667pt x 497.48233pt>
+<gains.pdf, id=10, 510.83345pt x 497.48233pt>
 File: gains.pdf Graphic file (type pdf)
 <use gains.pdf>
-Package pdftex.def Info: gains.pdf  used on input line 104.
-(pdftex.def)             Requested size: 225.21626pt x 216.6232pt.
-<pertes.pdf, id=11, 508.81027pt x 497.48233pt>
+Package pdftex.def Info: gains.pdf  used on input line 105.
+(pdftex.def)             Requested size: 225.21626pt x 219.32558pt.
+<pertes.pdf, id=11, 502.42705pt x 497.48233pt>
 File: pertes.pdf Graphic file (type pdf)
 <use pertes.pdf>
-Package pdftex.def Info: pertes.pdf  used on input line 104.
-(pdftex.def)             Requested size: 225.21626pt x 220.20613pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 124.
+Package pdftex.def Info: pertes.pdf  used on input line 105.
+(pdftex.def)             Requested size: 225.21626pt x 222.9996pt.
+<gain_par_pas.pdf, id=12, 644.68356pt x 497.07457pt>
+File: gain_par_pas.pdf Graphic file (type pdf)
+<use gain_par_pas.pdf>
+Package pdftex.def Info: gain_par_pas.pdf  used on input line 115.
+(pdftex.def)             Requested size: 322.34099pt x 248.53667pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.1595pt.
@@ -1456,31 +1460,40 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning: pdflatex.exe (file ./pertes.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
 >]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 133.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.1595pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3 <./gain_par_pas.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 133.
  (devoir_2_RL.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 133.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 133.
 Package rerunfilecheck Info: File `devoir_2_RL.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 124.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 133.
  ) 
 Here is how much of TeX's memory you used:
- 31803 strings out of 492946
- 576032 string characters out of 3135510
- 722259 words of memory out of 3000000
- 35183 multiletter control sequences out of 15000+200000
+ 31809 strings out of 492946
+ 576162 string characters out of 3135510
+ 722260 words of memory out of 3000000
+ 35187 multiletter control sequences out of 15000+200000
  572553 words of font info for 54 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,11n,71p,677b,791s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 68i,11n,71p,677b,1008s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C
 :/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi
 10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/l
 mr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm
 /lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb>
-Output written on devoir_2_RL.pdf (2 pages, 203161 bytes).
+Output written on devoir_2_RL.pdf (3 pages, 217787 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 15 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 169 PDF objects out of 1000 (max. 8388607)
+ 16 named destinations out of 1000 (max. 500000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
