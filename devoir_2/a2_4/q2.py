@@ -17,62 +17,112 @@ def set_random_seed(environment, seed):
     environment.seed(seed)
     np.random.seed(seed)
 
+"""
+def get_expected_reward(tile_coder, theta, state, action, traces):
+    feature_indices = tile_coder.phi(state, action)
+    estimation = np.sum(theta[feature_indices])
+
+    traces[feature_indices] = 1
+
+    return estimation
+"""
+
 
 def sarsa_linear_fa(tile_coder, theta, state, actions):
     phis_indices = np.array([tile_coder.phi(state, action) for action in actions])
     actions_vals = []
-    print(state.shape)
-    for tiles_indices in phis_indices:
-        actions_vals.append(sum(np.take(theta, tiles_indices)))
 
-    return actions_vals
+    for tiles_indices in phis_indices:
+        actions_vals.append(np.sum(theta[tiles_indices]))
+
+    return actions_vals, phis_indices
 
 
 def choose_action(q_vals):
     return np.argmax(q_vals)
 
 
-def get_targets(next_q_vals, next_action, reward, gamma):
-    target = reward + gamma + next_q_vals[next_action]
+def get_delta(reward, q_vals, action, next_q_vals, next_action, gamma):
+    delta = reward + (gamma * next_q_vals[next_action]) - q_vals[action]
 
-    return target
-
-
-def update_theta(tile_coder, theta, state, action, target, q_vals, lr):
-    predicted = q_vals[action]
-    diff = target - predicted
-    phi = sum(np.take(theta, tile_coder.phi(state, action)))
-
-    grad = -2 * diff * phi
-    theta -= lr * grad
+    return delta
 
 
-def sarsa_algorithm(environment, tile_coder, theta, n_episodes=300, max_steps=200, gamma=1, learning_rate=0.1):
+def update_traces(traces, gamma, lmbda):
+    traces *= gamma * lmbda
+
+
+def update_theta(theta, estimation, target, traces, lr):
+    delta = target - estimation
+    theta += lr * delta * traces
+
+
+def replace_traces(action, features, traces):
+    traces[features[action]] = 1
+
+
+def sarsa_algorithm(environment, tile_coder, n_episodes=300, max_steps=200, gamma=1, lmbda=0.9, learning_rate=0.1):
+    theta = np.zeros(tile_coder.size)
     actions = list(range(environment.action_space.n))
+    G_episode_cum = 0
 
     for n_episode in range(n_episodes):
-        state = environment.reset()
-        action = choose_action(sarsa_linear_fa(tile_coder, theta, state, actions))
+        traces = np.zeros(tile_coder.size)
         G = 0
 
+        state = environment.reset()
         for step in range(max_steps):
-            next_state, r, done, _ = environment.step(action)
-            if done:
-                break
-            G += r
-            q_vals = sarsa_linear_fa(tile_coder, theta, next_state, actions)
-            next_action = choose_action(q_vals)
+            q_vals, features = sarsa_linear_fa(tile_coder, theta, state, actions)
+            action = choose_action(q_vals)
+            replace_traces(action, features, traces)
 
-            target = get_targets(q_vals, next_action, r, gamma)
-            update_theta(tile_coder, theta, state, action, target, q_vals, learning_rate)
+            next_state, r, done, _ = environment.step(action)
+
+            G += r
+
+            # delta = r - q_vals[action]
+
+            if done:
+                target = r
+                update_theta(theta, q_vals[action], target, traces, learning_rate)
+                break
+
+            next_q_vals, _ = sarsa_linear_fa(tile_coder, theta, next_state, actions)
+            next_action = choose_action(next_q_vals)
+
+            target = r + gamma * next_q_vals[next_action]
+            update_theta(theta, q_vals[action], target, traces, learning_rate)
+            update_traces(traces, gamma, lmbda)
 
             state = next_state
-            action = next_action
 
-        if n_episode % 10 == 0:
-            print(f'After {n_episode} episode, we have G_0 = {G:.2f}')
+        print(f'After {n_episode} episode, we have G_0 = {G:.2f}')
+        G_episode_cum += G
+        if n_episode % 100 == 0:
+            print(f'--------CUMULATIVE G MEAN : {G_episode_cum/100:.2f}--------')
+            G_episode_cum = 0
+
 
     return theta
+
+
+def test_model(theta):
+    environment = gym.make("MountainCar-v0")
+    set_random_seed(environment, seed)
+    tile_coder = get_tile_coder(environment)
+    env = gym.wrappers.Monitor(environment, "demos", force=True)
+
+    actions = list(range(environment.action_space.n))
+    done = False
+
+    s = environment.reset()
+    while not done:
+        env.render()
+        q_vals, _ = sarsa_linear_fa(tile_coder, theta, s, actions)
+        action = np.argmax(q_vals)
+        next_s, r, done, _ = environment.step(action)
+        s = next_s
+    env.close()
 
 
 def main(seed):
@@ -80,9 +130,10 @@ def main(seed):
 
     set_random_seed(environment, seed)
     tile_coder = get_tile_coder(environment)
-    theta = np.zeros(tile_coder.size)
 
-    sarsa_algorithm(environment, tile_coder, theta)
+    theta = sarsa_algorithm(environment, tile_coder)
+    test_model(theta)
+
 
 if __name__ == "__main__":
     seed = 42
