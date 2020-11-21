@@ -102,13 +102,22 @@ def format_batch(batch, target_network, gamma):
                       and targets are the one-step lookahead targets.
     """
     # TODO: Implement
-    x = list(zip(*batch))
-    states = list(x[0])
-    actions = [target_network.get_action(state, 0) for state in states]
-    targets = [gamma*action for action in actions]
-    act_targ = [list(result) for result in zip(actions, targets)]
-    return states, act_targ
 
+    states = np.array([x[0] for x in batch])
+    actions_taken = np.array([x[1] for x in batch])
+    rewards = np.array([x[2] for x in batch])
+    next_states = np.array([x[3] for x in batch])
+    terminal = np.array([x[4] for x in batch])
+
+    next_qvals_predicted = target_network.predict(next_states)
+
+    next_actions_vals_selected = np.max(next_qvals_predicted, axis=1)
+
+    targets = rewards + gamma * next_actions_vals_selected * (1 - terminal)
+
+    act_targ = (actions_taken.astype(np.int64), targets.astype(np.float32))
+
+    return states, act_targ
 
 
 def dqn_loss(y_pred, y_target):
@@ -123,16 +132,38 @@ def dqn_loss(y_pred, y_target):
     Returns :
         - The DQN loss 
     """
+    # C'est essentiellement le même travail que ce qui est fait dans update_theta
+    # sauf (1) qu'on le fait en PyTorch et les fonctions n'ont pas le même nom
+    # et (2) on ne calcule pas le gradient nous-mêmes, on fait juste donner la perte.
+    # C'est PyTorch qui fait la descente de gradient pour nous.
+
     actions, targets = y_target
     q_pred = y_pred.gather(1, actions.unsqueeze(-1)).squeeze()
 
     return torch.nn.functional.mse_loss(q_pred, targets)
 
-
 def set_random_seed(environment, seed):
     environment.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)  # NEW
+
+
+def run_dqn(agent):
+    environment = gym.make("LunarLander-v2")
+    set_random_seed(environment, seed=42)
+
+    env = gym.wrappers.Monitor(environment, "demo", force=True)
+
+    done = False
+    s = environment.reset().astype(np.float32)
+    while not done:
+        env.render()
+        q_vals = agent.predict(s)
+        action = np.argmax(q_vals)
+        next_s, r, done, _ = environment.step(action)
+
+        s = next_s.astype(np.float32)
+    env.close()
 
 
 # NEW : Added lr argument
@@ -156,16 +187,20 @@ def main(batch_size, gamma, buffer_size, seed, tau, training_interval, lr):
     episodes_done = 0
     steps_done = 0
     epsilon = 1.0
+    epsilon_decay = 0.9
+    epsilon_min = 0.01
 
     while not training_done:
         s = environment.reset()
         episode_done = False
+        G = 0
         while not episode_done:
             a = policy_net.get_action(s, epsilon)
             next_s, r, episode_done, _ = environment.step(a)
             replay_buffer.store((s, a, r, next_s, episode_done))
             s = next_s
             steps_done += 1
+            G += r
 
             if steps_done % training_interval == 0:
                 if len(replay_buffer.data) >= batch_size:
@@ -175,7 +210,16 @@ def main(batch_size, gamma, buffer_size, seed, tau, training_interval, lr):
                     target_net.soft_update(policy_net, tau)
 
         # TODO: update epsilon
+        epsilon = max(epsilon * epsilon_decay, epsilon_min)
+        if G > 200:
+            training_done = True
+
         episodes_done += 1
+
+        if (episodes_done + 1) % 10 == 0:
+            print(f"After {episodes_done + 1} trajectoires, we have G_0 = {G:.2f}, {epsilon:4f}")
+
+    return policy_net
 
 
 if __name__ == "__main__":
@@ -195,4 +239,6 @@ if __name__ == "__main__":
     lr = 5e-4  # NEW lr as parameter
 
     # NEW : pass lr to main()
-    main(batch_size, gamma, buffer_size, seed, tau, training_interval, lr)
+    dqn = main(batch_size, gamma, buffer_size, seed, tau, training_interval, lr)
+    run_dqn(dqn)
+
