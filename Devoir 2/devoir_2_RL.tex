@@ -1,5 +1,6 @@
 \documentclass[letterpaper,11pt]{article}
 \usepackage{etex}
+\usepackage{enumitem}
 \reserveinserts{28}
 \usepackage{amssymb}
 \usepackage{theorem}
@@ -76,14 +77,14 @@
 \chead{Devoir 2 (Automne 2020)}
 \rhead{Équipe 10}
 
+\section{Deep $Q$-learning}
 
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
 
-\item
-
-\begin{enumerate}
-
-\item 
+\item \textbf{État comme seule entrée}\\
+La fonction prennant en entrée seulement l'état permet d'avoir plus de flexibilités.
+Avec cette fonction il est possible d'avoir des poids différent pour chaque action ce qui n'est pas possible avec la fonction qui prent en entée (état-action).
+\item En effet, avec la fonction état action, on peut seulement ajouter des paramètres qui modifira la sortie pour la valeur Q, alors que pour la fonction qui prend seulement l'état en entrée, on a des poids différent pour chaque action.
 
 \item \textbf{Réseau cible}\\
 L'oubli catastrophique est le fait qu'un réseau de neurones oubli son apprentissage lorsqu'il doit apprendre une nouvelle tâche, c'est un peu comme s'il recommençait son apprentissage à 0. Le fait de fixer les poids $\theta$ dans la cible pendant plusieurs mise à jours permet de conserver une certaine stabilité pour permettre la convergence.
@@ -118,15 +119,13 @@ FONCTION DE PERTE CI-DESSUS À MODIFIER (Je ne suis pas certain que c'est ça qu
 
 \end{enumerate}
 
-\item No 2
+\section{SARSA}
 
-\begin{enumerate}
-
-\item
+\begin{enumerate}[label=(\alph*)]
 
 \item
 
-\end{enumerate}
+\item
 
 \end{enumerate}
 
