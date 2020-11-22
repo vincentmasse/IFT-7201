@@ -82,9 +82,8 @@
 \begin{enumerate}[label=(\alph*)]
 
 \item \textbf{État comme seule entrée}\\
-La fonction prennant en entrée seulement l'état permet d'avoir plus de flexibilités.
-Avec cette fonction il est possible d'avoir des poids différent pour chaque action ce qui n'est pas possible avec la fonction qui prent en entée (état-action).
-\item En effet, avec la fonction état action, on peut seulement ajouter des paramètres qui modifira la sortie pour la valeur Q, alors que pour la fonction qui prend seulement l'état en entrée, on a des poids différent pour chaque action.
+La fonction prenant en entrée seulement l'état permet d'avoir plus de flexibilités.
+Avec cette fonction, il est possible d'avoir des poids différents pour chaque action, ce qui n'est pas possible avec la fonction qui prend en entrée (état-action). En effet, avec la fonction état-action, on peut seulement ajouter des paramètres qui modifiera la sortie pour la valeur Q, alors que pour la fonction qui prend seulement l'état en entrée, on a des poids différent pour chaque action.
 
 \item \textbf{Réseau cible}\\
 L'oubli catastrophique est le fait qu'un réseau de neurones oubli son apprentissage lorsqu'il doit apprendre une nouvelle tâche, c'est un peu comme s'il recommençait son apprentissage à 0. Le fait de fixer les poids $\theta$ dans la cible pendant plusieurs mise à jours permet de conserver une certaine stabilité pour permettre la convergence.
@@ -95,10 +94,10 @@ Si $\tau$ est trop grand, la cible est trop modifié, ce qui risque de compromet
 \item \textbf{Replay buffer}\\
 L'avantage de son utilisation est de briser la corrélation entre les échantillons utilisés lors de la mise à jour (le tuple $(s_t, a_t, r_{t+1}, s_{t+1})$ et le tuple suivant $(s_{t+1}, a_{t+1}, r_{t+2}, s_{t+2})$ partage le même état $s_{t+1}$). Cela compromet l'apprentissage. Le fait de stocker les échantillons et d'échantillonner une mini-batch plusieurs fois au cours de l'épisode permet contourner ce problème. À COMPLÉTER  
 
-\item \text{Apprentissage supervisée}\\
+\item \textbf{Apprentissage supervisée}\\
 
 
-\item Graphiques...
+\item Parmi les défis d'implémentations auxquels on a fait face, l'un d'entre eux et la longueur d'un entraînement, cela a fait en sorte qu'il était difficile de tester différents paramètres d'entraînements et d'optimiser cette dernières. Une ressource de calcul plus puissante que nos ordinateurs personnels aurait sans doute permis de faire un plus large éventail de tests. Voici deux graphiques illustrant l'évolution des gains épisodiques durant l'entraînement ainsi que l'évolution épisodique de la fonction de perte.
 
 \begin{center}
 \begin{figure}[H]
@@ -109,7 +108,8 @@ L'avantage de son utilisation est de briser la corrélation entre les échantill
 
 FONCTION DE PERTE CI-DESSUS À MODIFIER (Je ne suis pas certain que c'est ça qu'il est demandé)
 
-
+Voici maintenant le graphique de la fonction de gain par pas de temps dans l'environnement pour un épisode joué par notre agent entraîner (donc par la politique apprise).
+ 
 \begin{figure}[H]
 \begin{center}
 \caption{}
@@ -124,8 +124,7 @@ FONCTION DE PERTE CI-DESSUS À MODIFIER (Je ne suis pas certain que c'est ça qu
 \begin{enumerate}[label=(\alph*)]
 
 \item \textbf{Exploration}\\
-Puisque l'on initialise les $Q(s, a)=0$ et que la fonction de reward donne un reward de -1 a tous les frame ou l'auto n'atteint pas le drapeau, cela revient à faire une initialisation optimiste.
-En effet, en initialisant tous les $Q$\_vals =0, tous les essaies feront pire, ainsi cela force l'algorithme à essayer les autres actions possibles.
+L'initialisation de la fonction de valeurs d'actions est associée à l'initialisation des estimateurs empiriques des actions dans l'approche des bandits. Dans cet environnement, puisque l'on initialise les $Q(s,a)=0$ et que la fonction de reward donne un reward de $-1$ à toutes les actions ou l'auto n'atteint pas le drapeau, cela revient à faire une initialisation optimiste de l'estimateur. En effet, en initialisant tous les $Q_{vals}=0,$ toutes les actions essayées feront pire que les actions dont la valeur est encore la valeur initiale, ainsi cela force l'algorithme à essayer les autres actions possibles.
 
 \item
 

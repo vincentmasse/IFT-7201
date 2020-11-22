@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2019.1.1)  21 NOV 2020 12:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2019.1.1)  22 NOV 2020 02:00
 entering extended mode
 **./devoir_2_RL.tex
 (devoir_2_RL.tex
@@ -23,12 +23,21 @@ File: size11.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
 Package: etex 2016/08/01 v2.7 eTeX basic definition package (PEB,DPC)
 \et@xins=\count88
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
+Package: enumitem 2018/11/30 v3.6 Customized lists
+\enitkv@toks@=\toks14
+\labelindent=\skip43
+\enit@outerparindent=\dimen103
+\enit@toks=\toks15
+\enit@inbox=\box27
+\enitdp@description=\count89
+)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks14
+\@emptytoks=\toks16
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
@@ -36,10 +45,10 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\theorem.sty"
 Package: theorem 2014/10/28 v2.2c Theorem extension package (FMi)
-\theorem@style=\toks15
-\theorem@bodyfont=\toks16
-\theorempreskipamount=\skip43
-\theorempostskipamount=\skip44
+\theorem@style=\toks17
+\theorem@bodyfont=\toks18
+\theorempreskipamount=\skip44
+\theorempostskipamount=\skip45
  ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\thp.sty"
 File: thp.sty 2014/10/28 v2.2c Theorem extension package (FMi)
 ))
@@ -48,7 +57,7 @@ Package: geometry 2018/04/16 v5.8 Page Geometry
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks17
+\KV@toks@=\toks19
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
@@ -60,18 +69,18 @@ Package ifvtex Info: VTeX not detected.
 ("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count89
-\Gm@cntv=\count90
-\c@Gm@tempcnt=\count91
-\Gm@bindingoffset=\dimen103
-\Gm@wd@mp=\dimen104
-\Gm@odd@mp=\dimen105
-\Gm@even@mp=\dimen106
-\Gm@layoutwidth=\dimen107
-\Gm@layoutheight=\dimen108
-\Gm@layouthoffset=\dimen109
-\Gm@layoutvoffset=\dimen110
-\Gm@dimlist=\toks18
+\Gm@cnth=\count90
+\Gm@cntv=\count91
+\c@Gm@tempcnt=\count92
+\Gm@bindingoffset=\dimen104
+\Gm@wd@mp=\dimen105
+\Gm@odd@mp=\dimen106
+\Gm@even@mp=\dimen107
+\Gm@layoutwidth=\dimen108
+\Gm@layoutheight=\dimen109
+\Gm@layouthoffset=\dimen110
+\Gm@layoutvoffset=\dimen111
+\Gm@dimlist=\toks20
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
@@ -89,53 +98,53 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen111
-\Gin@req@width=\dimen112
+\Gin@req@height=\dimen112
+\Gin@req@width=\dimen113
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\fancybox\fancybox.sty"
 Package: fancybox 2010/05/15 1.4
 
 Style option: `fancybox' v1.4 <2010/05/15> (tvz)
-\@fancybox=\box27
-\shadowsize=\dimen113
-\@Sbox=\box28
-\do@VerbBox=\toks19
-\the@fancyput=\toks20
-\this@fancyput=\toks21
-\EndVerbatimTokens=\toks22
+\@fancybox=\box28
+\shadowsize=\dimen114
+\@Sbox=\box29
+\do@VerbBox=\toks21
+\the@fancyput=\toks22
+\this@fancyput=\toks23
+\EndVerbatimTokens=\toks24
 \Verbatim@Outfile=\write3
 \Verbatim@Infile=\read1
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footers
-\f@nch@headwidth=\skip45
-\f@nch@O@elh=\skip46
-\f@nch@O@erh=\skip47
-\f@nch@O@olh=\skip48
-\f@nch@O@orh=\skip49
-\f@nch@O@elf=\skip50
-\f@nch@O@erf=\skip51
-\f@nch@O@olf=\skip52
-\f@nch@O@orf=\skip53
+\f@nch@headwidth=\skip46
+\f@nch@O@elh=\skip47
+\f@nch@O@erh=\skip48
+\f@nch@O@olh=\skip49
+\f@nch@O@orh=\skip50
+\f@nch@O@elf=\skip51
+\f@nch@O@erf=\skip52
+\f@nch@O@olf=\skip53
+\f@nch@O@orf=\skip54
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
 Package: tabularx 2016/02/03 v2.11b `tabularx' package (DPC)
  ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
 Package: array 2018/11/13 v2.4j Tabular extension package (FMi)
-\col@sep=\dimen114
-\ar@mcellbox=\box29
-\extrarowheight=\dimen115
-\NC@list=\toks23
-\extratabsurround=\skip54
-\backup@length=\skip55
-\ar@cellbox=\box30
+\col@sep=\dimen115
+\ar@mcellbox=\box30
+\extrarowheight=\dimen116
+\NC@list=\toks25
+\extratabsurround=\skip55
+\backup@length=\skip56
+\ar@cellbox=\box31
 )
-\TX@col@width=\dimen116
-\TX@old@table=\dimen117
-\TX@old@col=\dimen118
-\TX@target=\dimen119
-\TX@delta=\dimen120
-\TX@cols=\count92
-\TX@ftn=\toks24
+\TX@col@width=\dimen117
+\TX@old@table=\dimen118
+\TX@old@col=\dimen119
+\TX@target=\dimen120
+\TX@delta=\dimen121
+\TX@cols=\count93
+\TX@ftn=\toks26
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
@@ -163,70 +172,70 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
 Package: multirow 2018/08/03 v2.3 Span multiple rows of a table
-\multirow@colwidth=\skip56
-\multirow@cntb=\count93
-\multirow@dima=\skip57
-\bigstrutjot=\dimen121
+\multirow@colwidth=\skip57
+\multirow@cntb=\count94
+\multirow@dima=\skip58
+\bigstrutjot=\dimen122
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
 Package: amsmath 2018/12/01 v2.17b AMS math features
-\@mathmargin=\skip58
+\@mathmargin=\skip59
 
 For additional information on amsmath, use the `?' option.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01 AMS text
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks25
-\ex@=\dimen122
+\@emptytoks=\toks27
+\ex@=\dimen123
 )) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen123
+\pmbraise@=\dimen124
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count94
+\inf@bad=\count95
 LaTeX Info: Redefining \frac on input line 223.
-\uproot@=\count95
-\leftroot@=\count96
+\uproot@=\count96
+\leftroot@=\count97
 LaTeX Info: Redefining \overline on input line 385.
-\classnum@=\count97
-\DOTSCASE@=\count98
+\classnum@=\count98
+\DOTSCASE@=\count99
 LaTeX Info: Redefining \ldots on input line 482.
 LaTeX Info: Redefining \dots on input line 485.
 LaTeX Info: Redefining \cdots on input line 606.
-\Mathstrutbox@=\box31
-\strutbox@=\box32
-\big@size=\dimen124
+\Mathstrutbox@=\box32
+\strutbox@=\box33
+\big@size=\dimen125
 LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
-\macc@depth=\count99
-\c@MaxMatrixCols=\count100
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
 \dotsspace@=\muskip10
-\c@parentequation=\count101
-\dspbrk@lvl=\count102
-\tag@help=\toks26
-\row@=\count103
-\column@=\count104
-\maxfields@=\count105
-\andhelp@=\toks27
-\eqnshift@=\dimen125
-\alignsep@=\dimen126
-\tagshift@=\dimen127
-\tagwidth@=\dimen128
-\totwidth@=\dimen129
-\lineht@=\dimen130
-\@envbody=\toks28
-\multlinegap=\skip59
-\multlinetaggap=\skip60
-\mathdisplay@stack=\toks29
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
+\tag@help=\toks28
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
+\andhelp@=\toks29
+\eqnshift@=\dimen126
+\alignsep@=\dimen127
+\tagshift@=\dimen128
+\tagwidth@=\dimen129
+\totwidth@=\dimen130
+\lineht@=\dimen131
+\@envbody=\toks30
+\multlinegap=\skip60
+\multlinetaggap=\skip61
+\mathdisplay@stack=\toks31
 LaTeX Info: Redefining \[ on input line 2844.
 LaTeX Info: Redefining \] on input line 2845.
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
 Package: inputenc 2018/08/11 v1.3c Input encoding file
-\inpenc@prehook=\toks30
-\inpenc@posthook=\toks31
+\inpenc@prehook=\toks32
+\inpenc@posthook=\toks33
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
 Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
@@ -284,33 +293,33 @@ Language: french 2018/09/14 v3.5c French support from the babel system
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2018/11/13 3.27 Babel common definitions
-\babel@savecnt=\count106
-\U@D=\dimen131
+\babel@savecnt=\count107
+\U@D=\dimen132
  ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\txtbabel.def")
-\bbl@dirlevel=\count107
+\bbl@dirlevel=\count108
 )
 \l@acadian = a dialect from \language\l@french 
-\FB@nonchar=\count108
+\FB@nonchar=\count109
 Package babel Info: Making : an active character on input line 414.
 Package babel Info: Making ; an active character on input line 415.
 Package babel Info: Making ! an active character on input line 416.
 Package babel Info: Making ? an active character on input line 417.
-\FBguill@level=\count109
-\FBold@everypar=\toks32
-\FB@Mht=\dimen132
-\mc@charclass=\count110
-\mc@charfam=\count111
-\mc@charslot=\count112
-\std@mcc=\count113
-\dec@mcc=\count114
-\c@FBcaption@count=\count115
-\listindentFB=\dimen133
-\descindentFB=\dimen134
-\labelindentFB=\dimen135
-\labelwidthFB=\dimen136
-\leftmarginFB=\dimen137
-\parindentFFN=\dimen138
-\FBfnindent=\dimen139
+\FBguill@level=\count110
+\FBold@everypar=\toks34
+\FB@Mht=\dimen133
+\mc@charclass=\count111
+\mc@charfam=\count112
+\mc@charslot=\count113
+\std@mcc=\count114
+\dec@mcc=\count115
+\c@FBcaption@count=\count116
+\listindentFB=\dimen134
+\descindentFB=\dimen135
+\labelindentFB=\dimen136
+\labelwidthFB=\dimen137
+\leftmarginFB=\dimen138
+\parindentFFN=\dimen139
+\FBfnindent=\dimen140
 )) ("C:\Program Files\MiKTeX 2.9\tex\latex\carlisle\scalefnt.sty")
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
@@ -333,63 +342,63 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex"
-\XKV@toks=\toks33
-\XKV@tempa@toks=\toks34
+\XKV@toks=\toks35
+\XKV@tempa@toks=\toks36
 )
-\XKV@depth=\count116
+\XKV@depth=\count117
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pstricks\pstricks.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pstricks\pst-fp.tex" `pst-fp' v0.05, 2010/01/17 (hv)
-\pstFP@xs=\count117
-\pstFP@xia=\count118
-\pstFP@xib=\count119
-\pstFP@xfa=\count120
-\pstFP@xfb=\count121
-\pstFP@rega=\count122
-\pstFP@regb=\count123
-\pstFP@regs=\count124
-\pstFP@times=\count125
+\pstFP@xs=\count118
+\pstFP@xia=\count119
+\pstFP@xib=\count120
+\pstFP@xfa=\count121
+\pstFP@xfb=\count122
+\pstFP@rega=\count123
+\pstFP@regb=\count124
+\pstFP@regs=\count125
+\pstFP@times=\count126
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common.tex"
-\pgfutil@everybye=\toks35
-\pgfutil@tempdima=\dimen140
-\pgfutil@tempdimb=\dimen141
+\pgfutil@everybye=\toks37
+\pgfutil@tempdima=\dimen141
+\pgfutil@tempdimb=\dimen142
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common-lists.tex"))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
-\pgfkeys@pathtoks=\toks36
-\pgfkeys@temptoks=\toks37
+\pgfkeys@pathtoks=\toks38
+\pgfkeys@temptoks=\toks39
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex"
-\pgfkeys@tmptoks=\toks38
+\pgfkeys@tmptoks=\toks40
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgffor.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex"
-\pgf@x=\dimen142
-\pgf@xa=\dimen143
-\pgf@xb=\dimen144
-\pgf@xc=\dimen145
-\pgf@y=\dimen146
-\pgf@ya=\dimen147
-\pgf@yb=\dimen148
-\pgf@yc=\dimen149
-\c@pgf@counta=\count126
-\c@pgf@countb=\count127
-\c@pgf@countc=\count128
-\c@pgf@countd=\count129
-\pgfutil@tempcnta=\count130
-\pgfutil@tempcntb=\count131
+\pgf@x=\dimen143
+\pgf@xa=\dimen144
+\pgf@xb=\dimen145
+\pgf@xc=\dimen146
+\pgf@y=\dimen147
+\pgf@ya=\dimen148
+\pgf@yb=\dimen149
+\pgf@yc=\dimen150
+\c@pgf@counta=\count127
+\c@pgf@countb=\count128
+\c@pgf@countc=\count129
+\c@pgf@countd=\count130
+\pgfutil@tempcnta=\count131
+\pgfutil@tempcntb=\count132
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
-\pgfmath@dimen=\dimen150
-\pgfmath@count=\count132
-\pgfmath@box=\box33
-\pgfmath@toks=\toks39
-\pgfmath@stack@operand=\toks40
-\pgfmath@stack@operation=\toks41
+\pgfmath@dimen=\dimen151
+\pgfmath@count=\count133
+\pgfmath@box=\box34
+\pgfmath@toks=\toks41
+\pgfmath@stack@operand=\toks42
+\pgfmath@stack@operation=\toks43
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex")
@@ -401,61 +410,61 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex")
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarithmetics.code.tex")))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex"
-\c@pgfmathroundto@lastzeros=\count133
+\c@pgfmathroundto@lastzeros=\count134
 ))
-\pgffor@iter=\dimen151
-\pgffor@skip=\dimen152
-\pgffor@stack=\toks42
-\pgffor@toks=\toks43
+\pgffor@iter=\dimen152
+\pgffor@skip=\dimen153
+\pgffor@stack=\toks44
+\pgffor@toks=\toks45
 )
-\psLoopIndex=\count134
+\psLoopIndex=\count135
 
 `PSTricks' v2.92  <2018/12/27> (tvz,hv)
-\pst@dima=\dimen153
-\pst@dimb=\dimen154
-\pst@dimc=\dimen155
-\pst@dimd=\dimen156
-\pst@dimg=\dimen157
-\pst@dimh=\dimen158
-\pst@dimm=\dimen159
-\pst@dimn=\dimen160
-\pst@dimo=\dimen161
-\pst@dimp=\dimen162
-\pst@hbox=\box34
-\pst@ibox=\box35
-\pst@boxg=\box36
-\pst@cnta=\count135
-\pst@cntb=\count136
-\pst@cntc=\count137
-\pst@cntd=\count138
-\pst@cntg=\count139
-\pst@cnth=\count140
-\pst@cntm=\count141
-\pst@cntn=\count142
-\pst@cnto=\count143
-\pst@cntp=\count144
-\@zero=\count145
-\pst@toks=\toks44
+\pst@dima=\dimen154
+\pst@dimb=\dimen155
+\pst@dimc=\dimen156
+\pst@dimd=\dimen157
+\pst@dimg=\dimen158
+\pst@dimh=\dimen159
+\pst@dimm=\dimen160
+\pst@dimn=\dimen161
+\pst@dimo=\dimen162
+\pst@dimp=\dimen163
+\pst@hbox=\box35
+\pst@ibox=\box36
+\pst@boxg=\box37
+\pst@cnta=\count136
+\pst@cntb=\count137
+\pst@cntc=\count138
+\pst@cntd=\count139
+\pst@cntg=\count140
+\pst@cnth=\count141
+\pst@cntm=\count142
+\pst@cntn=\count143
+\pst@cnto=\count144
+\pst@cntp=\count145
+\@zero=\count146
+\pst@toks=\toks46
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pstricks\pstricks.con")
-\psunit=\dimen163
-\psxunit=\dimen164
-\psyunit=\dimen165
-\pst@C@@rType=\count146
-\pslinewidth=\dimen166
-\psk@startLW=\dimen167
-\psk@endLW=\dimen168
-\pst@customdefs=\toks45
-\pslinearc=\dimen169
-\pst@symbolStep=\dimen170
-\pst@symbolWidth=\dimen171
+\psunit=\dimen164
+\psxunit=\dimen165
+\psyunit=\dimen166
+\pst@C@@rType=\count147
+\pslinewidth=\dimen167
+\psk@startLW=\dimen168
+\psk@endLW=\dimen169
+\pst@customdefs=\toks47
+\pslinearc=\dimen170
+\pst@symbolStep=\dimen171
 Normal \dimen register pool exhausted, switching to extended pool.
-\pst@symbolLinewidth=\dimen256
-\everypsbox=\toks46
-\psframesep=\dimen257
-\pslabelsep=\dimen258
-\sh@wgridXunit=\dimen259
-\sh@wgridYunit=\dimen260
-\pst@shift=\dimen261
+\pst@symbolWidth=\dimen256
+\pst@symbolLinewidth=\dimen257
+\everypsbox=\toks48
+\psframesep=\dimen258
+\pslabelsep=\dimen259
+\sh@wgridXunit=\dimen260
+\sh@wgridYunit=\dimen261
+\pst@shift=\dimen262
 )
 File: pstricks.tex 2018/12/27 v2.92 `PSTricks' (tvz,hv)
 
@@ -472,9 +481,9 @@ Package: pst-xkey 2005/11/25 v1.6 package wrapper for pst-xkey.tex (HA)
 Package: multido 2004/05/17 package wrapper for PSTricks `multido.tex', (HV/RN)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\multido\multido.tex"  v1.42, 2010/05/14 <tvz>
-\multido@count=\count147
-\multidocount=\count148
-\multido@stuff=\toks47
+\multido@count=\count148
+\multidocount=\count149
+\multido@stuff=\toks49
 )
 File: multido.tex 2010/05/14 v1.42 `multido' (tvz,hv)
 )
@@ -484,53 +493,53 @@ Package: pst-plot 2011/04/13 package wrapper for pst-plot.tex (hv)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pst-tools\pst-tools.tex" `PST-tools' v0.09b, 2017/12/03 (hv))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pstricks-add\pstricks-add.tex"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pst-node\pst-node.tex"  v1.41, 2017/12/30
-\psrow=\count149
-\pscol=\count150
-\psmatrixcnt=\count151
-\psrowsep=\skip61
-\pscolsep=\skip62
-\pst@args=\count152
-\num@pts=\count153
-\pst@argcnt=\count154
+\psrow=\count150
+\pscol=\count151
+\psmatrixcnt=\count152
+\psrowsep=\skip62
+\pscolsep=\skip63
+\pst@args=\count153
+\num@pts=\count154
+\pst@argcnt=\count155
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pst-arrow\pst-arrow.tex" `pst-arrow' v0.01, 2016/09/01 (dr,hv)
-\pshooklength=\dimen262
-\pshookwidth=\dimen263
+\pshooklength=\dimen263
+\pshookwidth=\dimen264
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pst-3d\pst-3d.tex" `PST-3d' v1.11, 2010/02/14 (tvz))
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pst-math\pst-math.tex" `pst-math' v0.64 , (CJ,hv))
 `pstricks-add' v3.85a, 2018/02/03 (dr,hv)
-\psparallelogramsep=\dimen264
-\pst@cntC=\count155
-\pst@stepcount=\count156
-\chart@ColorIndex=\dimen265
-\chart@ColorStep=\dimen266
-\pst@chartHeight=\dimen267
-\pst@chartStackDepth=\dimen268
-\pst@chartStackWidth=\dimen269
-\chart@Toggle=\count157
-\psVectorCtr=\count158
+\psparallelogramsep=\dimen265
+\pst@cntC=\count156
+\pst@stepcount=\count157
+\chart@ColorIndex=\dimen266
+\chart@ColorStep=\dimen267
+\pst@chartHeight=\dimen268
+\pst@chartStackDepth=\dimen269
+\pst@chartStackWidth=\dimen270
+\chart@Toggle=\count158
+\psVectorCtr=\count159
 )  v1.91, 2018/08/31 (tvz,hv)
-\pstRadUnit=\dimen270
-\pstRadUnitInv=\dimen271
-\pst@linecnt=\count159
+\pstRadUnit=\dimen271
+\pstRadUnitInv=\dimen272
+\pst@linecnt=\count160
 \RCD@file=\read2
-\psxlabelsep=\dimen272
-\psylabelsep=\dimen273
-\psk@subticksize=\dimen274
-\pst@xticksizeA=\dimen275
-\pst@xticksizeB=\dimen276
-\pst@xticksizeC=\dimen277
-\pst@yticksizeA=\dimen278
-\pst@yticksizeB=\dimen279
-\pst@yticksizeC=\dimen280
-\@digitcounter=\count160
-\psk@llx=\dimen281
-\psk@lly=\dimen282
-\psk@urx=\dimen283
-\psk@ury=\dimen284
-\pst@xunit=\dimen285
-\pst@yunit=\dimen286
+\psxlabelsep=\dimen273
+\psylabelsep=\dimen274
+\psk@subticksize=\dimen275
+\pst@xticksizeA=\dimen276
+\pst@xticksizeB=\dimen277
+\pst@xticksizeC=\dimen278
+\pst@yticksizeA=\dimen279
+\pst@yticksizeB=\dimen280
+\pst@yticksizeC=\dimen281
+\@digitcounter=\count161
+\psk@llx=\dimen282
+\psk@lly=\dimen283
+\psk@urx=\dimen284
+\psk@ury=\dimen285
+\pst@xunit=\dimen286
+\pst@yunit=\dimen287
 )
 File: pst-plot.tex 2018/08/31 1.91 `pst-plot' (tvz,hv)
 )
@@ -545,13 +554,13 @@ File: pst-node.tex 2018/08/31 1.91 `pst-node' (tvz,hv)
 Package: pst-tree 2009/01/25 package wrapper for pst-tree.tex
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pst-tree\pst-tree.tex"  v1.13, 2017/02/18(tvz,dg,hv)
-\pstree@rootbox=\box37
-\pstree@box=\box38
-\psnodecnt=\count161
-\pstreelevel=\count162
-\pstreecnt=\count163
-\pstree@cnt=\count164
-\pstree@stop=\count165
+\pstree@rootbox=\box38
+\pstree@box=\box39
+\psnodecnt=\count162
+\pstreelevel=\count163
+\pstreecnt=\count164
+\pstree@cnt=\count165
+\pstree@stop=\count166
 )
 File: pst-tree.tex 2017/02/18 1.13 `pst-tree' (tvz,hv)
 )
@@ -591,7 +600,7 @@ File: pst-eps.tex 2006/11/04 1.00 `pst-eps' (tvz)
 Package: pst-fill 2005/09/13 package wrapper for pst-fill.tex (hv)
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pst-fill\pst-fill.tex" `PST-Fill' v1.01, 2007/03/10 (tvz,dg,hv)
-\pst@fillbox=\box39
+\pst@fillbox=\box40
 )
 File: pst-fill.tex 2007/03/10 v1.01 `PST-fill' (tvz,dg)
 )
@@ -609,162 +618,162 @@ Package: expl3 2018-12-12 L3 programming layer (loader)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
 Package: expl3 2018-12-12 L3 programming layer (code)
-\c_max_int=\count166
-\l_tmpa_int=\count167
-\l_tmpb_int=\count168
-\g_tmpa_int=\count169
-\g_tmpb_int=\count170
-\g__kernel_prg_map_int=\count171
+\c_max_int=\count167
+\l_tmpa_int=\count168
+\l_tmpb_int=\count169
+\g_tmpa_int=\count170
+\g_tmpb_int=\count171
 Normal \count register pool exhausted, switching to extended pool.
-\c_log_iow=\count277
-\l_iow_line_count_int=\count278
-\l__iow_line_target_int=\count279
-\l__iow_one_indent_int=\count280
-\l__iow_indent_int=\count281
-\c_zero_dim=\dimen287
-\c_max_dim=\dimen288
-\l_tmpa_dim=\dimen289
-\l_tmpb_dim=\dimen290
-\g_tmpa_dim=\dimen291
-\g_tmpb_dim=\dimen292
-\c_zero_skip=\skip63
-\c_max_skip=\skip64
-\l_tmpa_skip=\skip65
-\l_tmpb_skip=\skip66
-\g_tmpa_skip=\skip67
-\g_tmpb_skip=\skip68
+\g__kernel_prg_map_int=\count277
+\c_log_iow=\count278
+\l_iow_line_count_int=\count279
+\l__iow_line_target_int=\count280
+\l__iow_one_indent_int=\count281
+\l__iow_indent_int=\count282
+\c_zero_dim=\dimen288
+\c_max_dim=\dimen289
+\l_tmpa_dim=\dimen290
+\l_tmpb_dim=\dimen291
+\g_tmpa_dim=\dimen292
+\g_tmpb_dim=\dimen293
+\c_zero_skip=\skip64
+\c_max_skip=\skip65
+\l_tmpa_skip=\skip66
+\l_tmpb_skip=\skip67
+\g_tmpa_skip=\skip68
+\g_tmpb_skip=\skip69
 \c_zero_muskip=\muskip11
 \c_max_muskip=\muskip12
 \l_tmpa_muskip=\muskip13
 \l_tmpb_muskip=\muskip14
 \g_tmpa_muskip=\muskip15
 \g_tmpb_muskip=\muskip16
-\l_keys_choice_int=\count282
-\l__intarray_loop_int=\count283
-\c__intarray_sp_dim=\dimen293
-\g__intarray_font_int=\count284
-\c__fp_leading_shift_int=\count285
-\c__fp_middle_shift_int=\count286
-\c__fp_trailing_shift_int=\count287
-\c__fp_big_leading_shift_int=\count288
-\c__fp_big_middle_shift_int=\count289
-\c__fp_big_trailing_shift_int=\count290
-\c__fp_Bigg_leading_shift_int=\count291
-\c__fp_Bigg_middle_shift_int=\count292
-\c__fp_Bigg_trailing_shift_int=\count293
-\c__kernel_randint_max_int=\count294
-\g__fp_array_int=\count295
-\l__fp_array_loop_int=\count296
-\l__sort_length_int=\count297
-\l__sort_min_int=\count298
-\l__sort_top_int=\count299
-\l__sort_max_int=\count300
-\l__sort_true_max_int=\count301
-\l__sort_block_int=\count302
-\l__sort_begin_int=\count303
-\l__sort_end_int=\count304
-\l__sort_A_int=\count305
-\l__sort_B_int=\count306
-\l__sort_C_int=\count307
-\l__tl_analysis_normal_int=\count308
-\l__tl_analysis_index_int=\count309
-\l__tl_analysis_nesting_int=\count310
-\l__tl_analysis_type_int=\count311
-\l__regex_internal_a_int=\count312
-\l__regex_internal_b_int=\count313
-\l__regex_internal_c_int=\count314
-\l__regex_balance_int=\count315
-\l__regex_group_level_int=\count316
-\l__regex_mode_int=\count317
-\c__regex_cs_in_class_mode_int=\count318
-\c__regex_cs_mode_int=\count319
-\l__regex_catcodes_int=\count320
-\l__regex_default_catcodes_int=\count321
-\c__regex_catcode_D_int=\count322
-\c__regex_catcode_S_int=\count323
-\c__regex_catcode_L_int=\count324
-\c__regex_catcode_O_int=\count325
-\c__regex_catcode_A_int=\count326
-\c__regex_all_catcodes_int=\count327
-\l__regex_show_lines_int=\count328
-\l__regex_min_state_int=\count329
-\l__regex_max_state_int=\count330
-\l__regex_left_state_int=\count331
-\l__regex_right_state_int=\count332
-\l__regex_capturing_group_int=\count333
-\l__regex_min_pos_int=\count334
-\l__regex_max_pos_int=\count335
-\l__regex_curr_pos_int=\count336
-\l__regex_start_pos_int=\count337
-\l__regex_success_pos_int=\count338
-\l__regex_curr_char_int=\count339
-\l__regex_curr_catcode_int=\count340
-\l__regex_last_char_int=\count341
-\l__regex_case_changed_char_int=\count342
-\l__regex_curr_state_int=\count343
-\l__regex_step_int=\count344
-\l__regex_min_active_int=\count345
-\l__regex_max_active_int=\count346
-\l__regex_replacement_csnames_int=\count347
-\l__regex_match_count_int=\count348
-\l__regex_min_submatch_int=\count349
-\l__regex_submatch_int=\count350
-\l__regex_zeroth_submatch_int=\count351
-\g__regex_trace_regex_int=\count352
-\c_empty_box=\box40
-\l_tmpa_box=\box41
-\l_tmpb_box=\box42
-\g_tmpa_box=\box43
-\g_tmpb_box=\box44
-\l__box_top_dim=\dimen294
-\l__box_bottom_dim=\dimen295
-\l__box_left_dim=\dimen296
-\l__box_right_dim=\dimen297
-\l__box_top_new_dim=\dimen298
-\l__box_bottom_new_dim=\dimen299
-\l__box_left_new_dim=\dimen300
-\l__box_right_new_dim=\dimen301
-\l__box_internal_box=\box45
-\l__coffin_internal_box=\box46
-\l__coffin_internal_dim=\dimen302
-\l__coffin_offset_x_dim=\dimen303
-\l__coffin_offset_y_dim=\dimen304
-\l__coffin_x_dim=\dimen305
-\l__coffin_y_dim=\dimen306
-\l__coffin_x_prime_dim=\dimen307
-\l__coffin_y_prime_dim=\dimen308
-\c_empty_coffin=\box47
-\l__coffin_aligned_coffin=\box48
-\l__coffin_aligned_internal_coffin=\box49
-\l_tmpa_coffin=\box50
-\l_tmpb_coffin=\box51
-\l__coffin_display_coffin=\box52
-\l__coffin_display_coord_coffin=\box53
-\l__coffin_display_pole_coffin=\box54
-\l__coffin_display_offset_dim=\dimen309
-\l__coffin_display_x_dim=\dimen310
-\l__coffin_display_y_dim=\dimen311
+\l_keys_choice_int=\count283
+\l__intarray_loop_int=\count284
+\c__intarray_sp_dim=\dimen294
+\g__intarray_font_int=\count285
+\c__fp_leading_shift_int=\count286
+\c__fp_middle_shift_int=\count287
+\c__fp_trailing_shift_int=\count288
+\c__fp_big_leading_shift_int=\count289
+\c__fp_big_middle_shift_int=\count290
+\c__fp_big_trailing_shift_int=\count291
+\c__fp_Bigg_leading_shift_int=\count292
+\c__fp_Bigg_middle_shift_int=\count293
+\c__fp_Bigg_trailing_shift_int=\count294
+\c__kernel_randint_max_int=\count295
+\g__fp_array_int=\count296
+\l__fp_array_loop_int=\count297
+\l__sort_length_int=\count298
+\l__sort_min_int=\count299
+\l__sort_top_int=\count300
+\l__sort_max_int=\count301
+\l__sort_true_max_int=\count302
+\l__sort_block_int=\count303
+\l__sort_begin_int=\count304
+\l__sort_end_int=\count305
+\l__sort_A_int=\count306
+\l__sort_B_int=\count307
+\l__sort_C_int=\count308
+\l__tl_analysis_normal_int=\count309
+\l__tl_analysis_index_int=\count310
+\l__tl_analysis_nesting_int=\count311
+\l__tl_analysis_type_int=\count312
+\l__regex_internal_a_int=\count313
+\l__regex_internal_b_int=\count314
+\l__regex_internal_c_int=\count315
+\l__regex_balance_int=\count316
+\l__regex_group_level_int=\count317
+\l__regex_mode_int=\count318
+\c__regex_cs_in_class_mode_int=\count319
+\c__regex_cs_mode_int=\count320
+\l__regex_catcodes_int=\count321
+\l__regex_default_catcodes_int=\count322
+\c__regex_catcode_D_int=\count323
+\c__regex_catcode_S_int=\count324
+\c__regex_catcode_L_int=\count325
+\c__regex_catcode_O_int=\count326
+\c__regex_catcode_A_int=\count327
+\c__regex_all_catcodes_int=\count328
+\l__regex_show_lines_int=\count329
+\l__regex_min_state_int=\count330
+\l__regex_max_state_int=\count331
+\l__regex_left_state_int=\count332
+\l__regex_right_state_int=\count333
+\l__regex_capturing_group_int=\count334
+\l__regex_min_pos_int=\count335
+\l__regex_max_pos_int=\count336
+\l__regex_curr_pos_int=\count337
+\l__regex_start_pos_int=\count338
+\l__regex_success_pos_int=\count339
+\l__regex_curr_char_int=\count340
+\l__regex_curr_catcode_int=\count341
+\l__regex_last_char_int=\count342
+\l__regex_case_changed_char_int=\count343
+\l__regex_curr_state_int=\count344
+\l__regex_step_int=\count345
+\l__regex_min_active_int=\count346
+\l__regex_max_active_int=\count347
+\l__regex_replacement_csnames_int=\count348
+\l__regex_match_count_int=\count349
+\l__regex_min_submatch_int=\count350
+\l__regex_submatch_int=\count351
+\l__regex_zeroth_submatch_int=\count352
+\g__regex_trace_regex_int=\count353
+\c_empty_box=\box41
+\l_tmpa_box=\box42
+\l_tmpb_box=\box43
+\g_tmpa_box=\box44
+\g_tmpb_box=\box45
+\l__box_top_dim=\dimen295
+\l__box_bottom_dim=\dimen296
+\l__box_left_dim=\dimen297
+\l__box_right_dim=\dimen298
+\l__box_top_new_dim=\dimen299
+\l__box_bottom_new_dim=\dimen300
+\l__box_left_new_dim=\dimen301
+\l__box_right_new_dim=\dimen302
+\l__box_internal_box=\box46
+\l__coffin_internal_box=\box47
+\l__coffin_internal_dim=\dimen303
+\l__coffin_offset_x_dim=\dimen304
+\l__coffin_offset_y_dim=\dimen305
+\l__coffin_x_dim=\dimen306
+\l__coffin_y_dim=\dimen307
+\l__coffin_x_prime_dim=\dimen308
+\l__coffin_y_prime_dim=\dimen309
+\c_empty_coffin=\box48
+\l__coffin_aligned_coffin=\box49
+\l__coffin_aligned_internal_coffin=\box50
+\l_tmpa_coffin=\box51
+\l_tmpb_coffin=\box52
+\l__coffin_display_coffin=\box53
+\l__coffin_display_coord_coffin=\box54
+\l__coffin_display_pole_coffin=\box55
+\l__coffin_display_offset_dim=\dimen310
+\l__coffin_display_x_dim=\dimen311
+\l__coffin_display_y_dim=\dimen312
 \g__file_internal_ior=\read3
-\l__coffin_bounding_shift_dim=\dimen312
-\l__coffin_left_corner_dim=\dimen313
-\l__coffin_right_corner_dim=\dimen314
-\l__coffin_bottom_corner_dim=\dimen315
-\l__coffin_top_corner_dim=\dimen316
-\l__coffin_scaled_total_height_dim=\dimen317
-\l__coffin_scaled_width_dim=\dimen318
-\l__seq_internal_a_int=\count353
-\l__seq_internal_b_int=\count354
+\l__coffin_bounding_shift_dim=\dimen313
+\l__coffin_left_corner_dim=\dimen314
+\l__coffin_right_corner_dim=\dimen315
+\l__coffin_bottom_corner_dim=\dimen316
+\l__coffin_top_corner_dim=\dimen317
+\l__coffin_scaled_total_height_dim=\dimen318
+\l__coffin_scaled_width_dim=\dimen319
+\l__seq_internal_a_int=\count354
+\l__seq_internal_b_int=\count355
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
 File: l3pdfmode.def 2018-12-12 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count355
+\l__driver_color_stack_int=\count356
 ))
 Package: xparse 2018-10-17 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count356
-\g__xparse_grabber_int=\count357
-\l__xparse_m_args_int=\count358
-\l__xparse_mandatory_args_int=\count359
-\l__xparse_v_nesting_int=\count360
+\l__xparse_current_arg_int=\count357
+\g__xparse_grabber_int=\count358
+\l__xparse_m_args_int=\count359
+\l__xparse_mandatory_args_int=\count360
+\l__xparse_v_nesting_int=\count361
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\siunitx\siunitx.sty"
 Package: siunitx 2018/05/17 v2.7s A comprehensive (SI) units package
@@ -772,46 +781,46 @@ Package: siunitx 2018/05/17 v2.7s A comprehensive (SI) units package
 ("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\l3keys2e\l3keys2e.sty"
 Package: l3keys2e 2018-10-17 LaTeX2e option processing using LaTeX3 keys
 )
-\l__siunitx_tmp_box=\box55
-\l__siunitx_tmp_dim=\dimen319
-\l__siunitx_tmp_int=\count361
-\l__siunitx_number_mantissa_length_int=\count362
-\l__siunitx_number_uncert_length_int=\count363
-\l__siunitx_round_int=\count364
-\l__siunitx_process_decimal_int=\count365
-\l__siunitx_process_uncertainty_int=\count366
-\l__siunitx_process_fixed_int=\count367
-\l__siunitx_process_integer_min_int=\count368
-\l__siunitx_process_precision_int=\count369
-\l__siunitx_group_min_int=\count370
-\l__siunitx_angle_marker_box=\box56
-\l__siunitx_angle_unit_box=\box57
-\l__siunitx_angle_marker_dim=\dimen320
-\l__siunitx_angle_unit_dim=\dimen321
-\l__siunitx_unit_int=\count371
-\l__siunitx_unit_denominator_int=\count372
-\l__siunitx_unit_numerator_int=\count373
-\l__siunitx_unit_prefix_int=\count374
-\l__siunitx_unit_prefix_base_int=\count375
-\l__siunitx_unit_prefix_gram_int=\count376
-\l__siunitx_number_product_int=\count377
-\c__siunitx_one_fill_skip=\skip69
-\l__siunitx_table_unit_align_skip=\skip70
-\l__siunitx_table_exponent_dim=\dimen322
-\l__siunitx_table_integer_dim=\dimen323
-\l__siunitx_table_mantissa_dim=\dimen324
-\l__siunitx_table_marker_dim=\dimen325
-\l__siunitx_table_result_dim=\dimen326
-\l__siunitx_table_uncert_dim=\dimen327
-\l__siunitx_table_fill_pre_dim=\dimen328
-\l__siunitx_table_fill_post_dim=\dimen329
-\l__siunitx_table_fill_mid_dim=\dimen330
-\l__siunitx_table_pre_box=\box58
-\l__siunitx_table_post_box=\box59
-\l__siunitx_table_mantissa_box=\box60
-\l__siunitx_table_result_box=\box61
-\l__siunitx_table_number_align_skip=\skip71
-\l__siunitx_table_text_align_skip=\skip72
+\l__siunitx_tmp_box=\box56
+\l__siunitx_tmp_dim=\dimen320
+\l__siunitx_tmp_int=\count362
+\l__siunitx_number_mantissa_length_int=\count363
+\l__siunitx_number_uncert_length_int=\count364
+\l__siunitx_round_int=\count365
+\l__siunitx_process_decimal_int=\count366
+\l__siunitx_process_uncertainty_int=\count367
+\l__siunitx_process_fixed_int=\count368
+\l__siunitx_process_integer_min_int=\count369
+\l__siunitx_process_precision_int=\count370
+\l__siunitx_group_min_int=\count371
+\l__siunitx_angle_marker_box=\box57
+\l__siunitx_angle_unit_box=\box58
+\l__siunitx_angle_marker_dim=\dimen321
+\l__siunitx_angle_unit_dim=\dimen322
+\l__siunitx_unit_int=\count372
+\l__siunitx_unit_denominator_int=\count373
+\l__siunitx_unit_numerator_int=\count374
+\l__siunitx_unit_prefix_int=\count375
+\l__siunitx_unit_prefix_base_int=\count376
+\l__siunitx_unit_prefix_gram_int=\count377
+\l__siunitx_number_product_int=\count378
+\c__siunitx_one_fill_skip=\skip70
+\l__siunitx_table_unit_align_skip=\skip71
+\l__siunitx_table_exponent_dim=\dimen323
+\l__siunitx_table_integer_dim=\dimen324
+\l__siunitx_table_mantissa_dim=\dimen325
+\l__siunitx_table_marker_dim=\dimen326
+\l__siunitx_table_result_dim=\dimen327
+\l__siunitx_table_uncert_dim=\dimen328
+\l__siunitx_table_fill_pre_dim=\dimen329
+\l__siunitx_table_fill_post_dim=\dimen330
+\l__siunitx_table_fill_mid_dim=\dimen331
+\l__siunitx_table_pre_box=\box59
+\l__siunitx_table_post_box=\box60
+\l__siunitx_table_mantissa_box=\box61
+\l__siunitx_table_result_box=\box62
+\l__siunitx_table_number_align_skip=\skip72
+\l__siunitx_table_text_align_skip=\skip73
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator.sty"
 Package: translator 2018/01/04 v1.12 Easy translation of strings in LaTeX
@@ -822,17 +831,17 @@ Package ifluatex Info: LuaTeX not detected.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\xstring\xstring.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\xstring\xstring.tex"
-\integerpart=\count378
-\decimalpart=\count379
+\integerpart=\count379
+\decimalpart=\count380
 )
 Package: xstring 2018/12/09 v1.81 String manipulations (CT)
 )
 ("C:\Program Files\MiKTeX 2.9\tex\generic\pst-math\pst-math.tex")
 File: pst-math.tex 2007/03/10 v1.01 `PST-math' (hv)
-\c@Rand@No=\count380
-\c@Random@Left=\count381
-\c@Random@Right=\count382
-\c@Random@No@max=\count383
+\c@Rand@No=\count381
+\c@Random@Left=\count382
+\c@Random@Right=\count383
+\c@Random@No@max=\count384
 )
 Package: pstricks-add 2018/02/03 v. 0.15 package wrapper for pstricks-add.tex (hv)
 
@@ -841,28 +850,27 @@ File: pstricks-add.tex 2007/03/10 v1.01 `PSTricks-add' (hv)
 ))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
 Package: multicol 2018/11/09 v1.8u multicolumn formatting (FMi)
-\c@tracingmulticols=\count384
-\mult@box=\box62
-\multicol@leftmargin=\dimen331
-\c@unbalance=\count385
-\c@collectmore=\count386
-\doublecol@number=\count387
-\multicoltolerance=\count388
-\multicolpretolerance=\count389
-\full@width=\dimen332
-\page@free=\dimen333
-\premulticols=\dimen334
-\postmulticols=\dimen335
-\multicolsep=\skip73
-\multicolbaselineskip=\skip74
-\partial@page=\box63
-\last@line=\box64
-\maxbalancingoverflow=\dimen336
-\mult@rightbox=\box65
-\mult@grightbox=\box66
-\mult@gfirstbox=\box67
-\mult@firstbox=\box68
-\@tempa=\box69
+\c@tracingmulticols=\count385
+\mult@box=\box63
+\multicol@leftmargin=\dimen332
+\c@unbalance=\count386
+\c@collectmore=\count387
+\doublecol@number=\count388
+\multicoltolerance=\count389
+\multicolpretolerance=\count390
+\full@width=\dimen333
+\page@free=\dimen334
+\premulticols=\dimen335
+\postmulticols=\dimen336
+\multicolsep=\skip74
+\multicolbaselineskip=\skip75
+\partial@page=\box64
+\last@line=\box65
+\maxbalancingoverflow=\dimen337
+\mult@rightbox=\box66
+\mult@grightbox=\box67
+\mult@gfirstbox=\box68
+\mult@firstbox=\box69
 \@tempa=\box70
 \@tempa=\box71
 \@tempa=\box72
@@ -879,32 +887,33 @@ Package: multicol 2018/11/09 v1.8u multicolumn formatting (FMi)
 \@tempa=\box83
 \@tempa=\box84
 \@tempa=\box85
-\c@columnbadness=\count390
-\c@finalcolumnbadness=\count391
-\last@try=\dimen337
-\multicolovershoot=\dimen338
-\multicolundershoot=\dimen339
-\mult@nat@firstbox=\box86
-\colbreak@box=\box87
-\mc@col@check@num=\count392
+\@tempa=\box86
+\c@columnbadness=\count391
+\c@finalcolumnbadness=\count392
+\last@try=\dimen338
+\multicolovershoot=\dimen339
+\multicolundershoot=\dimen340
+\mult@nat@firstbox=\box87
+\colbreak@box=\box88
+\mc@col@check@num=\count393
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp.sty"
 Package: fp 1995/04/02
 
 `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
 ("C:\Program Files\MiKTeX 2.9\tex\latex\fp\defpattern.sty"
 Package: defpattern 1994/10/12
-\actioncount=\count393
+\actioncount=\count394
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-basic.sty"
 Package: fp-basic 1996/05/13
-\FP@xs=\count394
-\FP@xia=\count395
-\FP@xib=\count396
-\FP@xfa=\count397
-\FP@xfb=\count398
-\FP@rega=\count399
-\FP@regb=\count400
-\FP@regs=\count401
-\FP@times=\count402
+\FP@xs=\count395
+\FP@xia=\count396
+\FP@xib=\count397
+\FP@xfa=\count398
+\FP@xfb=\count399
+\FP@rega=\count400
+\FP@regb=\count401
+\FP@regs=\count402
+\FP@times=\count403
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-addons.sty"
 Package: fp-addons 1995/03/15
@@ -920,7 +929,7 @@ Package: fp-trigo 1995/04/14
 Package: fp-pas 1994/08/29
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-random.sty"
 Package: fp-random 1995/02/23
-\FPseed=\count403
+\FPseed=\count404
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\fp\fp-eqn.sty"
 Package: fp-eqn 1995/04/03
@@ -931,26 +940,26 @@ Package: fp-upn 1996/10/21
 Package: fp-eval 1995/04/03
 )) ("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count404
-\float@exts=\toks48
-\float@box=\box88
-\@float@everytoks=\toks49
-\@floatcapt=\box89
+\c@float@type=\count405
+\float@exts=\toks50
+\float@box=\box89
+\@float@everytoks=\toks51
+\@floatcapt=\box90
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty"
 Package: pdfpages 2017/10/31 v0.5l Insert pages of external PDF documents (AM)
  ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count405
-\calc@Bcount=\count406
-\calc@Adimen=\dimen340
-\calc@Bdimen=\dimen341
-\calc@Askip=\skip75
-\calc@Bskip=\skip76
+\calc@Acount=\count406
+\calc@Bcount=\count407
+\calc@Adimen=\dimen341
+\calc@Bdimen=\dimen342
+\calc@Askip=\skip76
+\calc@Bskip=\skip77
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count407
-\calc@Cskip=\skip77
+\calc@Ccount=\count408
+\calc@Cskip=\skip78
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty"
 Package: eso-pic 2018/04/12 v2.0h eso-pic (RN)
@@ -964,17 +973,17 @@ Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )))
-\AM@pagewidth=\dimen342
-\AM@pageheight=\dimen343
+\AM@pagewidth=\dimen343
+\AM@pageheight=\dimen344
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def"
 File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
 )
-\AM@pagebox=\box90
-\AM@global@opts=\toks50
-\AM@toc@title=\toks51
-\c@AM@survey=\count408
-\AM@templatesizebox=\box91
+\AM@pagebox=\box91
+\AM@global@opts=\toks52
+\AM@toc@title=\toks53
+\c@AM@survey=\count409
+\AM@templatesizebox=\box92
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
 Package: textcomp 2018/08/11 v2.0j Standard LaTeX package
@@ -1173,16 +1182,16 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen344
-\Hy@linkcounter=\count409
-\Hy@pagecounter=\count410
+\@linkdim=\dimen345
+\Hy@linkcounter=\count410
+\Hy@pagecounter=\count411
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count411
+\Hy@SavedSpaceFactor=\count412
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -1194,16 +1203,16 @@ Package hyperref Info: Plain pages OFF on input line 4534.
 Package hyperref Info: Backreferencing OFF on input line 4539.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4772.
-\c@Hy@tempcnt=\count412
+\c@Hy@tempcnt=\count413
  ("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5125.
-\XeTeXLinkMargin=\dimen345
-\Fld@menulength=\count413
-\Field@Width=\dimen346
-\Fld@charsize=\dimen347
+\XeTeXLinkMargin=\dimen346
+\Fld@menulength=\count414
+\Field@Width=\dimen347
+\Fld@charsize=\dimen348
 Package hyperref Info: Hyper figures OFF on input line 6380.
 Package hyperref Info: Link nesting OFF on input line 6385.
 Package hyperref Info: Hyper index ON on input line 6388.
@@ -1213,49 +1222,49 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6405.
 Package hyperref Info: PDF/A mode OFF on input line 6410.
 LaTeX Info: Redefining \ref on input line 6450.
 LaTeX Info: Redefining \pageref on input line 6454.
-\Hy@abspage=\count414
-\c@Item=\count415
-\c@Hfootnote=\count416
+\Hy@abspage=\count415
+\c@Item=\count416
+\c@Hfootnote=\count417
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
-\Fld@listcount=\count417
-\c@bookmark@seq@number=\count418
+\Fld@listcount=\count418
+\c@bookmark@seq@number=\count419
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 282.
 )
-\Hy@SectionHShift=\skip78
+\Hy@SectionHShift=\skip79
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 44.
+Package hyperref Info: Option `colorlinks' set `true' on input line 45.
  (devoir_2_RL.aux)
 \openout1 = `devoir_2_RL.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 54.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 55.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1295,17 +1304,17 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count419
-\scratchdimen=\dimen348
-\scratchbox=\box92
-\nofMPsegments=\count420
-\nofMParguments=\count421
-\everyMPshowfont=\toks52
-\MPscratchCnt=\count422
-\MPscratchDim=\dimen349
-\MPnumerator=\count423
-\makeMPintoPDFobject=\count424
-\everyMPtoPDFconversion=\toks53
+\scratchcounter=\count420
+\scratchdimen=\dimen349
+\scratchbox=\box93
+\nofMPsegments=\count421
+\nofMParguments=\count422
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count423
+\MPscratchDim=\dimen350
+\MPnumerator=\count424
+\makeMPintoPDFobject=\count425
+\everyMPtoPDFconversion=\toks55
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1317,9 +1326,15 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Info: Redefining \degres on input line 54.
-LaTeX Info: Redefining \dots on input line 54.
-LaTeX Info: Redefining \up on input line 54.
+LaTeX Info: Redefining \degres on input line 55.
+LaTeX Info: Redefining \dots on input line 55.
+Package french.ldf Info: Setting StandardItemizeEnv=true for
+(french.ldf)             compatibility with enumitem package,
+(french.ldf)             reported on input line 55.
+Package french.ldf Info: Setting StandardEnumerateEnv=true for
+(french.ldf)             compatibility with enumitem package,
+(french.ldf)             reported on input line 55.
+LaTeX Info: Redefining \up on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\translator\translator-basic-dictionary-English.dict"
 Dictionary: translator-basic-dictionary, Language: English 
@@ -1327,7 +1342,7 @@ Dictionary: translator-basic-dictionary, Language: English
 ("C:\Program Files\MiKTeX 2.9\tex\latex\siunitx\siunitx-abbreviations.cfg"
 File: siunitx-abbreviations.cfg 2017/11/26 v2.7k siunitx: Abbreviated units
 )
-\AtBeginShipoutBox=\box93
+\AtBeginShipoutBox=\box94
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
 Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
@@ -1337,7 +1352,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-Package hyperref Info: Link coloring ON on input line 54.
+Package hyperref Info: Link coloring ON on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1345,54 +1360,54 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count425
+\c@section@level=\count426
 )
-LaTeX Info: Redefining \ref on input line 54.
-LaTeX Info: Redefining \pageref on input line 54.
-LaTeX Info: Redefining \nameref on input line 54.
+LaTeX Info: Redefining \ref on input line 55.
+LaTeX Info: Redefining \pageref on input line 55.
+LaTeX Info: Redefining \nameref on input line 55.
  (devoir_2_RL.out) (devoir_2_RL.out)
 \@outlinefile=\write6
 \openout6 = `devoir_2_RL.out'.
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 54.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 54.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 55.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 54.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 54.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 55.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 54.
+(Font)              <10.95> on input line 55.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 54.
+(Font)              <8> on input line 55.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 54.
-LaTeX Font Info:    Try loading font information for U+msa on input line 54.
+(Font)              <6> on input line 55.
+LaTeX Font Info:    Try loading font information for U+msa on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 54.
+LaTeX Font Info:    Try loading font information for U+msb on input line 55.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 54.
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 55.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmss.fd"
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 54.
+LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 55.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmtt.fd"
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [1
@@ -1428,25 +1443,36 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
 {C:/Users/Utilisateur/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 80.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 80.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 80.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 80.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 80.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
-<gains.pdf, id=10, 510.83345pt x 497.48233pt>
+<gains.pdf, id=18, 510.83345pt x 497.48233pt>
 File: gains.pdf Graphic file (type pdf)
 <use gains.pdf>
 Package pdftex.def Info: gains.pdf  used on input line 105.
 (pdftex.def)             Requested size: 225.21626pt x 219.32558pt.
-<pertes.pdf, id=11, 502.42705pt x 497.48233pt>
+<pertes.pdf, id=19, 502.42705pt x 497.48233pt>
 File: pertes.pdf Graphic file (type pdf)
 <use pertes.pdf>
 Package pdftex.def Info: pertes.pdf  used on input line 105.
 (pdftex.def)             Requested size: 225.21626pt x 222.9996pt.
-<gain_par_pas.pdf, id=12, 644.68356pt x 497.07457pt>
-File: gain_par_pas.pdf Graphic file (type pdf)
-<use gain_par_pas.pdf>
-Package pdftex.def Info: gain_par_pas.pdf  used on input line 115.
-(pdftex.def)             Requested size: 322.34099pt x 248.53667pt.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.1595pt.
@@ -1455,10 +1481,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [2
 
- <./gains.pdf> <./pertes.pdf
+]
+<gain_par_pas.pdf, id=38, 644.68356pt x 497.07457pt>
+File: gain_par_pas.pdf Graphic file (type pdf)
+<use gain_par_pas.pdf>
+Package pdftex.def Info: gain_par_pas.pdf  used on input line 116.
+(pdftex.def)             Requested size: 322.34099pt x 248.53667pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.1595pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3 <./gains.pdf> <./pertes.pdf
 
 pdfTeX warning: pdflatex.exe (file ./pertes.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 
+> <./gain_par_pas.pdf
+
+pdfTeX warning: pdflatex.exe (file ./gain_par_pas.pdf): PDF inclusion: multiple pdfs with page group included in a singl
+e page
 >]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 133.
 
@@ -1468,32 +1511,34 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3 <./gain_par_pas.pdf>]
+[4]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 133.
  (devoir_2_RL.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 133.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 133.
 Package rerunfilecheck Info: File `devoir_2_RL.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: 1238A65D094F97070EAF2BD90E3A1BB1;92.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 133.
  ) 
 Here is how much of TeX's memory you used:
- 31809 strings out of 492946
- 576162 string characters out of 3135510
- 722260 words of memory out of 3000000
- 35187 multiletter control sequences out of 15000+200000
- 572553 words of font info for 54 fonts, out of 3000000 for 9000
+ 32160 strings out of 492946
+ 581918 string characters out of 3135510
+ 730370 words of memory out of 3000000
+ 35525 multiletter control sequences out of 15000+200000
+ 596706 words of font info for 76 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,11n,71p,677b,1008s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C
-:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi
-10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/l
-mr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm
-/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb>
-Output written on devoir_2_RL.pdf (3 pages, 217787 bytes).
+ 68i,12n,71p,677b,1008s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.en
+c}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.en
+c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx1
+2.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/
+lmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
+Output written on devoir_2_RL.pdf (4 pages, 255093 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 192 PDF objects out of 1000 (max. 8388607)
+ 17 named destinations out of 1000 (max. 500000)
+ 32 words of extra memory for PDF output out of 10000 (max. 10000000)
 
