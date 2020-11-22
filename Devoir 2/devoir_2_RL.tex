@@ -95,7 +95,7 @@ Si $\tau$ est trop grand, la cible est trop modifié, ce qui risque de compromet
 L'avantage de son utilisation est de briser la corrélation entre les échantillons utilisés lors de la mise à jour (le tuple $(s_t, a_t, r_{t+1}, s_{t+1})$ et le tuple suivant $(s_{t+1}, a_{t+1}, r_{t+2}, s_{t+2})$ partage le même état $s_{t+1}$). Cela compromet l'apprentissage. Le fait de stocker les échantillons et d'échantillonner une mini-batch plusieurs fois au cours de l'épisode permet contourner ce problème. À COMPLÉTER  
 
 \item \textbf{Apprentissage supervisée}\\
-
+La distribution $D$ du replay Buffer réfère à un échantillonnage dans une banque de données qui a été créée par l'agent lui-même, ce dernier est responsable de créé son propre <<dataset>>, c'est l'esprit de l'apprentissage non-supervisée. En apprentissage supervisée (pour faire de la régression notamment), le jeux de données d'apprentissage n'est pas établi par l'agent, il lui est fourni. 
 
 \item Parmi les défis d'implémentations auxquels on a fait face, l'un d'entre eux et la longueur d'un entraînement, cela a fait en sorte qu'il était difficile de tester différents paramètres d'entraînements et d'optimiser cette dernières. Une ressource de calcul plus puissante que nos ordinateurs personnels aurait sans doute permis de faire un plus large éventail de tests. Voici deux graphiques illustrant l'évolution des gains épisodiques durant l'entraînement ainsi que l'évolution épisodique de la fonction de perte.
 
