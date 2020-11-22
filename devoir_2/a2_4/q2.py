@@ -1,4 +1,5 @@
 import numpy as np
+from matplotlib import pyplot
 import gym
 from tilecoding import TileCoder
 
@@ -17,18 +18,12 @@ def set_random_seed(environment, seed):
     environment.seed(seed)
     np.random.seed(seed)
 
-"""
-def get_expected_reward(tile_coder, theta, state, action, traces):
-    feature_indices = tile_coder.phi(state, action)
-    estimation = np.sum(theta[feature_indices])
 
-    traces[feature_indices] = 1
-
-    return estimation
-"""
+def choose_action(q_vals):
+    return np.argmax(q_vals)
 
 
-def sarsa_linear_fa(tile_coder, theta, state, actions):
+def linear_af(tile_coder, theta, state, actions):
     phis_indices = np.array([tile_coder.phi(state, action) for action in actions])
     actions_vals = []
 
@@ -38,14 +33,14 @@ def sarsa_linear_fa(tile_coder, theta, state, actions):
     return actions_vals, phis_indices
 
 
-def choose_action(q_vals):
-    return np.argmax(q_vals)
-
-
 def get_delta(reward, q_vals, action, next_q_vals, next_action, gamma):
     delta = reward + (gamma * next_q_vals[next_action]) - q_vals[action]
 
     return delta
+
+
+def replace_traces(action, features, traces):
+    traces[features[action]] = 1
 
 
 def update_traces(traces, gamma, lmbda):
@@ -57,56 +52,42 @@ def update_theta(theta, estimation, target, traces, lr):
     theta += lr * delta * traces
 
 
-def replace_traces(action, features, traces):
-    traces[features[action]] = 1
-
-
-def sarsa_algorithm(environment, tile_coder, n_episodes=300, max_steps=200, gamma=1, lmbda=0.9, learning_rate=0.1):
+def sarsa_delta_algorithm(environment, tile_coder, n_episodes, max_steps, gamma, lmbda, alpha):
     theta = np.zeros(tile_coder.size)
     actions = list(range(environment.action_space.n))
-    G_episode_cum = 0
 
     for n_episode in range(n_episodes):
         traces = np.zeros(tile_coder.size)
-        G = 0
+        G_arr = []
 
         state = environment.reset()
         for step in range(max_steps):
-            q_vals, features = sarsa_linear_fa(tile_coder, theta, state, actions)
+            q_vals, features = linear_af(tile_coder, theta, state, actions)
             action = choose_action(q_vals)
             replace_traces(action, features, traces)
 
             next_state, r, done, _ = environment.step(action)
 
-            G += r
-
-            # delta = r - q_vals[action]
+            G_arr.append(r)
 
             if done:
                 target = r
-                update_theta(theta, q_vals[action], target, traces, learning_rate)
+                update_theta(theta, q_vals[action], target, traces, alpha)
                 break
 
-            next_q_vals, _ = sarsa_linear_fa(tile_coder, theta, next_state, actions)
+            next_q_vals, _ = linear_af(tile_coder, theta, next_state, actions)
             next_action = choose_action(next_q_vals)
 
             target = r + gamma * next_q_vals[next_action]
-            update_theta(theta, q_vals[action], target, traces, learning_rate)
+            update_theta(theta, q_vals[action], target, traces, alpha)
             update_traces(traces, gamma, lmbda)
 
             state = next_state
 
-        print(f'After {n_episode} episode, we have G_0 = {G:.2f}')
-        G_episode_cum += G
-        if n_episode % 100 == 0:
-            print(f'--------CUMULATIVE G MEAN : {G_episode_cum/100:.2f}--------')
-            G_episode_cum = 0
+        yield n_episode, theta, G_arr
 
 
-    return theta
-
-
-def test_model(theta):
+def test_model(theta, seed):
     environment = gym.make("MountainCar-v0")
     set_random_seed(environment, seed)
     tile_coder = get_tile_coder(environment)
@@ -118,23 +99,69 @@ def test_model(theta):
     s = environment.reset()
     while not done:
         env.render()
-        q_vals, _ = sarsa_linear_fa(tile_coder, theta, s, actions)
+        q_vals, _ = linear_af(tile_coder, theta, s, actions)
         action = np.argmax(q_vals)
         next_s, r, done, _ = environment.step(action)
         s = next_s
     env.close()
 
 
-def main(seed):
+def sarsa_experiment(
+        seed=None,
+        n_episodes=300,
+        max_steps=200,
+        gamma=1,
+        lmbda=0.9,
+        alpha=0.1,
+        test=False,
+        plot=False
+):
     environment = gym.make("MountainCar-v0")
 
     set_random_seed(environment, seed)
     tile_coder = get_tile_coder(environment)
+    theta = []
+    G_mean = []
+    G_episode_sum = 0
 
-    theta = sarsa_algorithm(environment, tile_coder)
-    test_model(theta)
+    print(f"\n--------SARSA(λ) with: λ = {lmbda} γ = {gamma} α = {alpha}--------\n")
+
+    for n_episode, newTheta, G in sarsa_delta_algorithm(
+        environment,
+        tile_coder,
+        n_episodes,
+        max_steps,
+        gamma,
+        lmbda,
+        alpha
+    ):
+        theta = newTheta
+        g_sum = sum(G)
+        G_episode_sum += g_sum
+        G_mean.append(G_episode_sum / (n_episode + 1))
+        if n_episode % 100 == 0:
+            print(f'-----G MEAN : {G_episode_sum / (n_episode + 1):.2f}-----')
+        if n_episode % 10 == 0:
+            print(f'After {n_episode} episode, we have G = {g_sum:.2f}')
+
+    if plot:
+        pyplot.plot(G_mean, label=f"SARSA(λ) with: λ = {lmbda} γ = {gamma} α = {alpha}")
+        pyplot.xlabel("Episodes")
+        pyplot.ylabel("G mean")
+        pyplot.title(f"SARSA(λ) experiments")
+        pyplot.legend()
+    if test:
+        test_model(theta, seed)
+
+
+def main():
+    SEED = 42
+    sarsa_experiment(seed=SEED, plot=True, lmbda=0)
+    sarsa_experiment(seed=SEED, plot=True, lmbda=0.5)
+    sarsa_experiment(seed=SEED, plot=True, lmbda=0.9)
+    sarsa_experiment(seed=SEED, plot=True, lmbda=1)
+    pyplot.show()
 
 
 if __name__ == "__main__":
-    seed = 42
-    main(seed)
+    main()
