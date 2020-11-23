@@ -97,23 +97,25 @@ L'avantage de son utilisation est de briser la corrélation entre les échantill
 \item \textbf{Apprentissage supervisée}\\
 La distribution $D$ du replay Buffer réfère à un échantillonnage dans une banque de données qui a été créée par l'agent lui-même, ce dernier est responsable de créé son propre <<dataset>>, c'est l'esprit de l'apprentissage non-supervisée. En apprentissage supervisée (pour faire de la régression notamment), le jeux de données d'apprentissage n'est pas établi par l'agent, il lui est fourni. 
 
-\item Parmi les défis d'implémentations auxquels on a fait face, l'un d'entre eux et la longueur d'un entraînement, cela a fait en sorte qu'il était difficile de tester différents paramètres d'entraînements et d'optimiser cette dernières. Une ressource de calcul plus puissante que nos ordinateurs personnels aurait sans doute permis de faire un plus large éventail de tests. Voici deux graphiques illustrant l'évolution des gains épisodiques durant l'entraînement ainsi que l'évolution épisodique de la fonction de perte.
+\item Parmi les défis d'implémentations auxquels on a fait face, l'un d'entre eux et la longueur d'un entraînement, cela a fait en sorte qu'il était difficile de tester différents paramètres d'entraînements et d'optimiser cette dernières. Une ressource de calcul plus puissante que nos ordinateurs personnels aurait sans doute permis de faire un plus large éventail de tests. De plus, après avoir plusieurs simuler plusieurs entraînements sans varier les paramètres et le critère d'arrêt, on observe que le nombre de trajectoires à faire avant la convergence est très variable et semble beaucoup sujet à l'aléatoire. Nous avons l'impression que si l'agent est chanceux dans ces trajectoires et qu'il touche à un moment donné un gain substantiel, à partir de ce moment sa courbe d'apprentissage change abrutement et il enligne plusieurs séquences de trajectoires succès. Nous avons simulé plusieurs apprentissage avec le critère d'arrêt suivant: Avoir une moyenne de gain de plus de 200 dans les 5 dernières trajectoires effectuées. Avec ce critère d'arrêt, la méthode convergeait parfois en 400 trajectoires, parfois en 1600 trajectoires. Aussi, nous avons observé un comportement particulier sur certaines simulations: À l'occasion, l'apprentissage semblait près d'obtenir le critère d'arrêt, mais se mettait à replonger vers des gains négatifs pour une très longue séquence avant de remonter vers des gains importants. Finalement, en optant pour un paramètre <<epsilon\_decay>> de 0.95, nous avons observée une convergence plus rapide.\\
+
+Voici deux graphiques illustrant l'évolution des gains épisodiques ainsi que l'évolution de la fonction de perte durant un entraînement.
 
 \begin{center}
 \begin{figure}[H]
-\caption{Évolution des gains et fonction de pertes}
-\includegraphics[width=0.45\linewidth]{gains.pdf} \hfill \includegraphics[width=0.45\linewidth]{pertes.pdf}
+\caption{Évolution des gains et fonction de pertes sur une courbe d'apprentissage <<rapide>>}\label{figure rapide}
+\includegraphics[width=0.45\linewidth]{gains_convergence_rapide.pdf} \hfill \includegraphics[width=0.45\linewidth]{pertes_convergence_rapide.pdf}
 \end{figure}
 \end{center}
 
 FONCTION DE PERTE CI-DESSUS À MODIFIER (Je ne suis pas certain que c'est ça qu'il est demandé)
 
-Voici maintenant le graphique de la fonction de gain par pas de temps dans l'environnement pour un épisode joué par notre agent entraîner (donc par la politique apprise).
+Voici maintenant un graphique de la fonction de gain par pas de temps dans l'environnement pour un épisode joué par notre agent entraîner (donc par la politique apprise) ainsi que le graphique des gains cumulés pour ce même épisode.
  
 \begin{figure}[H]
 \begin{center}
-\caption{}
-\includegraphics[scale=0.5]{gain_par_pas.pdf}
+\caption{Gains instantanés et cumulé durant un épisode}
+\includegraphics[scale=0.45]{gain_par_pas_apres_cv.pdf}\hfill \includegraphics[scale=0.45]{gains_cumules_par_pas_apres_cv.pdf}
 \end{center}
 \end{figure}
 
