@@ -108,7 +108,7 @@ def test_model(theta, seed):
 
 def sarsa_experiment(
         seed=None,
-        n_episodes=300,
+        n_episodes=500,
         max_steps=200,
         gamma=1,
         lmbda=0.9,
@@ -121,8 +121,8 @@ def sarsa_experiment(
     set_random_seed(environment, seed)
     tile_coder = get_tile_coder(environment)
     theta = []
-    G_mean = []
-    G_episode_sum = 0
+    G_MEAN_100 = []
+    G_acc = []
 
     print(f"\n--------SARSA(λ) with: λ = {lmbda} γ = {gamma} α = {alpha}--------\n")
 
@@ -137,15 +137,15 @@ def sarsa_experiment(
     ):
         theta = newTheta
         g_sum = sum(G)
-        G_episode_sum += g_sum
-        G_mean.append(G_episode_sum / (n_episode + 1))
+        G_acc.append(g_sum)
+        G_MEAN_100.append(np.mean(G_acc[-100:]))
         if n_episode % 100 == 0:
-            print(f'-----G MEAN : {G_episode_sum / (n_episode + 1):.2f}-----')
+            print(f'-----G MEAN : {G_MEAN_100[-1:]:.2f}-----')
         if n_episode % 10 == 0:
             print(f'After {n_episode} episode, we have G = {g_sum:.2f}')
 
     if plot:
-        pyplot.plot(G_mean, label=f"SARSA(λ) with: λ = {lmbda} γ = {gamma} α = {alpha}")
+        pyplot.plot(G_MEAN_100, label=f"SARSA(λ) with: λ = {lmbda} γ = {gamma} α = {alpha}")
         pyplot.xlabel("Episodes")
         pyplot.ylabel("G mean")
         pyplot.title(f"SARSA(λ) experiments")
