@@ -140,14 +140,14 @@ def sarsa_experiment(
         G_acc.append(g_sum)
         G_MEAN_100.append(np.mean(G_acc[-100:]))
         if n_episode % 100 == 0:
-            print(f'-----G MEAN : {G_MEAN_100[-1:]:.2f}-----')
+            print(f'-----G MEAN : {G_MEAN_100[-1:][0]:.2f}-----')
         if n_episode % 10 == 0:
             print(f'After {n_episode} episode, we have G = {g_sum:.2f}')
 
     if plot:
         pyplot.plot(G_MEAN_100, label=f"SARSA(λ) with: λ = {lmbda} γ = {gamma} α = {alpha}")
         pyplot.xlabel("Episodes")
-        pyplot.ylabel("G mean")
+        pyplot.ylabel("Last 100 episodes gains mean")
         pyplot.title(f"SARSA(λ) experiments")
         pyplot.legend()
     if test:
@@ -160,6 +160,7 @@ def main():
     sarsa_experiment(seed=SEED, plot=True, lmbda=0.5)
     sarsa_experiment(seed=SEED, plot=True, lmbda=0.9)
     sarsa_experiment(seed=SEED, plot=True, lmbda=1)
+
     pyplot.show()
 
 

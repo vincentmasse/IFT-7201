@@ -127,7 +127,32 @@ Voici maintenant un graphique de la fonction de gain par pas de temps dans l'env
 \item \textbf{Exploration}\\
 L'initialisation de la fonction de valeurs d'actions est associée à l'initialisation des estimateurs empiriques des actions dans l'approche des bandits. Dans cet environnement, puisque l'on initialise les $Q(s,a)=0$ et que la fonction de reward donne un reward de $-1$ à toutes les actions ou l'auto n'atteint pas le drapeau, cela revient à faire une initialisation optimiste de l'estimateur. En effet, en initialisant tous les $Q_{vals}=0,$ toutes les actions essayées feront pire que les actions dont la valeur est encore la valeur initiale, ainsi cela force l'algorithme à essayer les autres actions possibles.
 
-\item
+\item \textbf{Implementation}\\
+Nous avons implémenté l'algorithme SARSA$(\lambda)$ avec caractéristiques binaires. La particularité était l'espace joint des états et des actions représentés par un quadrillage.
+Nous avons ensuite fait plusieurs simulations sur l'environement \textit{MountainCarV0} de openAI gym.
+Pour chaque simulation, nous avons entrainé le modèle sur 500 épisodes d'au plus de 200 pas de temps.
+
+SARSA$(\lambda)$ nous permet d'introduire l'idée de <<trace d'éligibilité>>, celle-ci va agir sur la propagation de la différence temporel $\delta$ pour notamment les états <<éligibles>> c'est-à-dire ceux visité récemment.
+$\lambda$ lui, agis directement sur cette trace d'éligibilité, il peut donc donner plus ou moins d'importance aux états visités récemment en contrôlant leurs déclins dans le temps sachant qu'au départ, ils sont fixés à 1.
+La trace d'éligibilité entre en jeu lors de la maximisation des poids $\Theta$.
+\begin{eqnarray*}
+Q(s,a) & = & Q(s,a) + \alpha \delta e(s,a) \\
+e(s,a) & \leftarrow &  \gamma \lambda e(s,a)
+\end{eqnarray*}
+Nous avons fait des simulations pour les valeurs, 0, 0.5, 0.9 et 1 de $\lambda$. On peut tout d'abord noter que pour tout $\lambda \geq$ 1, la somme des gains par épisodes est constante, cela se résume par l'importance des états qui ne décroissent pas dans le temps, l'agent ne peut donc pas explorer convenablement surtout au début de chaque épisode.
+\begin{figure}[H]
+\label{figure: variance petite}
+\caption{Evolution de la moyenne des 100 derniers gains cumulées de chaques épisodes }
+\begin{center}
+\includegraphics[scale=0.3]{SARSA_lambda_gains.png}
+\end{center}
+\end{figure}
+Pour $\lambda$ = 0, on assume de ne pas prendre en compte la trace d'éligibilité dans la maximisation des poids $\Theta$, c'est donc équivalant à un algorithme SARSA.
+
+$\lambda$ doit donc être compris dans l'intervalle $0 \geq \lambda \leq 1$ pour qu'il ait un véritable impact sur l'apprentissage.
+Pour les deux dernières simulations, nous avons fait des expériences sur une valeur équilibré de $\lambda$ et une valeur se rapprochant de 1.
+Dans le cas de $\lambda$ = 0.9 où les états rencontrés vont avoir plus d'importance sur le temps, on observe une baisse des gains à peu près à partir du 140ème épisode, contrairement au cas où $\lambda$ est à 0.5, la courbe est plus linéaire sur le temps, de plus on observe qu'entre les épisodes 140 et 280, les gains sont plus élevés pour 0.5 on peut donc dire que pour un nombre d'épisodes plus limité il serait préférable d'opter pour une valeur de $\lambda$ plus faible.
+Le paramètre 0.9 reste globalement plus performant que la simulation où $\lambda$ = 0.5.
 
 \end{enumerate}
 
