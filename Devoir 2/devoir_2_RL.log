@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2019.1.1)  24 NOV 2020 16:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2019.1.1)  25 NOV 2020 09:18
 entering extended mode
 **./devoir_2_RL.tex
 (devoir_2_RL.tex
@@ -1443,23 +1443,12 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
 {C:/Users/Utilisateur/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 80.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 80.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 80.
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+
+ []
 
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 80.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 80.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 100--101
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
@@ -1472,26 +1461,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [2
 
 ]
-<gains_convergence_rapide.pdf, id=37, 510.83345pt x 497.48233pt>
-File: gains_convergence_rapide.pdf Graphic file (type pdf)
-<use gains_convergence_rapide.pdf>
-Package pdftex.def Info: gains_convergence_rapide.pdf  used on input line 107.
-(pdftex.def)             Requested size: 225.21626pt x 219.32558pt.
-<pertes_convergence_rapide.pdf, id=38, 502.42705pt x 497.48233pt>
-File: pertes_convergence_rapide.pdf Graphic file (type pdf)
-<use pertes_convergence_rapide.pdf>
-Package pdftex.def Info: pertes_convergence_rapide.pdf  used on input line 107.
-(pdftex.def)             Requested size: 225.21626pt x 222.9996pt.
-<gain_par_pas_apres_cv.pdf, id=39, 502.42705pt x 511.13962pt>
-File: gain_par_pas_apres_cv.pdf Graphic file (type pdf)
-<use gain_par_pas_apres_cv.pdf>
-Package pdftex.def Info: gain_par_pas_apres_cv.pdf  used on input line 117.
-(pdftex.def)             Requested size: 226.09007pt x 230.0107pt.
-<gains_cumules_par_pas_apres_cv.pdf, id=40, 502.42705pt x 511.13962pt>
-File: gains_cumules_par_pas_apres_cv.pdf Graphic file (type pdf)
-<use gains_cumules_par_pas_apres_cv.pdf>
-Package pdftex.def Info: gains_cumules_par_pas_apres_cv.pdf  used on input line 117.
-(pdftex.def)             Requested size: 226.09007pt x 230.0107pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 88.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 88.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 88.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 88.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 88.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1499,7 +1487,49 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3 <./gains_convergence_rapide.pdf> <./pertes_convergence_rapide.pdf
+[3
+
+]
+<gains_convergence_rapide.pdf, id=41, 510.83345pt x 497.48233pt>
+File: gains_convergence_rapide.pdf Graphic file (type pdf)
+<use gains_convergence_rapide.pdf>
+Package pdftex.def Info: gains_convergence_rapide.pdf  used on input line 115.
+(pdftex.def)             Requested size: 225.21626pt x 219.32558pt.
+<pertes_convergence_rapide.pdf, id=42, 502.42705pt x 497.48233pt>
+File: pertes_convergence_rapide.pdf Graphic file (type pdf)
+<use pertes_convergence_rapide.pdf>
+Package pdftex.def Info: pertes_convergence_rapide.pdf  used on input line 115.
+(pdftex.def)             Requested size: 225.21626pt x 222.9996pt.
+<gain_par_pas_apres_cv.pdf, id=43, 502.42705pt x 511.13962pt>
+File: gain_par_pas_apres_cv.pdf Graphic file (type pdf)
+<use gain_par_pas_apres_cv.pdf>
+Package pdftex.def Info: gain_par_pas_apres_cv.pdf  used on input line 125.
+(pdftex.def)             Requested size: 226.09007pt x 230.0107pt.
+<gains_cumules_par_pas_apres_cv.pdf, id=44, 502.42705pt x 511.13962pt>
+File: gains_cumules_par_pas_apres_cv.pdf Graphic file (type pdf)
+<use gains_cumules_par_pas_apres_cv.pdf>
+Package pdftex.def Info: gains_cumules_par_pas_apres_cv.pdf  used on input line 125.
+(pdftex.def)             Requested size: 226.09007pt x 230.0107pt.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 131.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\lambda' on input line 131.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 131.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.1595pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4 <./gains_convergence_rapide.pdf> <./pertes_convergence_rapide.pdf
 
 pdfTeX warning: pdflatex.exe (file ./pertes_convergence_rapide.pdf): PDF inclusion: multiple pdfs with page group includ
 ed in a single page
@@ -1512,7 +1542,19 @@ n a single page
 pdfTeX warning: pdflatex.exe (file ./gains_cumules_par_pas_apres_cv.pdf): PDF inclusion: multiple pdfs with page group i
 ncluded in a single page
 >]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 134.
+Underfull \hbox (badness 10000) in paragraph at lines 138--142
+
+ []
+
+<SARSA_lambda_gains.png, id=183, 696.6828pt x 504.4446pt>
+File: SARSA_lambda_gains.png Graphic file (type png)
+<use SARSA_lambda_gains.png>
+Package pdftex.def Info: SARSA_lambda_gains.png  used on input line 155.
+(pdftex.def)             Requested size: 313.50436pt x 226.99797pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1520,23 +1562,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 134.
+[5 <./SARSA_lambda_gains.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.1595pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
  (devoir_2_RL.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 134.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 134.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
 Package rerunfilecheck Info: File `devoir_2_RL.out' has not changed.
-(rerunfilecheck)             Checksum: 1238A65D094F97070EAF2BD90E3A1BB1;92.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 134.
+(rerunfilecheck)             Checksum: 6E40BDF0C62DC3E8BC5416237C5F5B7E;96.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
  ) 
 Here is how much of TeX's memory you used:
- 32166 strings out of 492946
- 582381 string characters out of 3135510
- 732477 words of memory out of 3000000
- 35530 multiletter control sequences out of 15000+200000
- 596706 words of font info for 76 fonts, out of 3000000 for 9000
+ 32185 strings out of 492946
+ 582653 string characters out of 3135510
+ 732513 words of memory out of 3000000
+ 35539 multiletter control sequences out of 15000+200000
+ 609946 words of font info for 80 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,11n,71p,1732b,944s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 68i,11n,71p,1778b,945s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.en
 c}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.en
 c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx1
@@ -1544,10 +1595,11 @@ c}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx10.pfb><C:/Program File
 lmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
-Output written on devoir_2_RL.pdf (4 pages, 274647 bytes).
+blic/lm/lmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/lm/lmri10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb>
+Output written on devoir_2_RL.pdf (6 pages, 454432 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 17 named destinations out of 1000 (max. 500000)
- 37 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 254 PDF objects out of 1000 (max. 8388607)
+ 21 named destinations out of 1000 (max. 500000)
+ 42 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -77,6 +77,14 @@
 \chead{Devoir 2 (Automne 2020)}
 \rhead{Équipe 10}
 
+\textbf{Remarque concernant le code:}\\
+
+Pour le numéro 1, le notebook <<test\_no\_1.ipynb>> doit être utilisé pour produire les résultats (il suffit de compiler toutes les cellules dans l'ordre). À noter que la façon dont les germes aléatoires étaient fixés dans le fichier de départ fourni ne semble pas fonctionné entièrement, de sorte qu'en compilant le notebook, il se peut que vous obteniez des résultats un peu différent, mais similaires à ceux présentés.\\
+
+Pour le numéro 2, le fichier q2.py (qui appelle tilecoding.py) doit être exécuté.
+
+\clearpage
+
 \section{Deep $Q$-learning}
 
 \begin{enumerate}[label=(\alph*)]
@@ -97,7 +105,7 @@ L'avantage de son utilisation est de briser la corrélation entre les échantill
 \item \textbf{Apprentissage supervisée}\\
 La distribution $\mathcal{D}$ du replay Buffer réfère à un échantillonnage dans une banque de données qui a été créée par l'agent lui-même, ce dernier est responsable de créé son propre <<dataset>>, c'est l'esprit de l'apprentissage non-supervisée. En apprentissage supervisée (pour faire de la régression notamment), le jeux de données d'apprentissage n'est pas établi par l'agent, il lui est fourni (ou du moins la loi de probabilité qui détermine ces données n'est pas influencée par les décisions d'un agent).
 
-\item Parmi les défis d'implémentation auxquels on a fait face, l'un d'entre eux et la longueur d'un entraînement, cela a fait en sorte qu'il était difficile de tester différents paramètres d'entraînements et d'optimiser cette dernières. Une ressource de calcul plus puissante que nos ordinateurs personnels aurait sans doute permis de faire un plus large éventail de tests. De plus, après avoir simuler plusieurs entraînements sans varier les paramètres et le critère d'arrêt, on observe que le nombre de trajectoires à faire avant la convergence est très variable et semble beaucoup sujet à l'aléatoire. Nous avons l'impression que si l'agent est chanceux dans ces trajectoires et qu'il touche à un moment donné un gain substantiel, à partir de ce moment sa courbe d'apprentissage change abrutement et il enligne plusieurs séquences de trajectoires succès. Nous avons simulé plusieurs apprentissages avec le critère d'arrêt suivant: Avoir une moyenne de gain de plus de 200 dans les 5 dernières trajectoires effectuées. Avec ce critère d'arrêt, la méthode convergeait parfois en 400 trajectoires, parfois en 1600 trajectoires. Aussi, nous avons observé un comportement particulier sur certaines simulations: À l'occasion, l'apprentissage semblait près d'obtenir le critère d'arrêt, mais se mettait à replonger vers des gains négatifs pour une très longue séquence avant de remonter vers des gains importants. Il n'est pas à écarter que cela est en fait de l'oubli <<catastrophique>> en lien avec une valeur de $\tau$ non-optimale. Finalement, en optant pour un paramètre <<epsilon\_decay>> de 0.95, nous avons observé une convergence plus rapide.\\
+\item Parmi les défis d'implémentation auxquels on a fait face, l'un d'entre eux et la longueur d'un entraînement, cela a fait en sorte qu'il était difficile de tester différents paramètres d'entraînements et d'optimiser cette dernières. Une ressource de calcul plus puissante que nos ordinateurs personnels aurait sans doute permis de faire un plus large éventail de tests. De plus, après avoir simuler plusieurs entraînements sans varier les paramètres et le critère d'arrêt, on observe que le nombre de trajectoires à faire avant la convergence est très variable et semble beaucoup sujet à l'aléatoire. Nous avons l'impression que si l'agent est chanceux dans ces trajectoires et qu'il touche à un moment donné un gain substantiel, à partir de ce moment sa courbe d'apprentissage change abrutement et il enligne plusieurs séquences de trajectoires succès. Nous avons simulé plusieurs apprentissages avec le critère d'arrêt suivant: Avoir une moyenne de gain de plus de 200 dans les 5 dernières trajectoires effectuées. Avec ce critère d'arrêt, la méthode convergeait parfois en 400 trajectoires, parfois en 1600 trajectoires. Aussi, nous avons observé un comportement particulier sur certaines simulations: À l'occasion, l'apprentissage semblait près d'obtenir le critère d'arrêt, mais se mettait à replonger vers des gains négatifs pour une très longue séquence avant de remonter vers des gains importants. Il n'est pas à écarter l'hypothèse que cela serait en fait de l'oubli <<catastrophique>> en lien avec une valeur de $\tau$ non-optimale. Finalement, en optant pour un paramètre <<epsilon\_decay>> de 0.95, nous avons observé une convergence plus rapide (mais restant très variable).\\
 
 Voici deux graphiques illustrant l'évolution des gains épisodiques ainsi que l'évolution de la fonction de perte durant un entraînement.
 
@@ -120,7 +128,7 @@ Voici maintenant un graphique de la fonction de gain par pas de temps dans l'env
 
 \end{enumerate}
 
-\section{SARSA}
+\section{SARSA($\lambda$)}
 
 \begin{enumerate}[label=(\alph*)]
 
@@ -130,29 +138,28 @@ L'initialisation de la fonction de valeurs d'actions est associée à l'initiali
 \item \textbf{Implementation}\\
 Nous avons implémenté l'algorithme SARSA$(\lambda)$ avec caractéristiques binaires. La particularité était l'espace joint des états et des actions représentés par un quadrillage.
 Nous avons ensuite fait plusieurs simulations sur l'environement \textit{MountainCarV0} de openAI gym.
-Pour chaque simulation, nous avons entrainé le modèle sur 500 épisodes d'au plus de 200 pas de temps.
+Pour chaque simulation, nous avons entrainé le modèle sur 500 épisodes d'au plus de 200 pas de temps.\\
 
-SARSA$(\lambda)$ nous permet d'introduire l'idée de <<trace d'éligibilité>>, celle-ci va agir sur la propagation de la différence temporel $\delta$ pour notamment les états <<éligibles>> c'est-à-dire ceux visité récemment.
-$\lambda$ lui, agis directement sur cette trace d'éligibilité, il peut donc donner plus ou moins d'importance aux états visités récemment en contrôlant leurs déclins dans le temps sachant qu'au départ, ils sont fixés à 1.
+SARSA$(\lambda)$ nous permet d'introduire l'idée de <<trace d'éligibilité>>, celle-ci va agir sur la propagation de la différence temporel $\delta$ pour notamment les états <<éligibles>>, c'est-à-dire ceux visités récemment.
+$\lambda$ lui, agit directement sur cette trace d'éligibilité, il peut donc donner plus ou moins d'importance aux états visités récemment en contrôlant leurs déclins dans le temps sachant qu'au départ, ils sont fixés à 1.
 La trace d'éligibilité entre en jeu lors de la maximisation des poids $\Theta$.
 \begin{eqnarray*}
 Q(s,a) & = & Q(s,a) + \alpha \delta e(s,a) \\
 e(s,a) & \leftarrow &  \gamma \lambda e(s,a)
 \end{eqnarray*}
-Nous avons fait des simulations pour les valeurs, 0, 0.5, 0.9 et 1 de $\lambda$. On peut tout d'abord noter que pour tout $\lambda \geq$ 1, la somme des gains par épisodes est constante, cela se résume par l'importance des états qui ne décroissent pas dans le temps, l'agent ne peut donc pas explorer convenablement surtout au début de chaque épisode.
+Nous avons fait des simulations pour les valeurs, 0, 0.5, 0.9 et 1 de $\lambda$. On peut tout d'abord noter que pour tout $\lambda \geq$ 1, la somme des gains par épisodes est constante, cela se résume par l'importance des états qui ne décroissent pas dans le temps, l'agent ne peut donc pas explorer convenablement surtout au début de chaque épisode. Le graphique suivant présente la moyenne mobile des 100 derniers\footnote{Au début, lorsqu'il y a moins de 100 épisodes de joués, ça correspond seulement à la moyenne.} gains épisodiques 
 \begin{figure}[H]
 \label{figure: variance petite}
-\caption{Evolution de la moyenne des 100 derniers gains cumulées de chaques épisodes }
+\caption{Evolution de la moyenne des 100 derniers gains épisodiques}
 \begin{center}
-\includegraphics[scale=0.3]{SARSA_lambda_gains.png}
+\includegraphics[scale=0.45]{SARSA_lambda_gains.png}
 \end{center}
 \end{figure}
-Pour $\lambda$ = 0, on assume de ne pas prendre en compte la trace d'éligibilité dans la maximisation des poids $\Theta$, c'est donc équivalant à un algorithme SARSA.
+Pour $\lambda$ = 0, on assume de ne pas prendre en compte la trace d'éligibilité dans la maximisation des poids $\Theta$, c'est donc équivalant à un algorithme SARSA.\\
 
-$\lambda$ doit donc être compris dans l'intervalle $0 \geq \lambda \leq 1$ pour qu'il ait un véritable impact sur l'apprentissage.
+On doit donc avoir $0 < \lambda < 1$ pour qu'il ait un véritable impact sur l'apprentissage.
 Pour les deux dernières simulations, nous avons fait des expériences sur une valeur équilibré de $\lambda$ et une valeur se rapprochant de 1.
-Dans le cas de $\lambda$ = 0.9 où les états rencontrés vont avoir plus d'importance sur le temps, on observe une baisse des gains à peu près à partir du 140ème épisode, contrairement au cas où $\lambda$ est à 0.5, la courbe est plus linéaire sur le temps, de plus on observe qu'entre les épisodes 140 et 280, les gains sont plus élevés pour 0.5 on peut donc dire que pour un nombre d'épisodes plus limité il serait préférable d'opter pour une valeur de $\lambda$ plus faible.
-Le paramètre 0.9 reste globalement plus performant que la simulation où $\lambda$ = 0.5.
+Dans le cas de $\lambda$ = 0.9 où les états rencontrés vont avoir plus d'importance sur le temps, on observe une baisse des gains à peu près à partir du $140^{\text{ième}}$ épisode, contrairement au cas où $\lambda$ est à 0.5, la courbe est plus linéaire sur le temps, de plus on observe qu'entre les épisodes 140 et 280, les gains sont plus élevés pour 0.5 on peut donc dire que pour un nombre d'épisodes plus limité il serait préférable d'opter pour une valeur de $\lambda$ plus faible. Le paramètre 0.9 reste globalement plus performant que la simulation où $\lambda = 0.5,$ surtout dans la perspective de l'atteinte d'une moyenne de gains sur 100 épisodes de plus de $-110,$ ce critère est rencontré dans le cas $\lambda=0.9$ seulement. 
 
 \end{enumerate}
 
