@@ -112,10 +112,6 @@ Le jeu des bandits stochastiques ainsi présenté sous-entend que la distributio
 
 Par exemple, La loi de Cauchy ou certaines configuration de la loi de Pareto.
 
-\pause
-\vfill
-\textbf{Mettre des graphiques pour jaser un peu des queues des distribution}
-
 \end{frame}
 
 \begin{frame}
@@ -124,7 +120,7 @@ La loi de Cauchy est une loi continue de fonction de densité
 
 $$f(x;L;a)=\frac{1}{\pi\,a\left[1+\left(\frac{x-L}{a}\right)^2\right]}=\frac{1}{\pi}\left[\frac{a}{(x-L)^2+a^2}\right]$$
 
-où $l\in\mathbb{R}$ est un paramètre de localisation et $a>0$ est un paramètre d'échelle.
+où $L\in\mathbb{R}$ est un paramètre de localisation et $a>0$ est un paramètre d'échelle.
 
 \pause
 
@@ -171,67 +167,409 @@ Mesure de performance empirique d'un agent: $\displaystyle R(T)=\sum_{t=1}^T \De
 \end{frame}
 
 \begin{frame}
-\frametitle{Les algorithmes classiques}
+\frametitle{Les algorithmes classiques : Exemple d'échec}
 
-À faire: Montrer le graphique du regret d'une expérience basée sur un exemple d'algorithme classique basé sur la moyenne empirique 
+\textbf{Expérience}\\
+Pour chacune des $N=200$ répétitions,\\
+
+\begin{itemize}
+
+\item[$\bullet$] Créer un bandit Cauchy à deux bras de distributions $\mathrm{Cauchy}(5,1)$ et $\mathrm{Cauhy}(6,1).$
+
+\item[$\bullet$] Jouer $\epsilon$-greedy et $\epsilon_t$-greedy sur un horizon de $T=1000$ pas de temps. 
+\end{itemize}
+
+Tracer le regret cumulatif empirique moyenné sur les $N$ répétitions.
+
 \vfill
 \pause
 
-Cause de la mauvaise performance: la moyenne empirique $\hat \mu_k(t)$ n'est pas un bon estimateur de la localisation $L_k$ de la loi de Cauchy du bras no $k.$\\
+\begin{columns}[T] % align columns
+\begin{column}{0.5\linewidth}
 
-\vfill
+\includegraphics[scale=0.3]{contre-exemple-epsilon-greedy.pdf}
+
+\end{column}
 \pause
+\begin{column}{0.5\linewidth}
 
-À faire, montrer une expérience montrant le comportement chaotique de l'estimateur $\hat \mu_{k}(t).$ 
+\vspace*{1cm}
+Cause de la mauvaise performance: $\epsilon$-greedy base le choix de son action d'exploitation sur la moyenne empirique $\hat \mu_k(t)$ des rewards reçus en jouant \mbox{l'action $k.$}
+
+\vspace*{1cm}
+\pause
+Cet estimateur (la moyenne empirique) n'estime pas bien la localisation $L_k$ du bras numéro $k.$
+
 \vfill
+\end{column}
+\end{columns}
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Estimateurs de la localisation $L$ d'une loi de Cauchy}
-Présentation des différents estimateurs de localisation pour le paramètre L
+\frametitle{La non-convergence de la moyenne empirique}
+
+Comportement de la moyenne empirique sur une séquence de réalisations provenant d'une loi $\mathrm{Cauchy}(5,1)$
+
+\pause
+
+\begin{columns}[T] % align columns
+\begin{column}{0.5\linewidth}
+%\color{red}\rule{\linewidth}{4pt}
+\includegraphics[scale=0.28]{graphique-moyenne-empirique-1.pdf}
+\end{column}%
+\hfill%
+
+\pause
+
+\begin{column}{0.5\linewidth}
+%\color{blue}\rule{\linewidth}{4pt}
+\includegraphics[scale=0.28]{graphique-moyenne-empirique-2.pdf}
+\end{column}%
+\end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+
+\frametitle{Estimateurs de localisation d'une loi de Cauchy}
+
+Soit $\mathcal{X}=\left\{X_1,X_2,...,X_T\right\}$ une séquence d'observations provenant d'une loi $\mathrm{Cauchy}(L,a)$ où $L$ est inconnu et $a$ connu.
+
+\vfill
+\pause
+
+\begin{itemize}
+%\item[$\bullet$]
+%La moyenne empirique: $\displaystyle\overline{x}=\frac{1}{T}\sum_{i=1}^T X_i$
+
+\vfill
+\item[$\bullet$]
+La médiane empirique: $\mathrm{MED}(\mathcal{X})$
+
+\pause
+\vfill
+\item[$\bullet$]
+La moyenne $\alpha-$tronquée: $\displaystyle TM_{\alpha}(\mathcal X)=\frac{1}{T-2r}\sum_{i=r+1}^{T-r}X_{(i)}$
+
+où $r=\left\lfloor n\alpha\right\rfloor$ où $0<\alpha<0.5$ 
+
+\pause
+\vfill
+\item[$\bullet$]
+L'estimateur de maximum de vraisemblance: $\mathrm{MLE}(\mathcal{X})$
+
+\pause
+\vfill
+\item[$\bullet$]
+L-estimator: $\displaystyle\mathrm{LE}(\mathcal{X})=\frac{1}{T}\sum_{i=1}^T J\left(\frac{i}{T+1}\right) X_{(i)}$\\
+avec $J(u)=\frac{\sin\left(4\pi(u-0.5\right)}{\tan\left(\pi(u-0.5\right)}$
+
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Adaptation des algorithmes}
-Présentation des différentes adaptations des algorithmes (etc, epsilon\_greedy,...) pour les bandits Cauchy.
+\frametitle{Comportement des estimateurs de localisation de la loi de Cauchy }
+%\framesubtitle{Les moyennes tronquées}
+Comportement des moyennes tronquées sur une séquence de réalisations provenant d'une loi $\mathrm{Cauchy}(5,1)$
+
+\pause
+
+\begin{columns}[T] % align columns
+
+\begin{column}{0.5\linewidth}
+
+\includegraphics[scale=0.2]{mt-10000.pdf}
+
+\end{column}
+
+\pause
+\hfill
+
+\begin{column}{0.5\linewidth}
+
+\includegraphics[scale=0.2]{mt-100.pdf}
+
+\end{column}
+
+\end{columns}
+
+\pause
+
+\begin{columns}[T] % align columns
+
+\begin{column}{0.5\linewidth}
+
+\includegraphics[scale=0.2]{mt-100-10000.pdf}
+
+\end{column}
+
+\pause
+
+\begin{column}{0.5\linewidth}
+
+BlaBla
+\end{column}
+
+\end{columns}
+
+
 \end{frame}
+
+\begin{frame}
+
+\frametitle{Comportement des estimateurs de localisation de la loi de Cauchy }
+%\framesubtitle{Les moyennes tronquées}
+Comportement des estimateurs ME, MLE, LE sur une séquence de réalisations provenant d'une loi $\mathrm{Cauchy}(5,1)$
+
+\pause
+
+\begin{columns}[T] % align columns
+
+\begin{column}{0.5\linewidth}
+
+\includegraphics[scale=0.2]{Est-1000.pdf}
+
+\end{column}
+
+\pause
+\hfill
+
+\begin{column}{0.5\linewidth}
+
+\includegraphics[scale=0.2]{Est-100.pdf}
+
+\end{column}
+
+\end{columns}
+
+\pause
+
+\begin{columns}[T] % align columns
+
+\begin{column}{0.5\linewidth}
+
+\includegraphics[scale=0.2]{Est-100-1000.pdf}
+
+\end{column}
+
+\pause
+
+\begin{column}{0.5\linewidth}
+
+BlaBla
+\end{column}
+
+\end{columns}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Adaptation des algorithmes existants}
+\pause
+
+\textbf{Exemple: adaptation de $\epsilon$-greedy}
+
+\vfill
+\pause
+
+\underline{$\epsilon$-greedy classique}\\
+
+\vfill
+\pause
+
+Pour tout $t\geq 1:$
+
+\begin{itemize}
+\item[$\bullet$] Explorer avec probabilité $\epsilon:$ Sélectionner $k_t\sim\mathcal{U}({1,2,...,K}).$
+\item[$\bullet$] Exploiter avec probabilité $1-\epsilon:$ Sélectionner $k_t=\underset{k}{\mathrm{argmax}}\, \hat{\mu}_k(t-1)$
+\end{itemize}
+
+\pause
+\vfill
+
+\underline{$\epsilon$-greedy Cauchy}
+
+\pause
+\vfill
+Pour tout $t\geq 1:$
+
+\begin{itemize}
+\item[$\bullet$] Explorer avec probabilité $\epsilon:$ Sélectionner $k_t\sim\mathcal{U}({1,2,...,K}).$
+\item[$\bullet$] Exploiter avec probabilité $1-\epsilon:$ Sélectionner $k_t=\underset{k}{\mathrm{argmax}}\, \widehat{L_k}(t-1)$
+\end{itemize}
+
+\vfill
+
+où $\widehat{L_k}(t-1)$ est un des estimateurs de la localisation $L_k$ du bras no $k$ basée sur les observations obtenus sur ce bras dans les pas de temps passés.
+
+\pause
+\vfill
+
+De la même façon, on peut adapter aisément les $\underline{\epsilon_t\text{-greedy}}$,
+$\underline{\text{ETC}}$ et $\underline{\text{Boltzmann/Softmax}}$ 
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Expérience 1 avec $\epsilon_t$-greedy avec $\epsilon_t=1/\sqrt{t}$ sur des bandits Cauchy}
+
+Pour chacune des $N=200$ répétitions,\\
+
+\pause
+
+\begin{itemize}
+
+\item[$\bullet$] Créer un bandit Cauchy à deux bras de distributions $\mathrm{Cauchy}(5,1)$ et $\mathrm{Cauhy}(6,1).$
+
+\pause
+\item[$\bullet$] Jouer $\epsilon_t$-greedy sur un horizon de $T=1000$ pas de temps (refaire avec plusieurs estimateurs de localisation pour adapter $\epsilon_t$-greedy)
+\end{itemize}
+
+\pause
+Tracer le regret cumulatif empirique moyenné sur les $N$ répétitions pour comparer les différentes versions de l'algorithme.
+
+\begin{center}
+\includegraphics[scale=0.3]{experience-epsilon-t-greedy.pdf}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+
+\frametitle{Expérience 2 avec $\epsilon_t$-greedy avec $\epsilon_t=1/\sqrt{t}$ sur des bandits Cauchy}
+
+Pour chacune des $N=200$ répétitions,\\
+
+\pause
+
+\begin{itemize}
+
+\item[$\bullet$] Créer un bandit Cauchy à deux bras de distributions $\mathrm{Cauchy}(L_1,1)$ et $\mathrm{Cauhy}(L_2,1)$ avec $L_1,L_2\sim\mathcal{U}([0,5])$
+
+\pause
+\item[$\bullet$] Jouer $\epsilon_t$-greedy sur un horizon de $T=1000$ pas de temps (refaire avec plusieurs estimateurs de localisation pour adapter $\epsilon_t$-greedy)
+\end{itemize}
+
+\pause
+Tracer le regret cumulatif empirique moyenné sur les $N$ répétitions pour comparer les différentes versions de l'algorithme.
+
+\begin{center}
+\includegraphics[scale=0.3]{experience-epsilon-t-greedy-2.pdf}
+\end{center}
+
+\end{frame}
+
 
 \begin{frame}
 \frametitle{La loi de Pareto}
 La loi de Pareto est une loi continue dont la fonction de densité est donnée par
 
-$$f(x;x_m,k)=\left\{
+$$f(x;L,a)=\left\{
 \begin{array}{ll}
-\dfrac{kx_m^k}{x^{k+1}} & \text{si $x\geq x_m$}\\
+\dfrac{aL^a}{x^{a+1}} & \text{si $x\geq L$}\\
 0                       & \text{sinon}
 \end{array}
 \right.
 $$
 
-Dans le cas particulier où $k=1$, on obtient que 
+\pause
 
-$$f(x;x_m)=\left\{
+Dans le cas particulier où $a=1$, on obtient que 
+
+$$f(x;L)=\left\{
 \begin{array}{ll}
-\dfrac{x_m}{x^{2}} & \text{si $x\geq x_m$}\\
+\dfrac{L}{x^{2}} & \text{si $x\geq L$}\\
 0                       & \text{sinon}
 \end{array}
 \right.
 $$
+
+\pause
 
 Dans ce cas particulier, la loi de Pareto possède une espérance non-définie (infinie).
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.25]{graphiques_Pareto.pdf}
-\end{center}
-\end{figure}
+\begin{columns}[T]
 
+\begin{column}{0.5\linewidth}
+
+\includegraphics[scale=0.25]{graphiques_Pareto.pdf}
+
+\end{column}
+
+\hfill
+\pause
+\begin{column}{0.5\linewidth}
+
+\vspace*{2cm}
+Remarque: particularité de la loi de Pareto, pour le cas $a=1$, on a que la mediane de la distribution est $2L.$
+
+\end{column}
+
+\end{columns}
 
 \end{frame}
 
+\begin{frame}
 
+\frametitle{Les bandits de Pareto avec $a=1$}
+
+À chaque pas de temps $t=1,2,\ldots,T,$ l'agent:
+
+\begin{itemize}
+
+\item[$\bullet$] Sélectionne une action $k_t\in\left\{1,2,\ldots,K\right\}$
+
+\item[$\bullet$] Observe une reward $r_t\sim \mathrm{Pareto}(L_{k_t},1)$
+
+\end{itemize}
+
+\vfill
+\pause
+
+L'action optimale et la localisation optimale sont définis à partir de la localisation des différents bras:
+
+\pause
+$$\displaystyle L^{\star} := \max_k L_k \qquad \text{et} \qquad k^{\star} := \underset{k}{\mathrm{argmax}} L_k$$ 
+
+\pause
+\vfill
+
+le gap (regret) associé à l'action $k$ devient $\Delta_k= L^{\star}-L_k$ 
+
+\pause
+\vfill
+
+Mesure de performance empirique d'un agent: $\displaystyle R(T)=\sum_{t=1}^T \Delta_{k_t}$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Estimateur de la localisation $L$ d'une loi de Pareto}
+Un estimateur naturel pour $L$ à partir d'un jeux de données $\mathcal{X}=\left\{X_1,X_2,X_3,\ldots,X_T\right\}$ tirées d'une loi $Pareto(L,1)$ est $\widehat{L}=\min(\mathcal{X})$ ou encore $\widehat{L}=\mathrm{MED}(\mathcal{X})$
+
+\pause
+\vfill
+
+On peut donc généraliser les algorithmes classiques comme \underline{$\epsilon$-greedy}, \underline{ETC}, \underline{Boltzmann/Softmax}
+  
+\pause
+\vfill
+
+Voici le résultat d'une expérience sur $N=200$ instances de bandits Pareto avec $L\sim\mathcal{U}([0,1])$ et $a=1,$ où l'on a joué \underline{$\epsilon_t$-greedy} avec $\epsilon_t=1/\sqrt{t}$
+
+\vfill
+
+\begin{center}
+\includegraphics[scale=0.3]{exp-Pareto.pdf}
+\end{center}
+
+\end{frame}
 
 
 
