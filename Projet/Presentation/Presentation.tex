@@ -75,6 +75,8 @@
 
 Dans le jeu des bandits stochastiques, à chaque pas de temps $t=1,2,\ldots,T,$ l'agent:
 
+\vfill
+
 \begin{itemize}
 
 \item[$\bullet$] Sélectionne une action $k_t\in\left\{1,2,\ldots K\right\}$ 
@@ -110,7 +112,29 @@ Le jeu des bandits stochastiques ainsi présenté sous-entend que la distributio
 \pause
 \vfill
 
-Par exemple, La loi de Cauchy ou certaines configuration de la loi de Pareto.
+Par exemple, la loi de Cauchy ou certaines configuration de la loi de Pareto.
+
+\pause
+\vfill
+
+\textbf{Intérêts du projet}
+
+
+\begin{itemize}
+\item[$\bullet$]
+Intérêt personnel (curiosité intellectuel).
+
+\pause
+\vfill
+
+\item[$\bullet$]
+Modélisation du temps d'attente par des distributions à queues lourdes.
+
+{\it Yu Li. Queuing theory with heavy tails and network traffic modeling. 2018. hal-01891760}
+
+\end{itemize}
+
+\vfill
 
 \end{frame}
 
@@ -131,6 +155,9 @@ où $L\in\mathbb{R}$ est un paramètre de localisation et $a>0$ est un paramètr
 \end{figure}
 
 \end{frame}
+
+
+
 
 \begin{frame}
 
@@ -268,6 +295,11 @@ avec $J(u)=\frac{\sin\left(4\pi(u-0.5\right)}{\tan\left(\pi(u-0.5\right)}$
 
 \end{itemize}
 
+\pause
+\vfill
+
+{\it Zhang, J. A highly efficient L-estimator for the location parameter of the Cauchy distribution. Comput Stat 25, 97–105 (2010)}
+
 \end{frame}
 
 \begin{frame}
@@ -281,7 +313,7 @@ Comportement des moyennes tronquées sur une séquence de réalisations provenan
 
 \begin{column}{0.5\linewidth}
 
-\includegraphics[scale=0.2]{mt-10000.pdf}
+\includegraphics[scale=0.3]{mt-10000.pdf}
 
 \end{column}
 
@@ -290,30 +322,13 @@ Comportement des moyennes tronquées sur une séquence de réalisations provenan
 
 \begin{column}{0.5\linewidth}
 
-\includegraphics[scale=0.2]{mt-100.pdf}
+\includegraphics[scale=0.3]{mt-100.pdf}
 
 \end{column}
 
 \end{columns}
 
-\pause
-
-\begin{columns}[T] % align columns
-
-\begin{column}{0.5\linewidth}
-
-\includegraphics[scale=0.2]{mt-100-10000.pdf}
-
-\end{column}
-
-\pause
-
-\begin{column}{0.5\linewidth}
-
-BlaBla
-\end{column}
-
-\end{columns}
+\vfill
 
 
 \end{frame}
@@ -330,7 +345,7 @@ Comportement des estimateurs ME, MLE, LE sur une séquence de réalisations prov
 
 \begin{column}{0.5\linewidth}
 
-\includegraphics[scale=0.2]{Est-1000.pdf}
+\includegraphics[scale=0.3]{Est-1000.pdf}
 
 \end{column}
 
@@ -339,30 +354,13 @@ Comportement des estimateurs ME, MLE, LE sur une séquence de réalisations prov
 
 \begin{column}{0.5\linewidth}
 
-\includegraphics[scale=0.2]{Est-100.pdf}
+\includegraphics[scale=0.3]{Est-100.pdf}
 
 \end{column}
 
 \end{columns}
 
-\pause
-
-\begin{columns}[T] % align columns
-
-\begin{column}{0.5\linewidth}
-
-\includegraphics[scale=0.2]{Est-100-1000.pdf}
-
-\end{column}
-
-\pause
-
-\begin{column}{0.5\linewidth}
-
-BlaBla
-\end{column}
-
-\end{columns}
+\vfill
 
 
 \end{frame}
@@ -434,9 +432,28 @@ Pour chacune des $N=200$ répétitions,\\
 \pause
 Tracer le regret cumulatif empirique moyenné sur les $N$ répétitions pour comparer les différentes versions de l'algorithme.
 
+\begin{columns}[T]
+
+\begin{column}{0.5\linewidth}
+
 \begin{center}
 \includegraphics[scale=0.3]{experience-epsilon-t-greedy.pdf}
 \end{center}
+
+\end{column}
+
+\pause
+\hfill
+
+\begin{column}{0.5\linewidth}
+
+\begin{center}
+\includegraphics[scale=0.3]{contre-exemple-epsilon-greedy.pdf}
+\end{center}
+
+\end{column}
+
+\end{columns}
 
 \end{frame}
 
@@ -561,7 +578,7 @@ On peut donc généraliser les algorithmes classiques comme \underline{$\epsilon
 \pause
 \vfill
 
-Voici le résultat d'une expérience sur $N=200$ instances de bandits Pareto avec $L\sim\mathcal{U}([0,1])$ et $a=1,$ où l'on a joué \underline{$\epsilon_t$-greedy} avec $\epsilon_t=1/\sqrt{t}$
+Voici le résultat d'une expérience sur $N=200$ instances de bandits Pareto à deux bras avec $L_1, L_2\sim\mathcal{U}([0,1])$ et $a=1,$ où l'on a joué \underline{$\epsilon_t$-greedy} avec $\epsilon_t=1/\sqrt{t}$
 
 \vfill
 
@@ -570,7 +587,10 @@ Voici le résultat d'une expérience sur $N=200$ instances de bandits Pareto ave
 \end{center}
 
 \end{frame}
+                          
+\begin{frame}
+\frametitle{La suite}
 
 
-
+\end{frame}
 \end{document}
