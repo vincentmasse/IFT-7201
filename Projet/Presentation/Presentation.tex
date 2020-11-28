@@ -107,7 +107,7 @@ Cela nous permet de comparer empiriquement la performance de plusieurs politique
 
 \begin{frame}
 \frametitle{L'hypothèse d'existence de l'espérance}
-Le jeu des bandits stochastiques ainsi présenté sous-entend que la distribution des rewards associés aux bras du bandit est d'espérance qui existe. Or, plusieurs distributions de probabilité ont une distribution d'espérance non-définie. 
+Le jeu des bandits stochastiques ainsi présenté sous-entend que la distribution des rewards associés aux bras du bandit est d'espérance qui existe. Or, plusieurs lois de probabilité ont une \textbf{espérance non-définie}. 
 
 \pause
 \vfill
@@ -128,9 +128,16 @@ Intérêt personnel (curiosité intellectuel).
 \vfill
 
 \item[$\bullet$]
-Modélisation du temps d'attente par des distributions à queues lourdes.
+Modélisation du temps d'attente/temps de service par des distributions à queues lourdes.
+
+\pause
+\vfill
 
 {\it Yu Li. Queuing theory with heavy tails and network traffic modeling. 2018. hal-01891760}
+
+\vfill
+
+{\it Whitt, Ward. (2000). The impact of a heavy-tailed service-time distribution upon the M/GI/s waiting-time distribution. Queueing Syst.. 36. 71-87. 10.1023/A:1019143505968.}
 
 \end{itemize}
 
@@ -589,8 +596,49 @@ Voici le résultat d'une expérience sur $N=200$ instances de bandits Pareto à 
 \end{frame}
                           
 \begin{frame}
-\frametitle{La suite}
 
+\frametitle{La suite }
+
+\pause
+\vfill
+
+\begin{itemize}
+
+\item[$\bullet$]
+Modélisation d'un problème concret.
+
+\begin{columns}[T] % align columns
+
+\begin{column}{0.5\linewidth}
+%\color{red}\rule{\linewidth}{4pt}
+\includegraphics[scale=0.25]{graphiques_Pareto-temps.pdf}
+\end{column}%
+
+\hfill
+\pause
+
+\begin{column}{0.5\linewidth}
+%\color{blue}\rule{\linewidth}{4pt}
+\includegraphics[scale=0.25]{graphiques_Pareto-inverse.pdf}
+\end{column}%
+\end{columns}
+
+\pause
+\vfill
+
+\item[$\bullet$] Extension à des algorithmes plus complexes, par exemple les UCB, Thompson sampling, etc...\\
+
+{\it S. Bubeck, N. Cesa-Bianchi and G. Lugosi, "Bandits With Heavy Tail," in IEEE Transactions on Information Theory, vol. 59, no. 11, pp. 7711-7717, Nov. 2013, doi: 10.1109/TIT.2013.2277869.}
+
+\pause
+\vfill
+
+\item[$\bullet$] Généralisation du problème (définition de la mesure d'une performance générale qui ne dépend pas de la loi), possiblement basée sur des notions de dominance entre des variables aléatoires.
+
+\end{itemize}
 
 \end{frame}
+
+\vfill
+
 \end{document}
