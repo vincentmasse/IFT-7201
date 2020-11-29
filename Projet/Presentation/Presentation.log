@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2019.1.1)  29 NOV 2020 13:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6880 64-bit) (preloaded format=pdflatex 2019.1.1)  29 NOV 2020 13:10
 entering extended mode
 **./Presentation.tex
 (Presentation.tex
@@ -1576,12 +1576,12 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: includehead includefoot 
-* h-part:(L,W,R)=(28.45274pt, 307.28987pt, 28.45274pt)
-* v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
-* \paperwidth=364.19536pt
-* \paperheight=273.14662pt
-* \textwidth=307.28987pt
-* \textheight=244.6939pt
+* h-part:(L,W,R)=(28.45274pt, 398.3386pt, 28.45274pt)
+* v-part:(T,H,B)=(0.0pt, 284.52756pt, 0.0pt)
+* \paperwidth=455.24408pt
+* \paperheight=284.52756pt
+* \textwidth=398.3386pt
+* \textheight=256.07483pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
 * \topmargin=-72.26999pt
@@ -1826,12 +1826,8 @@ File: graphiques_Cauchy-2.pdf Graphic file (type pdf)
 <use graphiques_Cauchy-2.pdf>
 Package pdftex.def Info: graphiques_Cauchy-2.pdf  used on input line 201.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 201--201
- [] 
- []
-
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 201.
+
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [10
@@ -1841,24 +1837,14 @@ File: graphiques_Cauchy-2.pdf Graphic file (type pdf)
 <use graphiques_Cauchy-2.pdf>
 Package pdftex.def Info: graphiques_Cauchy-2.pdf  used on input line 201.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 201--201
- [] 
- []
-
-[11
+ [11
 
 ]
 File: graphiques_Cauchy-2.pdf Graphic file (type pdf)
 <use graphiques_Cauchy-2.pdf>
 Package pdftex.def Info: graphiques_Cauchy-2.pdf  used on input line 201.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 201--201
- [] 
- []
-
-[12
+ [12
 
 ] [13
 
@@ -1868,7 +1854,8 @@ Overfull \hbox (19.8044pt too wide) in paragraph at lines 201--201
 
 ] [16
 
-] [17
+]
+[17
 
 ]
 <contre-exemple-epsilon-greedy.pdf, id=493, 578.16pt x 578.16pt>
@@ -1876,48 +1863,28 @@ File: contre-exemple-epsilon-greedy.pdf Graphic file (type pdf)
 <use contre-exemple-epsilon-greedy.pdf>
 Package pdftex.def Info: contre-exemple-epsilon-greedy.pdf  used on input line 276.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 276--276
-[][]  
- []
-
-[18
+ [18
 
  <./contre-exemple-epsilon-greedy.pdf>]
 File: contre-exemple-epsilon-greedy.pdf Graphic file (type pdf)
 <use contre-exemple-epsilon-greedy.pdf>
 Package pdftex.def Info: contre-exemple-epsilon-greedy.pdf  used on input line 276.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 276--276
-[][]  
- []
-
-[19
+ [19
 
 ]
 File: contre-exemple-epsilon-greedy.pdf Graphic file (type pdf)
 <use contre-exemple-epsilon-greedy.pdf>
 Package pdftex.def Info: contre-exemple-epsilon-greedy.pdf  used on input line 276.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 276--276
-[][]  
- []
-
-[20
+ [20
 
 ]
 File: contre-exemple-epsilon-greedy.pdf Graphic file (type pdf)
 <use contre-exemple-epsilon-greedy.pdf>
 Package pdftex.def Info: contre-exemple-epsilon-greedy.pdf  used on input line 276.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 276--276
-[][]  
- []
-
-[21
+ [21
 
 ]
 <graphique-moyenne-empirique-1.pdf, id=649, 578.16pt x 578.16pt>
@@ -1925,22 +1892,12 @@ File: graphique-moyenne-empirique-1.pdf Graphic file (type pdf)
 <use graphique-moyenne-empirique-1.pdf>
 Package pdftex.def Info: graphique-moyenne-empirique-1.pdf  used on input line 300.
 (pdftex.def)             Requested size: 161.8837pt x 161.8837pt.
-
-Overfull \hbox (8.23877pt too wide) in paragraph at lines 300--300
-[][]  
- []
-
 <graphique-moyenne-empirique-2.pdf, id=650, 578.16pt x 578.16pt>
 File: graphique-moyenne-empirique-2.pdf Graphic file (type pdf)
 <use graphique-moyenne-empirique-2.pdf>
 Package pdftex.def Info: graphique-moyenne-empirique-2.pdf  used on input line 300.
 (pdftex.def)             Requested size: 161.8837pt x 161.8837pt.
-
-Overfull \hbox (8.23877pt too wide) in paragraph at lines 300--300
-[][]  
- []
-
-[22
+ [22
 
  <./graphique-moyenne-empirique-1.pdf> <./graphique-moyenne-empirique-2.pdf
 
@@ -1951,42 +1908,22 @@ File: graphique-moyenne-empirique-1.pdf Graphic file (type pdf)
 <use graphique-moyenne-empirique-1.pdf>
 Package pdftex.def Info: graphique-moyenne-empirique-1.pdf  used on input line 300.
 (pdftex.def)             Requested size: 161.8837pt x 161.8837pt.
-
-Overfull \hbox (8.23877pt too wide) in paragraph at lines 300--300
-[][]  
- []
-
 File: graphique-moyenne-empirique-2.pdf Graphic file (type pdf)
 <use graphique-moyenne-empirique-2.pdf>
 Package pdftex.def Info: graphique-moyenne-empirique-2.pdf  used on input line 300.
 (pdftex.def)             Requested size: 161.8837pt x 161.8837pt.
-
-Overfull \hbox (8.23877pt too wide) in paragraph at lines 300--300
-[][]  
- []
-
-[23
+ [23
 
 ]
 File: graphique-moyenne-empirique-1.pdf Graphic file (type pdf)
 <use graphique-moyenne-empirique-1.pdf>
 Package pdftex.def Info: graphique-moyenne-empirique-1.pdf  used on input line 300.
 (pdftex.def)             Requested size: 161.8837pt x 161.8837pt.
-
-Overfull \hbox (8.23877pt too wide) in paragraph at lines 300--300
-[][]  
- []
-
 File: graphique-moyenne-empirique-2.pdf Graphic file (type pdf)
 <use graphique-moyenne-empirique-2.pdf>
 Package pdftex.def Info: graphique-moyenne-empirique-2.pdf  used on input line 300.
 (pdftex.def)             Requested size: 161.8837pt x 161.8837pt.
-
-Overfull \hbox (8.23877pt too wide) in paragraph at lines 300--300
-[][]  
- []
-
-[24
+ [24
 
 ] [25
 
@@ -2006,22 +1943,12 @@ File: mt-10000.pdf Graphic file (type pdf)
 <use mt-10000.pdf>
 Package pdftex.def Info: mt-10000.pdf  used on input line 376.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 376--376
-[][]  
- []
-
 <mt-100.pdf, id=953, 578.16pt x 578.16pt>
 File: mt-100.pdf Graphic file (type pdf)
 <use mt-100.pdf>
 Package pdftex.def Info: mt-100.pdf  used on input line 376.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 376--376
-[][]  
- []
-
-[31
+ [31
 
  <./mt-10000.pdf> <./mt-100.pdf
 
@@ -2032,42 +1959,22 @@ File: mt-10000.pdf Graphic file (type pdf)
 <use mt-10000.pdf>
 Package pdftex.def Info: mt-10000.pdf  used on input line 376.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 376--376
-[][]  
- []
-
 File: mt-100.pdf Graphic file (type pdf)
 <use mt-100.pdf>
 Package pdftex.def Info: mt-100.pdf  used on input line 376.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 376--376
-[][]  
- []
-
-[32
+ [32
 
 ]
 File: mt-10000.pdf Graphic file (type pdf)
 <use mt-10000.pdf>
 Package pdftex.def Info: mt-10000.pdf  used on input line 376.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 376--376
-[][]  
- []
-
 File: mt-100.pdf Graphic file (type pdf)
 <use mt-100.pdf>
 Package pdftex.def Info: mt-100.pdf  used on input line 376.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 376--376
-[][]  
- []
-
-[33
+ [33
 
 ]
 <Est-1000.pdf, id=1122, 578.16pt x 578.16pt>
@@ -2075,22 +1982,12 @@ File: Est-1000.pdf Graphic file (type pdf)
 <use Est-1000.pdf>
 Package pdftex.def Info: Est-1000.pdf  used on input line 408.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 408--408
-[][]  
- []
-
 <Est-100.pdf, id=1123, 578.16pt x 578.16pt>
 File: Est-100.pdf Graphic file (type pdf)
 <use Est-100.pdf>
 Package pdftex.def Info: Est-100.pdf  used on input line 408.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 408--408
-[][]  
- []
-
-[34
+ [34
 
  <./Est-1000.pdf> <./Est-100.pdf
 
@@ -2101,42 +1998,22 @@ File: Est-1000.pdf Graphic file (type pdf)
 <use Est-1000.pdf>
 Package pdftex.def Info: Est-1000.pdf  used on input line 408.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 408--408
-[][]  
- []
-
 File: Est-100.pdf Graphic file (type pdf)
 <use Est-100.pdf>
 Package pdftex.def Info: Est-100.pdf  used on input line 408.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 408--408
-[][]  
- []
-
-[35
+ [35
 
 ]
 File: Est-1000.pdf Graphic file (type pdf)
 <use Est-1000.pdf>
 Package pdftex.def Info: Est-1000.pdf  used on input line 408.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 408--408
-[][]  
- []
-
 File: Est-100.pdf Graphic file (type pdf)
 <use Est-100.pdf>
 Package pdftex.def Info: Est-100.pdf  used on input line 408.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 408--408
-[][]  
- []
-
-[36
+ [36
 
 ] [37
 
@@ -2158,149 +2035,80 @@ File: experience-epsilon-t-greedy.pdf Graphic file (type pdf)
 <use experience-epsilon-t-greedy.pdf>
 Package pdftex.def Info: experience-epsilon-t-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
 File: contre-exemple-epsilon-greedy.pdf Graphic file (type pdf)
 <use contre-exemple-epsilon-greedy.pdf>
 Package pdftex.def Info: contre-exemple-epsilon-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 506.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 506.
-[44
+ [44
 
  <./experience-epsilon-t-greedy.pdf>]
 File: experience-epsilon-t-greedy.pdf Graphic file (type pdf)
 <use experience-epsilon-t-greedy.pdf>
 Package pdftex.def Info: experience-epsilon-t-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
 File: contre-exemple-epsilon-greedy.pdf Graphic file (type pdf)
 <use contre-exemple-epsilon-greedy.pdf>
 Package pdftex.def Info: contre-exemple-epsilon-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
-[45
+ [45
 
 ]
 File: experience-epsilon-t-greedy.pdf Graphic file (type pdf)
 <use experience-epsilon-t-greedy.pdf>
 Package pdftex.def Info: experience-epsilon-t-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
 File: contre-exemple-epsilon-greedy.pdf Graphic file (type pdf)
 <use contre-exemple-epsilon-greedy.pdf>
 Package pdftex.def Info: contre-exemple-epsilon-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
-[46
+ [46
 
 ]
 File: experience-epsilon-t-greedy.pdf Graphic file (type pdf)
 <use experience-epsilon-t-greedy.pdf>
 Package pdftex.def Info: experience-epsilon-t-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
 File: contre-exemple-epsilon-greedy.pdf Graphic file (type pdf)
 <use contre-exemple-epsilon-greedy.pdf>
 Package pdftex.def Info: contre-exemple-epsilon-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
-[47
+ [47
 
 ]
 File: experience-epsilon-t-greedy.pdf Graphic file (type pdf)
 <use experience-epsilon-t-greedy.pdf>
 Package pdftex.def Info: experience-epsilon-t-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
 File: contre-exemple-epsilon-greedy.pdf Graphic file (type pdf)
 <use contre-exemple-epsilon-greedy.pdf>
 Package pdftex.def Info: contre-exemple-epsilon-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
-[48
+ [48
 
 ]
 File: experience-epsilon-t-greedy.pdf Graphic file (type pdf)
 <use experience-epsilon-t-greedy.pdf>
 Package pdftex.def Info: experience-epsilon-t-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
 File: contre-exemple-epsilon-greedy.pdf Graphic file (type pdf)
 <use contre-exemple-epsilon-greedy.pdf>
 Package pdftex.def Info: contre-exemple-epsilon-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
-[49
+ [49
 
 ]
 File: experience-epsilon-t-greedy.pdf Graphic file (type pdf)
 <use experience-epsilon-t-greedy.pdf>
 Package pdftex.def Info: experience-epsilon-t-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
-
 File: contre-exemple-epsilon-greedy.pdf Graphic file (type pdf)
 <use contre-exemple-epsilon-greedy.pdf>
 Package pdftex.def Info: contre-exemple-epsilon-greedy.pdf  used on input line 506.
 (pdftex.def)             Requested size: 173.44933pt x 173.44933pt.
-
-Overfull \hbox (19.8044pt too wide) in paragraph at lines 506--506
- [] 
- []
 
 [50
 
@@ -2449,7 +2257,7 @@ Package rerunfilecheck Info: File `Presentation.out' has not changed.
 Here is how much of TeX's memory you used:
  37745 strings out of 492946
  713315 string characters out of 3135510
- 868232 words of memory out of 3000000
+ 868248 words of memory out of 3000000
  40742 multiletter control sequences out of 15000+200000
  590156 words of font info for 66 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2464,7 +2272,7 @@ lm/lmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:
 blic/lm/lmsso10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso8.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/public/lm/lmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Presentation.pdf (67 pages, 991530 bytes).
+Output written on Presentation.pdf (67 pages, 990246 bytes).
 PDF statistics:
  2443 PDF objects out of 2487 (max. 8388607)
  135 named destinations out of 1000 (max. 500000)
