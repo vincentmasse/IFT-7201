@@ -1,5 +1,6 @@
-\documentclass[8pt,sans,aspectratio=169]{beamer}
+\documentclass[8pt,sans]{beamer}
 %aspectratio=32
+%aspectratio=169
 \usepackage{etex}
 \usepackage{enumitem}
 %\reserveinserts{28}
@@ -319,7 +320,7 @@ La médiane empirique: $\mathrm{MED}(\mathcal{X})$
 \pause
 \vfill
 \item[$\bullet$]
-La moyenne $\alpha-$tronquée: $\displaystyle TM_{\alpha}(\mathcal X)=\frac{1}{T-2r}\sum_{i=r+1}^{T-r}X_{(i)}$
+La moyenne $\alpha-$tronquée: $\displaystyle TM_{\alpha}(\mathcal X)=\frac{1}{T-2r}\sum_{i=r+1}^{T-r}X_{(i)},$ où $X_{(i)}$ est la $i^\text{ième}$ statistique d'ordre de $\mathcal{X}.$
 
 où $r=\left\lfloor n\alpha\right\rfloor$ où $0<\alpha<0.5$ 
 
@@ -331,9 +332,9 @@ L'estimateur de maximum de vraisemblance: $\mathrm{MLE}(\mathcal{X})$
 \pause
 \vfill
 \item[$\bullet$]
-L-estimator: $\displaystyle\mathrm{LE}(\mathcal{X})=\frac{1}{T}\sum_{i=1}^T J\left(\frac{i}{T+1}\right) X_{(i)}$\\
-avec $J(u)=\frac{\sin\left(4\pi(u-0.5\right)}{\tan\left(\pi(u-0.5\right)}$
+L-estimator: $\displaystyle\mathrm{LE}(\mathcal{X})=\frac{1}{T}\sum_{i=1}^T J\left(\frac{i}{T+1}\right) X_{(i)}$, où $X_{(i)}$ est la $i^\text{ième}$ statistique d'ordre de $\mathcal{X},$\\
 
+et $J(u)=\frac{\sin\left(4\pi(u-0.5\right)}{\tan\left(\pi(u-0.5\right)},$ 
 \end{itemize}
 
 \pause
