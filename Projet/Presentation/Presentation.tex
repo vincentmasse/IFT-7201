@@ -1,10 +1,12 @@
-\documentclass[8pt, sans]{beamer}
+\documentclass[8pt,sans,aspectratio=169]{beamer}
+%aspectratio=32
 \usepackage{etex}
 \usepackage{enumitem}
 %\reserveinserts{28}
 \usepackage{amssymb}
 \usepackage{theorem}
 %\usepackage{savetrees}
+%\usepackage[landscape]{geometry}
 %\usepackage[margin=2cm]{geometry}
 \usepackage{graphicx}
 \usepackage{fancybox}
@@ -45,6 +47,7 @@
 %}
 
 %\sisetup{locale = FR, number-math-rm, per-mode=symbol, separate-uncertainty}
+%\hypersetup{pdfpagemode=FullScreen}
 
 \renewcommand{\exp}[1]{\mathrm{e}^{#1}}
 
@@ -74,8 +77,6 @@
 \pause
 
 Dans le jeu des bandits stochastiques, à chaque pas de temps $t=1,2,\ldots,T,$ l'agent:
-
-\vfill
 
 \begin{itemize}
 
@@ -145,6 +146,24 @@ Modélisation du temps d'attente/temps de service par des distributions à queue
 
 \end{frame}
 
+%\begin{frame}
+%\frametitle{La loi de Cauchy}
+%La loi de Cauchy est une loi continue de fonction de densité 
+%
+%$$f(x;L;a)=\frac{1}{\pi\,a\left[1+\left(\frac{x-L}{a}\right)^2\right]}=\frac{1}{\pi}\left[\frac{a}{(x-L)^2+a^2}\right]$$
+%
+%où $L\in\mathbb{R}$ est un paramètre de localisation et $a>0$ est un paramètre d'échelle.
+%
+%\pause
+%
+%\begin{figure}[H]
+%\begin{center}
+%\includegraphics[scale=0.3]{graphiques_Cauchy.pdf}
+%\end{center}
+%\end{figure}
+%
+%\end{frame}
+
 \begin{frame}
 \frametitle{La loi de Cauchy}
 La loi de Cauchy est une loi continue de fonction de densité 
@@ -155,15 +174,29 @@ où $L\in\mathbb{R}$ est un paramètre de localisation et $a>0$ est un paramètr
 
 \pause
 
-\begin{figure}[H]
+\begin{columns}[T]
+
+\begin{column}{0.5\linewidth}
+
 \begin{center}
-\includegraphics[scale=0.3]{graphiques_Cauchy.pdf}
+\includegraphics[scale=0.3]{graphiques_Cauchy-2.pdf}
 \end{center}
-\end{figure}
+
+\end{column}
+
+\pause
+
+\begin{column}{0.5\linewidth}
+
+\vspace*{3cm}
+
+Soit $X\sim\mathrm{Cauchy}(0,1)$ et $Y\sim\mathrm{Cauchy}(6,1),$ alors $\forall t\in\mathbb{R},~\mathbb{P}[Y>t]>\mathbb{P}[X>t]$
+
+\end{column}
+
+\end{columns}
 
 \end{frame}
-
-
 
 
 \begin{frame}
@@ -424,6 +457,8 @@ $\underline{\text{ETC}}$ et $\underline{\text{Boltzmann/Softmax}}$
 
 \frametitle{Expérience 1 avec $\epsilon_t$-greedy avec $\epsilon_t=1/\sqrt{t}$ sur des bandits Cauchy}
 
+\pause
+
 Pour chacune des $N=200$ répétitions,\\
 
 \pause
@@ -437,7 +472,10 @@ Pour chacune des $N=200$ répétitions,\\
 \end{itemize}
 
 \pause
+
 Tracer le regret cumulatif empirique moyenné sur les $N$ répétitions pour comparer les différentes versions de l'algorithme.
+
+\pause
 
 \begin{columns}[T]
 
@@ -470,17 +508,13 @@ Tracer le regret cumulatif empirique moyenné sur les $N$ répétitions pour com
 
 Pour chacune des $N=200$ répétitions,\\
 
-\pause
-
 \begin{itemize}
 
 \item[$\bullet$] Créer un bandit Cauchy à deux bras de distributions $\mathrm{Cauchy}(L_1,1)$ et $\mathrm{Cauhy}(L_2,1)$ avec $L_1,L_2\sim\mathcal{U}([0,5])$
 
-\pause
 \item[$\bullet$] Jouer $\epsilon_t$-greedy sur un horizon de $T=1000$ pas de temps (refaire avec plusieurs estimateurs de localisation pour adapter $\epsilon_t$-greedy)
 \end{itemize}
 
-\pause
 Tracer le regret cumulatif empirique moyenné sur les $N$ répétitions pour comparer les différentes versions de l'algorithme.
 
 \begin{center}
@@ -504,7 +538,7 @@ $$
 
 \pause
 
-Dans le cas particulier où $a=1$, on obtient que 
+Dans le cas particulier où $a=1$, l'espérance est non-définie et la fonction de densité est 
 
 $$f(x;L)=\left\{
 \begin{array}{ll}
@@ -514,10 +548,8 @@ $$f(x;L)=\left\{
 \right.
 $$
 
-\pause
 
-Dans ce cas particulier, la loi de Pareto possède une espérance non-définie (infinie).
-
+\vspace*{-0.3cm}
 \begin{columns}[T]
 
 \begin{column}{0.5\linewidth}
@@ -526,7 +558,6 @@ Dans ce cas particulier, la loi de Pareto possède une espérance non-définie (
 
 \end{column}
 
-\hfill
 \pause
 \begin{column}{0.5\linewidth}
 
@@ -574,8 +605,8 @@ Mesure de performance empirique d'un agent: $\displaystyle R(T)=\sum_{t=1}^T \De
 \end{frame}
 
 \begin{frame}
-\frametitle{Estimateur de la localisation $L$ d'une loi de Pareto}
-Un estimateur naturel pour $L$ à partir d'un jeux de données $\mathcal{X}=\left\{X_1,X_2,X_3,\ldots,X_T\right\}$ tirées d'une loi $Pareto(L,1)$ est $\widehat{L}=\min(\mathcal{X})$ ou encore $\widehat{L}=\mathrm{MED}(\mathcal{X})$
+\frametitle{Estimateur de la localisation $L$ d'une loi de Pareto et résultats préliminaires}
+Un estimateur naturel pour $L$ à partir d'un jeux de données $\mathcal{X}=\left\{X_1,X_2,X_3,\ldots,X_T\right\}$ tirées d'une loi $Pareto(L,1)$ est $\widehat{L}=\min(\mathcal{X})$ ou encore $\widehat{L}=\frac{1}{2}\mathrm{MED}(\mathcal{X})$
 
 \pause
 \vfill
@@ -585,12 +616,12 @@ On peut donc généraliser les algorithmes classiques comme \underline{$\epsilon
 \pause
 \vfill
 
-Voici le résultat d'une expérience sur $N=200$ instances de bandits Pareto à deux bras avec $L_1, L_2\sim\mathcal{U}([0,1])$ et $a=1,$ où l'on a joué \underline{$\epsilon_t$-greedy} avec $\epsilon_t=1/\sqrt{t}$
+Voici le résultat d'une expérience sur $N=200$ instances de bandits Pareto à deux bras avec $L_1, L_2\sim\mathcal{U}([0,1])$ et $a=1,$ où l'on a joué \underline{$\epsilon_t$-greedy} avec $\epsilon_t=1/\sqrt{t}$ sur un horizone de $T=1000$ pas de temps.
 
 \vfill
 
 \begin{center}
-\includegraphics[scale=0.3]{exp-Pareto.pdf}
+\includegraphics[scale=0.25]{exp-Pareto.pdf}
 \end{center}
 
 \end{frame}
