@@ -1,0 +1,352 @@
+\documentclass{article}
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{doi}
+
+%\usepackage{etex}
+\usepackage{enumitem}
+%\reserveinserts{28}
+\usepackage{amssymb}
+\usepackage{theorem}
+%\usepackage{savetrees}
+%\usepackage[landscape]{geometry}
+%\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{lmodern} %Un autre package pour les accents français
+\usepackage[french]{babel} %Un autre package pour les accents
+\usepackage{ifthen}
+%\usepackage{multicol}
+%\usepackage{cancel}
+\usepackage{pst-all}
+\usepackage{pstricks-add}
+\usepackage{multicol}
+%\usepackage{tikz}
+%\usepackage{pgf,tikz}
+%\usepackage{circuitikz}
+%\usetikzlibrary{shapes}
+%\usetikzlibrary{calc}
+%\usetikzlibrary{plotmarks}
+%\usepackage{tkz-fct}
+\usepackage{fp}
+\usepackage{float}
+%\usepackage{siunitx}
+\usepackage{pdfpages}%Pour sortir seulement certaine pages du pdf
+\usepackage{textcomp}
+
+\renewcommand{\P}[1]{\mathbb{P}\left[ #1 \right]}
+\newcommand{\E}[1]{\mathbb{E}\left[ #1\right]}
+
+\title{A template for the \emph{arxiv} style}
+
+%\date{September 9, 1985}	% Here you can change the date presented in the paper title
+%\date{} 					% Or removing it
+
+\author{ \href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.pdf}\hspace{1mm}David S.~Hippocampus}\thanks{Use footnote for providing further
+		information about author (webpage, alternative
+		address)---\emph{not} for acknowledging funding agencies.} \\
+	Department of Computer Science\\
+	Cranberry-Lemon University\\
+	Pittsburgh, PA 15213 \\
+	\texttt{hippo@cs.cranberry-lemon.edu} \\
+	%% examples of more authors
+	\And
+	\href{https://orcid.org/0000-0000-0000-0000}{\includegraphics[scale=0.06]{orcid.pdf}\hspace{1mm}Elias D.~Striatum} \\
+	Department of Electrical Engineering\\
+	Mount-Sheikh University\\
+	Santa Narimana, Levand \\
+	\texttt{stariate@ee.mount-sheikh.edu} \\
+	%% \AND
+	%% Coauthor \\
+	%% Affiliation \\
+	%% Address \\
+	%% \texttt{email} \\
+	%% \And
+	%% Coauthor \\
+	%% Affiliation \\
+	%% Address \\
+	%% \texttt{email} \\
+	%% \And
+	%% Coauthor \\
+	%% Affiliation \\
+	%% Address \\
+	%% \texttt{email} \\
+}
+
+% Uncomment to remove the date
+%\date{}
+
+% Uncomment to override  the `A preprint' in the header
+%\renewcommand{\headeright}{Technical Report}
+%\renewcommand{\undertitle}{Technical Report}
+\renewcommand{\shorttitle}{\textit{arXiv} Template}
+
+%%% Add PDF metadata to help others organize their library
+%%% Once the PDF is generated, you can check the metadata with
+%%% $ pdfinfo template.pdf
+\hypersetup{
+pdftitle={A template for the arxiv style},
+pdfsubject={q-bio.NC, q-bio.QM},
+pdfauthor={David S.~Hippocampus, Elias D.~Striatum},
+pdfkeywords={First keyword, Second keyword, More},
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	\lipsum[1]
+\end{abstract}
+
+
+% keywords can be removed
+\keywords{First keyword \and Second keyword \and More}
+
+\section{Introduction: Le problème des bandits stochastiques}
+Dans le problème des bandits stochastiques classiques, un agent doit choisir à chaque pas de temps $t$ une action $k_t\in\left\{1,2,\ldots,K\right\}.$ L'agent reçoit alors une récompense $r_t\sim\nu(\mu_{k_t})$  où $\nu(\mu_{k_t})$ est une distribution d'espérance $\mu_{k_t}.$ Le but de l'agent est de maximiser la somme des récompenses sur un horizon de temps $T,$ plus formellement on souhaite munir l'agent d'une politique d'action maximisant $\displaystyle\mathbb{E}\left[\sum_{t=1}^T r_{k_t}\right].$ Cette espérance sera maximiser si l'action optimale $k_{\star}=\underset{k}{\mathrm{argmax}} \mu_k$ de moyenne optimale $\mu_{\star}=\max_k \mu_k$ est sélectionnée le plus souvent possible. Le problème de maximisation ainsi défini revient à minimiser le pseudo-regret cumulatif définit par $\displaystyle\mathcal{R}(T)=T\mu_{\star}-\mathbb{E}\left[\sum_{t=1}^T r_t\right].$ Empiriquement, on peut vérifier la performance en calculant son regret cumulatif empirique 
+
+\begin{equation}
+\label{equation: regret empirique}
+R(T)=\sum_{t=1}^T\Delta_{k_t}
+\end{equation}
+
+où $\Delta_{k_t}=\mu_{\star}-\mu_{k_t}$ est le regret instantané cumulé par l'agent au temps $t.$ La mesure de performance définie par (\ref{equation: regret empirique}) est la base de plusieurs expérimentations comparatives effectuées dans la littérature sur les bandits stochastiques. Le lecteur notera que l'architecture de ce problème suggère que les distributions $\nu$ définissant les récompenses ont une espérance. Or, plusieurs distributions de probabilité n'ont pas d'espérance. PARLER D'APPLICATION. Nous souhaitons donc tenter d'étendre le problème des bandits stochastiques sur des bras d'espérance non définie. Nous proposerons ici plusieurs façons de faire en s'inspirant de certaines distributions.    
+ 
+\section{Extension des bandits stochastiques pour la loi de Cauchy}
+Une variable aléatoire $X$ suit une loi de Cauchy ($X\sim\mathrm{Cauchy}(L,a)$) si sa fonction de densité est \mbox{$f(x;L;a)=\frac{1}{\pi\,a\left[1+\left(\frac{x-L}{a}\right)^2\right]}$} avec $L\in\mathbb{R}$ et $a>0.$ Cette loi de probabilité n'a pas d'espérance, mais est symétrique par rapport $L$ (la localisation de la loi) et possède donc un centre naturel en $L.$ Si on se place dans un problème on l'on doit choisir entre deux lois de Cauchy pour maximiser l'observation tirée de ces lois, il semble naturel de choisir la loi de localisation maximale pour augmenter les chances d'avoir une grande observation. En fait, il est facile de démontrer que si $X_1\sim\mathrm{Cauchy}(L_1,a_1)$ et $X_2\sim\mathrm{Cauchy}(L_2,a_2),$ alors 
+
+\begin{eqnarray}
+\P{X_1>X_2}>0.5 &\Leftrightarrow& L_1>L_2 \label{dominance 1}\\
+\P{X_1>t}>\P{X_2>t} \quad \forall t\in \mathbb R &\Leftrightarrow& L_1>L_2 \text{ et } a_1=a_2 \label{dominance 2}
+\end{eqnarray} 
+
+Autrement dit, on peut toujours établir une relation de dominance entre deux lois de Cauchy de paramètres de localisations distincts en utilisant la définition (\ref{dominance 1}). Dans le cas où les paramètres d'échelles sont égaux, on peut établir une relation de dominance plus forte en utilisant (\ref{dominance 2}). Conséquemment, si on définit un bandit stochastiques à $K$ bras de distribution de Cauchy, il semble naturel de définir l'action optimale comme $k_{\star} = \underset{k}{\mathrm{argmax}}\,L_k$ à partir de la localisation optimale $k_{\star} = \underset{k}{\mathrm{argmax}}\,L_k.$ Le regret associé au choix de l'action $k$ devient donc $\Delta_k= L_{\star}-L_k.$ En appliquant cela dans (\ref{equation: regret empirique}), on obtient une mesure de performance empirique permettant d'évaluer la performance d'un agent dans cette configuration.
+PARLER DES ALGORITHMES CLASSIQUES EN UNE PHRASE OU DEUX EN CITANT DES ARTICLES.
+Les algorithmes classiques basées sur la moyenne empirique des récompenses échouerons à avoir de bons résultats dans cette configuration étant donné que la moyenne empirique n'estime pas bien le paramètre de localisation de la loi. En fait cet estimateur est divergent dans ce cas. Conséquemment, nous devons d'abord trouver de bons estimateurs de la localisation d'une loi de Cauchy.  
+
+\subsection{Estimateurs de localisation d'une loi de Cauchy}
+\label{sous-section: Estimateurs Cauchy} 
+Soit $\mathcal{X}=\left\{X_1,X_2,...,X_T\right\}$ une séquence d'observations provenant d'une loi $\mathrm{Cauchy}(L,a)$ où $L$ est inconnu et $a$ connu. Soit $X_{(i)}$ la $i^\text{ième}$ statistique d'ordre de $\mathcal{X}.$  On définit les estimateurs empiriques suivant pour $L.$
+
+\begin{itemize}
+\item[$\bullet$] La médiane: $\mathrm{MED}(\mathcal{X})$
+
+\item[$\bullet$] La moyenne $\alpha-$tronquée: $\displaystyle TM_{\alpha}(\mathcal X)=\frac{1}{T-2r}\sum_{i=r+1}^{T-r}X_{(i)},$ où $r=\left\lfloor T \alpha\right\rfloor$ et $0<\alpha<0.5$
+
+\item[$\bullet$] L'estimateur de maximum de vraisemblance: $\mathrm{MLE}(\mathcal{X})$
+
+\item[$\bullet$] L-estimator: $\displaystyle\mathrm{LE}(\mathcal{X})=\frac{1}{T}\sum_{i=1}^T J\left(\frac{i}{T+1}\right) X_{(i)}$, où $J(u)=\frac{\sin\left(4\pi(u-0.5\right)}{\tan\left(\pi(u-0.5\right)},$
+
+\end{itemize}
+
+Remarquons que $\mathrm{MLE}$ ne possède pas de forme close, conséquemment il doit être estimé numériquement en programment un algorithme d'optimisation. DÉTAILLÉ (RÉFÉRENCE ALGO).  PARLER DE L'ARTICLE DE REFÉRENCE pour L-ESTIMATOR. Aussi, on a noté que $\mathrm{LE}$ n'était pas définit lorsque $T$ est pair en raison du fait que $u$ pourra alors prendre la valeur 0.5, causant une indétermination de la forme $0/0$ de la fonction $J(u).$ Or c'est une singularité effaçable et donc $J(u)$ peut être prolongé analytiquement en $u=0.5$ en définissant $J(0.5):=\lim\limits_{u \to 0.5} J(u) = 4.$  
+
+PARLER DES RÉSULTATS DE CES ESTIMATEURS
+
+\subsection{Adaptation d'algorithmes sur des bandits Cauchy}
+Les algorithmes ETC, $\epsilon$-greedy et Boltzmann/Softmax (CITÉS DES ARTICLES) peuvent être adaptés pour jouer sur des bandits Cauchy en remplaçant l'estimation empirique $\hat{\mu}_k(t-1)$ permettant d'estimer le bras optimal par un estimateur $\widehat{L}_k(t-1)$ de la localisation $L_k$ de la distribution du bras no $k.$ Chaque estimateurs présentés à la section \ref{sous-section: Estimateurs Cauchy} nous donne une adaptation différente de ces algorithmes.
+
+PRÉSENTER DES RÉSULTATS D'ALGORITHMES SUR CES ESTIMATEURS (GRAPHE DE PSEUDO REGRET)
+
+MIXTURE D'EXPERT ?
+
+\section{Extension des bandits stochastiques pour les lois de Pareto à espérance infinie}
+
+Une variable aléatoire $X$ suit une loi de Pareto ($X\sim\mathrm{Pareto}(L,a)$) si sa fonction de densité est 
+\begin{equation}
+f(x;L,a)=\left\{
+\begin{array}{ll}
+\dfrac{aL^a}{x^{a+1}} & \text{si $x\geq L$}\\[0.2cm]
+0                       & \text{sinon}
+\end{array}
+\right.
+\end{equation}
+
+où $L>0$ et $a>0$
+
+VOICI PLUSIEURS LOIS DE PARETO (Montrer deux graphiques, un avec L variables et a fixes, et un autre L fixe avec a variables)
+
+La fonction de répartition est 
+$F_X(x)=\P{X\leq x}=\left\{
+\begin{array}{ll}
+1-(L/x)^a & \text{si } x\geq L\\
+0					 & \text{sinon}
+\end{array}
+\right.
+,$
+\\
+et son espérance \mbox{est 
+$\mu=\left\{\begin{array}{ll}
+\frac{aL}{a-1} & \text{pour } a>1\\
+\infty              & \text{sinon}
+\end{array}
+\right.
+$ 
+}
+
+Le cas où $a\leq 1$ est le cas qui nous intéresse puisque l'espérance n'existe pas. Dans ce dernier cas, nous souhaiterons définir le regret de façon la plus cohérente possible avec le cas où l'espérance existe. Pour la suite, il importe donc d'abord d'observer pour deux variables $X_1\sim\mathrm{Pareto}(L_1,a_1)$ et $X_2\sim\mathrm{Pareto}(L_2,a_2),$ alors dans le cas où $L_1=L_2=L$ (localisation fixe), on a 
+
+\begin{equation}\label{dom moy: L constant}
+\mu_1>\mu_2 \Leftrightarrow \frac{a_1L}{a_1-1}>\frac{a_2L}{a_2-1} \Leftrightarrow a_1<a_2
+\end{equation}
+
+et que dans le cas $a_1=a_2=a$ on a que
+
+\begin{equation}\label{dom moy: a constant}
+\mu_1>\mu_2 \Leftrightarrow \frac{aL_1}{a-1}>\frac{aL_2}{a-1} \Leftrightarrow L_1>L_2
+\end{equation}
+
+Ainsi, si deux distributions de Pareto sont comparées sur la base de leur espérance, cette dernière grandit lorsque $L$ grandit et grandit lorsque $a$ rapetisse.\\
+
+Dans le cadre général où l'on peut avoir $a\leq1$ (espérance infinie), on ne tentera de comparer deux lois de Pareto à l'aide d'une relation de dominance de première ordre. Soit $\mathcal{D}_1$ et $\mathcal{D}_2$ deux distributions de probabilité, on dira que $\mathcal{D}_1$ domine $\mathcal{D}_2$ et on écrira $\mathcal{D}_1\succeq \mathcal{D}_2$ si $\P{X_1>t}\geq \P{X_2>t}~\forall t \in \mathbb{R}.$ Notons que cela est équivalent à $F_{X_1}(t)<F_{X_2}(t)~\forall t \in \mathbb{R}.$ CITER OUVRAGE DÉFINISSANT LA DOMINANCE DE PREMIER ORDRE.\\
+
+On note que si $\mathcal{D}_1=\mathrm{Pareto}(L_1,a)$ et $\mathcal{D}_2=\mathrm{Pareto}(L_2,a)$ avec $a>0$, alors $\mathcal{D}_1\succeq \mathcal{D}_2 \Leftrightarrow L_1 \geq L_2.$\\
+Dans le cas où $\mathcal{D}_1=\mathrm{Pareto}(L,a_1)$ et $\mathcal{D}_2=\mathrm{Pareto}(L,a_2)$ avec $a_1>0$ et $a_2>0,$ alors $\mathcal{D}_1\succeq \mathcal{D}_2 \Leftrightarrow L_1 \leq L_2.$ Les démonstrations sont simples en utilisant l'expression de la fonctions de répartition de la loi de Pareto. Notons que si $\mathcal{D}_1=\mathrm{Pareto}(L_1,a_1)$ et $\mathcal{D}_2=\mathrm{Pareto}(L_2,a_1)$ avec $L_1\neq L_2$ et $a_1\neq a_2,$ il n'est pas possible de définir un ordre de dominance entre $\mathcal{D}_1$ et $\mathcal{D}_2$ puisque la fonction de répartition associée à ces distributions s'intersecteront pour un certain $t\in]\max(L_1,L_2);\infty[$
+
+On note que les relations de dominance ainsi définies sont compatibles avec la <<dominance>> établie sur la comparaison des espérances, relations (\ref{dom moy: L constant}) et (\ref{dom moy: a constant}), dans le cas d'espérance définie.
+
+Avec ces observations, nous pouvons définir intuitivement et naturellement des notions de regrets pour certaines configurations de bandits de Pareto.
+
+\subsection{Bandits de Pareto avec paramètre $a$ constant}
+On suppose ici un bandit stochastiques à $K$ bras dont le numéro $k$ est de distribution $\mathrm{Pareto}(L_k,a)$ 
+Ici, $a>0$ est fixe mais quelconque, le cas où $a\leq1$ est particulièrement intéressant dans le contexte de notre étude. On définit dans cette situation le bras optimal et la notion de regret en se basant sur les localisations $L_k$ des bras.
+
+\begin{equation*}
+L_{\star}=\max_{k} L_k,\qquad k^{\star}=\underset{k}{\mathrm{argmax}} L_k \quad \text{ et } \quad  \Delta_k = L_{\star}-L_k
+\end{equation*}
+
+ALGO DÉFINIT AVEC DES ESTIMATEURS DE L
+
+
+\subsection{Bandits de Pareto avec paramètre $a$ constant}
+On suppose ici un bandit stochastiques à $K$ bras dont le numéro $k$ est de distribution $\mathrm{Pareto}(L,a_k)$ où $L$ est fixe. On remarque que les $a_k$ étant variables, certains peuvent être inférieure à 1 et d'autres non. Cette configuration peut donc contenir des bras à distribution d'espérance non-définie et d'autres à distribution à espérance définie. On définit dans cette situation le bras optimal et la notion de regret en se basant sur les paramètres $a_k$ des bras.
+
+\begin{equation*}
+a_{\star}=\min_{k} a_k,\qquad k^{\star}=\underset{k}{\mathrm{argmin}}\,a_k \quad \text{ et } \quad \Delta_k = a_k-a_{\star}
+\end{equation*}
+
+JOUER THOMPSON SAMPLING (conjugué existe pour le paramètre k).
+
+\label{sec:headings}
+
+\lipsum[4] See Section \ref{sec:headings}.
+
+\subsection{Headings: second level}
+\lipsum[5]
+\begin{equation}
+	\xi _{ij}(t)=P(x_{t}=i,x_{t+1}=j|y,v,w;\theta)= {\frac {\alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}{\sum _{i=1}^{N} \sum _{j=1}^{N} \alpha _{i}(t)a^{w_t}_{ij}\beta _{j}(t+1)b^{v_{t+1}}_{j}(y_{t+1})}}
+\end{equation}
+
+\subsubsection{Headings: third level}
+\lipsum[6]
+
+\paragraph{Paragraph}
+\lipsum[7]
+
+
+
+\section{Examples of citations, figures, tables, references}
+\label{sec:others}
+
+\subsection{Citations}
+Citations use \verb+natbib+. The documentation may be found at
+\begin{center}
+	\url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
+\end{center}
+
+Here is an example usage of the two main commands (\verb+citet+ and \verb+citep+): Some people thought a thing \citep{kour2014real, hadash2018estimate} but other people thought something else \citep{kour2014fast}. Many people have speculated that if we knew exactly why \citet{kour2014fast} thought this\dots
+
+\subsection{Figures}
+\lipsum[10]
+See Figure \ref{fig:fig1}. Here is how you add footnotes. \footnote{Sample of the first footnote.}
+\lipsum[11]
+
+\begin{figure}
+	\centering
+	\fbox{\rule[-.5cm]{4cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+	\caption{Sample figure caption.}
+	\label{fig:fig1}
+\end{figure}
+
+\subsection{Tables}
+See awesome Table~\ref{tab:table}.
+
+The documentation for \verb+booktabs+ (`Publication quality tables in LaTeX') is available from:
+\begin{center}
+	\url{https://www.ctan.org/pkg/booktabs}
+\end{center}
+
+
+\begin{table}
+	\caption{Sample table title}
+	\centering
+	\begin{tabular}{lll}
+		\toprule
+		\multicolumn{2}{c}{Part}                   \\
+		\cmidrule(r){1-2}
+		Name     & Description     & Size ($\mu$m) \\
+		\midrule
+		Dendrite & Input terminal  & $\sim$100     \\
+		Axon     & Output terminal & $\sim$10      \\
+		Soma     & Cell body       & up to $10^6$  \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:table}
+\end{table}
+
+\subsection{Lists}
+\begin{itemize}
+	\item Lorem ipsum dolor sit amet
+	\item consectetur adipiscing elit.
+	\item Aliquam dignissim blandit est, in dictum tortor gravida eget. In ac rutrum magna.
+\end{itemize}
+
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}  %%% Uncomment this line and comment out the ``thebibliography'' section below to use the external .bib file (using bibtex) .
+
+
+%%% Uncomment this section and comment out the \bibliography{references} line above to use inline references.
+% \begin{thebibliography}{1}
+
+% 	\bibitem{kour2014real}
+% 	George Kour and Raid Saabne.
+% 	\newblock Real-time segmentation of on-line handwritten arabic script.
+% 	\newblock In {\em Frontiers in Handwriting Recognition (ICFHR), 2014 14th
+% 			International Conference on}, pages 417--422. IEEE, 2014.
+
+% 	\bibitem{kour2014fast}
+% 	George Kour and Raid Saabne.
+% 	\newblock Fast classification of handwritten on-line arabic characters.
+% 	\newblock In {\em Soft Computing and Pattern Recognition (SoCPaR), 2014 6th
+% 			International Conference of}, pages 312--318. IEEE, 2014.
+
+% 	\bibitem{hadash2018estimate}
+% 	Guy Hadash, Einat Kermany, Boaz Carmeli, Ofer Lavi, George Kour, and Alon
+% 	Jacovi.
+% 	\newblock Estimate and replace: A novel approach to integrating deep neural
+% 	networks with existing applications.
+% 	\newblock {\em arXiv preprint arXiv:1804.09028}, 2018.
+
+% \end{thebibliography}
+
+
+\end{document}
